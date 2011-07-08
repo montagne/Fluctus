@@ -1,8 +1,8 @@
-# 1 "/tmp/tmpxft_00005826_00000000-1_interp3cuda.cudafe1.cpp"
+# 1 "/tmp/tmpxft_0000168c_00000000-1_interp2cuda.cudafe1.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "/tmp/tmpxft_00005826_00000000-1_interp3cuda.cudafe1.cpp"
-# 1 "interp3cuda.cu"
+# 1 "/tmp/tmpxft_0000168c_00000000-1_interp2cuda.cudafe1.cpp"
+# 1 "interp2cuda.cu"
 # 60 "/usr/local/cuda/include/device_types.h"
 # 149 "/usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stddef.h" 3
 typedef long ptrdiff_t;
@@ -12550,1132 +12550,6 @@ extern "C" CUresult cuGraphicsMapResources(unsigned , CUgraphicsResource * , CUs
 extern "C" CUresult cuGraphicsUnmapResources(unsigned , CUgraphicsResource * , CUstream );
 # 7222 "/usr/local/cuda/include/cuda.h"
 extern "C" CUresult cuGetExportTable(const void ** , const CUuuid * );
-# 30 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_bankchecker.h"
-inline void __cutilBankChecker(unsigned tidx, unsigned tidy, unsigned tidz, unsigned
-# 31 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_bankchecker.h"
-bdimx, unsigned bdimy, unsigned bdimz, char *
-# 32 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_bankchecker.h"
-aname, int index, char *file, int line)
-# 33 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_bankchecker.h"
-{
-# 34 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_bankchecker.h"
-cutCheckBankAccess(tidx, tidy, tidz, bdimx, bdimy, bdimz, file, line, aname, index);
-# 35 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_bankchecker.h"
-}
-# 44 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline cudaError cutilDeviceSynchronize()
-# 45 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 47 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return cudaDeviceSynchronize();
-# 51 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 53 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline cudaError cutilDeviceReset()
-# 54 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 56 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return cudaDeviceReset();
-# 60 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 62 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cutilCondition(int val, char *file, int line)
-# 63 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 64 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((CUTFalse) == (cutCheckCondition(val, file, line))) {
-# 65 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(1);
-# 66 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 67 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 69 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cutilExit(int argc, char **argv)
-# 70 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 71 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (!(cutCheckCmdLineFlag(argc, (const char **)argv, "noprompt"))) {
-# 72 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-mexPrintf("\nPress ENTER to exit...\n");
-# 73 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fflush(stdout);
-# 74 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fflush(stderr);
-# 75 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-getchar();
-# 76 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 77 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(0);
-# 78 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 84 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline int _ConvertSMVer2Cores(int major, int minor)
-# 85 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 90 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-typedef
-# 87 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-struct {
-# 88 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int SM;
-# 89 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int Cores;
-# 90 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-} sSMtoCores;
-# 92 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-sSMtoCores nGpuArchCoresPerSM[] = {{16, 8}, {17, 8}, {18, 8}, {19, 8}, {32, 32}, {33, 48}, {(-1), (-1)}};
-# 102 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int index = 0;
-# 103 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-while ((((nGpuArchCoresPerSM)[index]).SM) != (-1)) {
-# 104 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((((nGpuArchCoresPerSM)[index]).SM) == ((major << 4) + minor)) {
-# 105 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return ((nGpuArchCoresPerSM)[index]).Cores;
-# 106 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 107 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-index++;
-# 108 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 109 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-mexPrintf("MapSMtoCores undefined SMversion %d.%d!\n", major, minor);
-# 110 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return -1;
-# 111 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 115 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline int cutGetMaxGflopsDeviceId()
-# 116 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 117 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int current_device = 0, sm_per_multiproc = 0;
-# 118 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int max_compute_perf = 0, max_perf_device = 0;
-# 119 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int device_count = 0, best_SM_arch = 0;
-# 120 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaDeviceProp deviceProp;
-# 122 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaGetDeviceCount(&device_count);
-# 124 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-while (current_device < device_count) {
-# 125 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaGetDeviceProperties(&deviceProp, current_device);
-# 126 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (((deviceProp.major) > 0) && ((deviceProp.major) < 9999)) {
-# 127 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-best_SM_arch = ((best_SM_arch > (deviceProp.major)) ? best_SM_arch : (deviceProp.major));
-# 128 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 129 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-current_device++;
-# 130 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 133 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-current_device = 0;
-# 134 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-while (current_device < device_count) {
-# 135 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaGetDeviceProperties(&deviceProp, current_device);
-# 136 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (((deviceProp.major) == 9999) && ((deviceProp.minor) == 9999)) {
-# 137 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-sm_per_multiproc = 1;
-# 138 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-} else {
-# 139 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-sm_per_multiproc = _ConvertSMVer2Cores(deviceProp.major, deviceProp.minor);
-# 140 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 142 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int compute_perf = (((deviceProp.multiProcessorCount) * sm_per_multiproc) * (deviceProp.clockRate));
-# 143 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (compute_perf > max_compute_perf) {
-# 145 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (best_SM_arch > 2) {
-# 147 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((deviceProp.major) == best_SM_arch) {
-# 148 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-max_compute_perf = compute_perf;
-# 149 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-max_perf_device = current_device;
-# 150 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 151 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-} else {
-# 152 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-max_compute_perf = compute_perf;
-# 153 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-max_perf_device = current_device;
-# 154 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 155 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 156 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-++current_device;
-# 157 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 158 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return max_perf_device;
-# 159 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 162 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline int cutGetMaxGflopsGraphicsDeviceId()
-# 163 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 164 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int current_device = 0, sm_per_multiproc = 0;
-# 165 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int max_compute_perf = 0, max_perf_device = 0;
-# 166 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int device_count = 0, best_SM_arch = 0;
-# 167 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int bTCC = 0;
-# 168 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaDeviceProp deviceProp;
-# 170 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaGetDeviceCount(&device_count);
-# 172 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-while (current_device < device_count) {
-# 173 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaGetDeviceProperties(&deviceProp, current_device);
-# 176 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (deviceProp.tccDriver) { bTCC = 1; }
-# 182 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (!(bTCC)) {
-# 183 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (((deviceProp.major) > 0) && ((deviceProp.major) < 9999)) {
-# 184 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-best_SM_arch = ((best_SM_arch > (deviceProp.major)) ? best_SM_arch : (deviceProp.major));
-# 185 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 186 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 187 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-current_device++;
-# 188 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 191 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-current_device = 0;
-# 192 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-while (current_device < device_count) {
-# 193 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaGetDeviceProperties(&deviceProp, current_device);
-# 194 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (((deviceProp.major) == 9999) && ((deviceProp.minor) == 9999)) {
-# 195 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-sm_per_multiproc = 1;
-# 196 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-} else {
-# 197 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-sm_per_multiproc = _ConvertSMVer2Cores(deviceProp.major, deviceProp.minor);
-# 198 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 201 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (deviceProp.tccDriver) { bTCC = 1; }
-# 207 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (!(bTCC))
-# 208 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 209 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int compute_perf = (((deviceProp.multiProcessorCount) * sm_per_multiproc) * (deviceProp.clockRate));
-# 210 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (compute_perf > max_compute_perf) {
-# 212 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (best_SM_arch > 2) {
-# 214 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((deviceProp.major) == best_SM_arch) {
-# 215 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-max_compute_perf = compute_perf;
-# 216 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-max_perf_device = current_device;
-# 217 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 218 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-} else {
-# 219 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-max_compute_perf = compute_perf;
-# 220 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-max_perf_device = current_device;
-# 221 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 222 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 223 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 224 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-++current_device;
-# 225 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 226 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return max_perf_device;
-# 227 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 265 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cudaSafeCallNoSync(cudaError err, const char *file, const int line)
-# 266 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 267 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((cudaSuccess) != err) {
-# 268 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : cudaSafeCallNoSync() Runtime API error %d : %s.\n", file, line, (int)err, cudaGetErrorString(err));
-# 270 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 271 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 272 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 274 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cudaSafeCall(cudaError err, const char *file, const int line)
-# 275 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 276 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((cudaSuccess) != err) {
-# 277 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : cudaSafeCall() Runtime API error %d: %s.\n", file, line, (int)err, cudaGetErrorString(err));
-# 279 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 280 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 281 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 283 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cudaSafeThreadSync(const char *file, const int line)
-# 284 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 285 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaError err = cutilDeviceSynchronize();
-# 286 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((cudaSuccess) != err) {
-# 287 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : cudaDeviceSynchronize() Runtime API error %d: %s.\n", file, line, (int)err, cudaGetErrorString(err));
-# 289 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 290 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 291 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 293 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cufftSafeCall(cufftResult err, const char *file, const int line)
-# 294 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 295 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((CUFFT_SUCCESS) != err) {
-# 296 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : cufftSafeCall() CUFFT error %d: ", file, line, (int)err);
-# 298 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-switch (err) {
-# 299 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-case CUFFT_INVALID_PLAN: fprintf(stderr, "CUFFT_INVALID_PLAN\n");
-# 300 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-case CUFFT_ALLOC_FAILED: fprintf(stderr, "CUFFT_ALLOC_FAILED\n");
-# 301 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-case CUFFT_INVALID_TYPE: fprintf(stderr, "CUFFT_INVALID_TYPE\n");
-# 302 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-case CUFFT_INVALID_VALUE: fprintf(stderr, "CUFFT_INVALID_VALUE\n");
-# 303 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-case CUFFT_INTERNAL_ERROR: fprintf(stderr, "CUFFT_INTERNAL_ERROR\n");
-# 304 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-case CUFFT_EXEC_FAILED: fprintf(stderr, "CUFFT_EXEC_FAILED\n");
-# 305 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-case CUFFT_SETUP_FAILED: fprintf(stderr, "CUFFT_SETUP_FAILED\n");
-# 306 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-case CUFFT_INVALID_SIZE: fprintf(stderr, "CUFFT_INVALID_SIZE\n");
-# 307 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-case CUFFT_UNALIGNED_DATA: fprintf(stderr, "CUFFT_UNALIGNED_DATA\n");
-# 308 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-default: fprintf(stderr, "CUFFT Unknown error code\n");
-# 309 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 310 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 311 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 312 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 314 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cutilCheckError(CUTBoolean err, const char *file, const int line)
-# 315 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 316 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((CUTTrue) != err) {
-# 317 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : CUTIL CUDA error.\n", file, line);
-# 319 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 320 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 321 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 323 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cutilGetLastError(const char *errorMessage, const char *file, const int line)
-# 324 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 325 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaError_t err = cudaGetLastError();
-# 326 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((cudaSuccess) != err) {
-# 327 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : cutilCheckMsg() CUTIL CUDA error : %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString(err));
-# 329 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 330 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 331 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 333 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cutilGetLastErrorAndSync(const char *errorMessage, const char *file, const int line)
-# 334 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 335 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaError_t err = cudaGetLastError();
-# 336 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((cudaSuccess) != err) {
-# 337 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : cutilCheckMsg() CUTIL CUDA error : %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString(err));
-# 339 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 340 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 342 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-err = cutilDeviceSynchronize();
-# 343 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((cudaSuccess) != err) {
-# 344 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : cutilCheckMsg cudaDeviceSynchronize error: %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString(err));
-# 346 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 347 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 348 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 350 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cutilSafeMalloc(void *pointer, const char *file, const int line)
-# 351 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 352 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (!(pointer)) {
-# 353 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : cutilSafeMalloc host malloc failure\n", file, line);
-# 355 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 356 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 357 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 363 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline int cutilDeviceInit(int ARGC, char **ARGV)
-# 364 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 365 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int deviceCount;
-# 366 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-__cudaSafeCallNoSync(cudaGetDeviceCount(&deviceCount), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 366);
-# 367 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (deviceCount == 0) {
-# 368 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "CUTIL CUDA error: no devices supporting CUDA.\n");
-# 369 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 370 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 371 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int dev = 0;
-# 372 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cutGetCmdLineArgumenti(ARGC, (const char **)ARGV, "device", &dev);
-# 373 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (dev < 0) {
-# 374 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-dev = 0; }
-# 375 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (dev > (deviceCount - 1)) {
-# 376 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "\n");
-# 377 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, ">> %d CUDA capable GPU device(s) detected. <<\n", deviceCount);
-# 378 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, ">> cutilDeviceInit (-device=%d) is not a valid GPU device. <<\n", dev);
-# 379 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "\n");
-# 380 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return -dev;
-# 381 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 382 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaDeviceProp deviceProp;
-# 383 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-__cudaSafeCallNoSync(cudaGetDeviceProperties(&deviceProp, dev), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 383);
-# 384 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((deviceProp.major) < 1) {
-# 385 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "cutil error: GPU device does not support CUDA.\n");
-# 386 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1); }
-# 388 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-mexPrintf("> Using CUDA device [%d]: %s\n", dev, deviceProp.name);
-# 389 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-__cudaSafeCall(cudaSetDevice(dev), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 389);
-# 391 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return dev;
-# 392 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 395 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline int cutilChooseCudaDevice(int argc, char **argv)
-# 396 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 397 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaDeviceProp deviceProp;
-# 398 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int devID = 0;
-# 400 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (cutCheckCmdLineFlag(argc, (const char **)argv, "device")) {
-# 401 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-devID = cutilDeviceInit(argc, argv);
-# 402 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (devID < 0) {
-# 403 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-mexPrintf("exiting...\n");
-# 404 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-__cutilExit(argc, argv);
-# 405 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(0);
-# 406 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 407 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-} else {
-# 409 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-devID = cutGetMaxGflopsDeviceId();
-# 410 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-__cudaSafeCallNoSync(cudaSetDevice(devID), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 410);
-# 411 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-__cudaSafeCallNoSync(cudaGetDeviceProperties(&deviceProp, devID), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 411);
-# 412 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-mexPrintf("> Using CUDA device [%d]: %s\n", devID, deviceProp.name);
-# 413 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 414 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return devID;
-# 415 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 420 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void cutilCudaCheckCtxLost(const char *errorMessage, const char *file, const int line)
-# 421 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 422 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaError_t err = cudaGetLastError();
-# 423 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((cudaSuccess) != err) {
-# 424 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : CUDA error: %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString(err));
-# 426 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 427 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 428 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-err = cutilDeviceSynchronize();
-# 429 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((cudaSuccess) != err) {
-# 430 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-fprintf(stderr, "%s(%i) : CUDA error: %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString(err));
-# 432 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-exit(-1);
-# 433 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 434 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 452 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline void __cutilQAFinish(int argc, char **argv, bool bStatus)
-# 453 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 454 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-const char *sStatus[] = {("FAILED"), ("PASSED"), ("WAIVED"), (__null)};
-# 456 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-bool bFlag = false;
-# 457 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-for (int i = 1; i < argc; i++) {
-# 458 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if ((!(strcasecmp(argv[i], "-qatest"))) || (!(strcasecmp(argv[i], "-noprompt")))) {
-# 459 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-bFlag |= (true);
-# 460 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 461 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 463 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (bFlag) {
-# 464 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-mexPrintf("&&&& %s %s", (sStatus)[bStatus], argv[0]);
-# 465 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-for (int i = 1; i < argc; i++) { mexPrintf(" %s", argv[i]); }
-# 466 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-} else {
-# 467 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-mexPrintf("[%s] test result\n%s\n", argv[0], (sStatus)[bStatus]);
-# 468 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 469 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 472 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-inline bool cutilCudaCapabilities(int major_version, int minor_version, int argc, char **argv)
-# 473 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 474 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-cudaDeviceProp deviceProp;
-# 475 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-(deviceProp.major) = 0;
-# 476 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-(deviceProp.minor) = 0;
-# 477 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-int dev;
-# 483 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-__cudaSafeCall(cudaGetDevice(&dev), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 483);
-# 484 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-__cudaSafeCall(cudaGetDeviceProperties(&deviceProp, dev), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 484);
-# 486 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-if (((deviceProp.major) > major_version) || (((deviceProp.major) == major_version) && ((deviceProp.minor) >= minor_version)))
-# 488 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 489 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-mexPrintf("> Device %d: <%16s >, Compute SM %d.%d detected\n", dev, deviceProp.name, deviceProp.major, deviceProp.minor);
-# 490 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return true;
-# 491 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-} else
-# 493 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-{
-# 494 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-mexPrintf("There is no device supporting CUDA compute capability %d.%d.\n", major_version, minor_version);
-# 496 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-return false;
-# 497 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 498 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
-}
-# 25 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-typedef
-# 22 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-struct {
-# 23 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-const char *error_string;
-# 24 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int error_id;
-# 25 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-} s_CudaErrorStr;
-# 30 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-static s_CudaErrorStr sCudaDrvErrorString[] = {{("CUDA_SUCCESS"), 0}, {("CUDA_ERROR_INVALID_VALUE"), 1}, {("CUDA_ERROR_OUT_OF_MEMORY"), 2}, {("CUDA_ERROR_NOT_INITIALIZED"), 3}, {("CUDA_ERROR_DEINITIALIZED"), 4}, {("CUDA_ERROR_PROFILER_DISABLED"), 5}, {("CUDA_ERROR_PROFILER_NOT_INITIALIZED"), 6}, {("CUDA_ERROR_PROFILER_ALREADY_STARTED"), 7}, {("CUDA_ERROR_PROFILER_ALREADY_STOPPED"), 8}, {("CUDA_ERROR_NO_DEVICE (no CUDA-capable devices were detected)"), 100}, {("CUDA_ERROR_INVALID_DEVICE (device specified is not a valid CUDA device)"), 101}, {("CUDA_ERROR_INVALID_IMAGE"), 200}, {("CUDA_ERROR_INVALID_CONTEXT"), 201}, {("CUDA_ERROR_CONTEXT_ALREADY_CURRENT"), 202}, {("CUDA_ERROR_MAP_FAILED"), 205}, {("CUDA_ERROR_UNMAP_FAILED"), 206}, {("CUDA_ERROR_ARRAY_IS_MAPPED"), 207}, {("CUDA_ERROR_ALREADY_MAPPED"), 208}, {("CUDA_ERROR_NO_BINARY_FOR_GPU"), 209}, {("CUDA_ERROR_ALREADY_ACQUIRED"), 210}, {("CUDA_ERROR_NOT_MAPPED"), 211}, {("CUDA_ERROR_NOT_MAPPED_AS_ARRAY"), 212}, {("CUDA_ERROR_NOT_MAPPED_AS_POINTER"), 213}, {("CUDA_ERROR_ECC_UNCORRECTABLE"), 214}, {("CUDA_ERROR_UNSUPPORTED_LIMIT"), 215}, {("CUDA_ERROR_CONTEXT_ALREADY_IN_USE"), 216}, {("CUDA_ERROR_INVALID_SOURCE"), 300}, {("CUDA_ERROR_FILE_NOT_FOUND"), 301}, {("CUDA_ERROR_SHARED_OBJECT_SYMBOL_NOT_FOUND"), 302}, {("CUDA_ERROR_SHARED_OBJECT_INIT_FAILED"), 303}, {("CUDA_ERROR_OPERATING_SYSTEM"), 304}, {("CUDA_ERROR_INVALID_HANDLE"), 400}, {("CUDA_ERROR_NOT_FOUND"), 500}, {("CUDA_ERROR_NOT_READY"), 600}, {("CUDA_ERROR_LAUNCH_FAILED"), 700}, {("CUDA_ERROR_LAUNCH_OUT_OF_RESOURCES"), 701}, {("CUDA_ERROR_LAUNCH_TIMEOUT"), 702}, {("CUDA_ERROR_LAUNCH_INCOMPATIBLE_TEXTURING"), 703}, {("CUDA_ERROR_PEER_ACCESS_ALREADY_ENABLED"), 704}, {("CUDA_ERROR_PEER_ACCESS_NOT_ENABLED"), 705}, {("CUDA_ERROR_PRIMARY_CONTEXT_ACTIVE"), 708}, {("CUDA_ERROR_CONTEXT_IS_DESTROYED"), 709}, {("CUDA_ERROR_ASSERT"), 710}, {("CUDA_ERROR_UNKNOWN"), 999}, {(__null), (-1)}};
-# 321 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline const char *getCudaDrvErrorString(CUresult error_id)
-# 322 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 323 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int index = 0;
-# 324 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-while (((((sCudaDrvErrorString)[index]).error_id) != error_id) && ((((sCudaDrvErrorString)[index]).error_id) != (-1)))
-# 326 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 327 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-index++;
-# 328 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return (const char *)(((sCudaDrvErrorString)[index]).error_string);
-# 329 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 330 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return (const char *)("CUDA_ERROR not found!");
-# 331 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 342 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline void __cuSafeCallNoSync(CUresult err, const char *file, const int line)
-# 343 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 344 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((CUDA_SUCCESS) != err) {
-# 345 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, "cuSafeCallNoSync() Driver API error = %04d \"%s\" from file <%s>, line %i.\n", err, getCudaDrvErrorString(err), file, line);
-# 347 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-exit(-1);
-# 348 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 349 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 350 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline void __cuSafeCall(CUresult err, const char *file, const int line)
-# 351 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 352 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(err, file, line);
-# 353 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 355 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline void __cuCtxSync(const char *file, const int line)
-# 356 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 357 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-CUresult err = cuCtxSynchronize();
-# 358 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((CUDA_SUCCESS) != err) {
-# 359 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, "cuCtxSynchronize() API error = %04d \"%s\" from file <%s>, line %i.\n", err, getCudaDrvErrorString(err), file, line);
-# 361 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-exit(-1);
-# 362 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 363 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 369 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline int _ConvertSMVer2CoresDrvApi(int major, int minor)
-# 370 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 375 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-typedef
-# 372 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-struct {
-# 373 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int SM;
-# 374 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int Cores;
-# 375 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-} sSMtoCores;
-# 377 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-sSMtoCores nGpuArchCoresPerSM[] = {{16, 8}, {17, 8}, {18, 8}, {19, 8}, {32, 32}, {33, 48}, {(-1), (-1)}};
-# 387 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int index = 0;
-# 388 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-while ((((nGpuArchCoresPerSM)[index]).SM) != (-1)) {
-# 389 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((((nGpuArchCoresPerSM)[index]).SM) == ((major << 4) + minor)) {
-# 390 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return ((nGpuArchCoresPerSM)[index]).Cores;
-# 391 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 392 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-index++;
-# 393 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 394 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-mexPrintf("MapSMtoCores undefined SMversion %d.%d!\n", major, minor);
-# 395 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return -1;
-# 396 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 400 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline int cutilDrvGetMaxGflopsDeviceId()
-# 401 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 402 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-CUdevice current_device = 0, max_perf_device = 0;
-# 403 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int device_count = 0, sm_per_multiproc = 0;
-# 404 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int max_compute_perf = 0, best_SM_arch = 0;
-# 405 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int major = 0, minor = 0, multiProcessorCount, clockRate;
-# 407 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-cuInit(0);
-# 408 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetCount(&device_count), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 408);
-# 411 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-while (current_device < device_count) {
-# 412 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceComputeCapability(&major, &minor, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 412);
-# 413 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((major > 0) && (major < 9999)) {
-# 414 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-best_SM_arch = ((best_SM_arch > major) ? best_SM_arch : major);
-# 415 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 416 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-current_device++;
-# 417 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 420 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-current_device = 0;
-# 421 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-while (current_device < device_count) {
-# 422 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetAttribute(&multiProcessorCount, CU_DEVICE_ATTRIBUTE_MULTIPROCESSOR_COUNT, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 424);
-# 425 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetAttribute(&clockRate, CU_DEVICE_ATTRIBUTE_CLOCK_RATE, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 427);
-# 428 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceComputeCapability(&major, &minor, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 428);
-# 430 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((major == 9999) && (minor == 9999)) {
-# 431 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-sm_per_multiproc = 1;
-# 432 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-} else {
-# 433 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-sm_per_multiproc = _ConvertSMVer2CoresDrvApi(major, minor);
-# 434 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 436 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int compute_perf = ((multiProcessorCount * sm_per_multiproc) * clockRate);
-# 437 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (compute_perf > max_compute_perf) {
-# 439 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (best_SM_arch > 2) {
-# 441 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (major == best_SM_arch) {
-# 442 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-max_compute_perf = compute_perf;
-# 443 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-max_perf_device = current_device;
-# 444 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 445 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-} else {
-# 446 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-max_compute_perf = compute_perf;
-# 447 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-max_perf_device = current_device;
-# 448 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 449 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 450 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-++current_device;
-# 451 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 452 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return max_perf_device;
-# 453 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 456 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline int cutilDrvGetMaxGflopsGraphicsDeviceId()
-# 457 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 458 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-CUdevice current_device = 0, max_perf_device = 0;
-# 459 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int device_count = 0, sm_per_multiproc = 0;
-# 460 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int max_compute_perf = 0, best_SM_arch = 0;
-# 461 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int major = 0, minor = 0, multiProcessorCount, clockRate;
-# 462 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int bTCC = 0;
-# 463 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-char deviceName[256];
-# 465 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-cuInit(0);
-# 466 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetCount(&device_count), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 466);
-# 469 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-while (current_device < device_count) {
-# 470 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetName(deviceName, 256, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 470);
-# 471 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceComputeCapability(&major, &minor, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 471);
-# 474 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetAttribute(&bTCC, CU_DEVICE_ATTRIBUTE_TCC_DRIVER, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 474);
-# 479 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (!(bTCC)) {
-# 480 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((major > 0) && (major < 9999)) {
-# 481 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-best_SM_arch = ((best_SM_arch > major) ? best_SM_arch : major);
-# 482 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 483 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 484 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-current_device++;
-# 485 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 488 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-current_device = 0;
-# 489 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-while (current_device < device_count) {
-# 490 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetAttribute(&multiProcessorCount, CU_DEVICE_ATTRIBUTE_MULTIPROCESSOR_COUNT, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 492);
-# 493 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetAttribute(&clockRate, CU_DEVICE_ATTRIBUTE_CLOCK_RATE, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 495);
-# 496 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceComputeCapability(&major, &minor, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 496);
-# 499 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetAttribute(&bTCC, CU_DEVICE_ATTRIBUTE_TCC_DRIVER, current_device), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 499);
-# 505 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((major == 9999) && (minor == 9999)) {
-# 506 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-sm_per_multiproc = 1;
-# 507 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-} else {
-# 508 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-sm_per_multiproc = _ConvertSMVer2CoresDrvApi(major, minor);
-# 509 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 512 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (!(bTCC))
-# 513 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 514 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int compute_perf = ((multiProcessorCount * sm_per_multiproc) * clockRate);
-# 515 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (compute_perf > max_compute_perf) {
-# 517 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (best_SM_arch > 2) {
-# 519 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (major == best_SM_arch) {
-# 520 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-max_compute_perf = compute_perf;
-# 521 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-max_perf_device = current_device;
-# 522 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 523 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-} else {
-# 524 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-max_compute_perf = compute_perf;
-# 525 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-max_perf_device = current_device;
-# 526 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 527 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 528 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 529 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-++current_device;
-# 530 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 531 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return max_perf_device;
-# 532 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 534 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline void __cuCheckMsg(const char *msg, const char *file, const int line)
-# 535 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 536 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-CUresult err = cuCtxSynchronize();
-# 537 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((CUDA_SUCCESS) != err) {
-# 538 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, "cutilDrvCheckMsg -> %s", msg);
-# 539 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, "cutilDrvCheckMsg -> cuCtxSynchronize API error = %04d \"%s\" in file <%s>, line %i.\n", err, getCudaDrvErrorString(err), file, line);
-# 541 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-exit(-1);
-# 542 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 543 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 549 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline int cutilDeviceInitDrv(int ARGC, char **ARGV)
-# 550 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 551 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int cuDevice = 0;
-# 552 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int deviceCount = 0;
-# 553 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-CUresult err = cuInit(0);
-# 554 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((CUDA_SUCCESS) == err) {
-# 555 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetCount(&deviceCount), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 555); }
-# 556 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (deviceCount == 0) {
-# 557 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, "CUTIL DeviceInitDrv error: no devices supporting CUDA\n");
-# 558 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-exit(-1);
-# 559 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 560 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int dev = 0;
-# 561 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-cutGetCmdLineArgumenti(ARGC, (const char **)ARGV, "device", &dev);
-# 562 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (dev < 0) { dev = 0; }
-# 563 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (dev > (deviceCount - 1)) {
-# 564 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, "\n");
-# 565 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, ">> %d CUDA capable GPU device(s) detected. <<\n", deviceCount);
-# 566 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, ">> cutilDeviceInit (-device=%d) is not a valid GPU device. <<\n", dev);
-# 567 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, "\n");
-# 568 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return -dev;
-# 569 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 570 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGet(&cuDevice, dev), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 570);
-# 571 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-char name[100];
-# 572 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-cuDeviceGetName(name, 100, cuDevice);
-# 573 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((cutCheckCmdLineFlag(ARGC, (const char **)ARGV, "quiet")) == (CUTFalse)) {
-# 574 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-mexPrintf("> Using CUDA Device [%d]: %s\n", dev, name);
-# 575 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 576 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return dev;
-# 577 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 584 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline CUdevice cutilChooseCudaDeviceDrv(int argc, char **argv, int *p_devID)
-# 585 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 586 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-CUdevice cuDevice;
-# 587 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int devID = 0;
-# 589 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (cutCheckCmdLineFlag(argc, (const char **)argv, "device")) {
-# 590 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-devID = cutilDeviceInitDrv(argc, argv);
-# 591 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (devID < 0) {
-# 592 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-mexPrintf("exiting...\n");
-# 593 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-exit(0);
-# 594 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 595 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-} else {
-# 597 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-char name[100];
-# 598 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-devID = cutilDrvGetMaxGflopsDeviceId();
-# 599 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGet(&cuDevice, devID), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 599);
-# 600 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-cuDeviceGetName(name, 100, cuDevice);
-# 601 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-mexPrintf("> Using CUDA Device [%d]: %s\n", devID, name);
-# 602 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 603 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-cuDeviceGet(&cuDevice, devID);
-# 604 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (p_devID) { (*p_devID) = devID; }
-# 605 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return cuDevice;
-# 606 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 611 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline void cutilDrvCudaCheckCtxLost(const char *errorMessage, const char *file, const int line)
-# 612 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 613 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-CUresult err = cuCtxSynchronize();
-# 614 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((CUDA_ERROR_INVALID_CONTEXT) != err) {
-# 615 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i\n", errorMessage, file, line);
-# 617 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-exit(-1);
-# 618 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 619 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-err = cuCtxSynchronize();
-# 620 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((CUDA_SUCCESS) != err) {
-# 621 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i\n", errorMessage, file, line);
-# 623 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-exit(-1);
-# 624 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 625 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 643 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline void __cutilDrvQAFinish(int argc, char **argv, bool bStatus)
-# 644 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 645 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-const char *sStatus[] = {("FAILED"), ("PASSED"), ("WAIVED"), (__null)};
-# 647 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-bool bFlag = false;
-# 648 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-for (int i = 1; i < argc; i++) {
-# 649 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((!(strcasecmp(argv[i], "-qatest"))) || (!(strcasecmp(argv[i], "-noprompt")))) {
-# 650 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-bFlag |= (true);
-# 651 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 652 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 654 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if (bFlag) {
-# 655 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-mexPrintf("&&&& %s %s", (sStatus)[bStatus], argv[0]);
-# 656 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-for (int i = 1; i < argc; i++) { mexPrintf(" %s", argv[i]); }
-# 657 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-} else {
-# 658 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-mexPrintf("[%s] test result\n%s\n", argv[0], (sStatus)[bStatus]);
-# 659 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 660 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 663 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline bool cutilDrvCudaDevCapabilities(int major_version, int minor_version, int deviceNum)
-# 664 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 665 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-int major, minor, dev;
-# 666 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-char device_name[256];
-# 672 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGet(&dev, deviceNum), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 672);
-# 673 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceComputeCapability(&major, &minor, dev), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 673);
-# 674 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-__cuSafeCallNoSync(cuDeviceGetName(device_name, 256, dev), "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 674);
-# 676 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-if ((major > major_version) || ((major == major_version) && (minor >= minor_version)))
-# 678 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 679 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-mexPrintf("> Device %d: < %s >, Compute SM %d.%d detected\n", dev, device_name, major, minor);
-# 680 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return true;
-# 681 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-} else
-# 683 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 684 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-mexPrintf("There is no device supporting CUDA compute capability %d.%d.\n", major_version, minor_version);
-# 685 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return false;
-# 686 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 687 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 690 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-inline bool cutilDrvCudaCapabilities(int major_version, int minor_version)
-# 691 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-{
-# 692 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-return cutilDrvCudaDevCapabilities(major_version, minor_version, 0);
-# 693 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
-}
-# 23 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
-inline void print_NVCC_min_spec(const char *sSDKsample, const char *sNVCCReq, const char *sDriverReq)
-# 24 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
-{
-# 25 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
-mexPrintf("CUDA %d.%02d Toolkit built this project.\n", 4000 / 1000, 4000 % 100);
-# 26 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
-mexPrintf("  [ %s ] requirements:\n", sSDKsample);
-# 27 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
-mexPrintf(" -> CUDA %s Toolkit\n", sNVCCReq);
-# 28 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
-mexPrintf(" -> %s NVIDIA Display Driver.\n", sDriverReq);
-# 29 "/home/rmontagne/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
-}
 # 37 "./code/internal/version.cu"
 const char *ciVersion = ("CUDA Cubic B-Spline Interpolation (CI) Version 1.0");
 # 38 "./code/internal/version.cu"
@@ -13988,203 +12862,137 @@ step)
 {int volatile ___ = 1;(void)coeffs;(void)DataLength;(void)step;
 # 102 "./code/internal/cubicPrefilter_kernel.cu"
 exit(___);}
-# 44 "./code/cubicPrefilter3D.cu"
+# 44 "./code/cubicPrefilter2D.cu"
 template< class floatN> static void
-# 45 "./code/cubicPrefilter3D.cu"
-__wrapper__device_stub_SamplesToCoefficients3DX(floatN *&
-# 46 "./code/cubicPrefilter3D.cu"
-volume, uint &
-# 47 "./code/cubicPrefilter3D.cu"
+# 45 "./code/cubicPrefilter2D.cu"
+__wrapper__device_stub_SamplesToCoefficients2DX(floatN *&
+# 46 "./code/cubicPrefilter2D.cu"
+image, uint &
+# 47 "./code/cubicPrefilter2D.cu"
 pitch, uint &
-# 48 "./code/cubicPrefilter3D.cu"
+# 48 "./code/cubicPrefilter2D.cu"
 width, uint &
-# 49 "./code/cubicPrefilter3D.cu"
-height, uint &
-# 50 "./code/cubicPrefilter3D.cu"
-depth) {exit(1);}
-# 44 "./code/cubicPrefilter3D.cu"
+# 49 "./code/cubicPrefilter2D.cu"
+height) {exit(1);}
+# 44 "./code/cubicPrefilter2D.cu"
 template< class floatN> void
-# 45 "./code/cubicPrefilter3D.cu"
-SamplesToCoefficients3DX(floatN *
-# 46 "./code/cubicPrefilter3D.cu"
-volume, uint
-# 47 "./code/cubicPrefilter3D.cu"
+# 45 "./code/cubicPrefilter2D.cu"
+SamplesToCoefficients2DX(floatN *
+# 46 "./code/cubicPrefilter2D.cu"
+image, uint
+# 47 "./code/cubicPrefilter2D.cu"
 pitch, uint
-# 48 "./code/cubicPrefilter3D.cu"
+# 48 "./code/cubicPrefilter2D.cu"
 width, uint
-# 49 "./code/cubicPrefilter3D.cu"
-height, uint
-# 50 "./code/cubicPrefilter3D.cu"
-depth)
-# 51 "./code/cubicPrefilter3D.cu"
-{__wrapper__device_stub_SamplesToCoefficients3DX<floatN>(volume,pitch,width,height,depth);
-# 59 "./code/cubicPrefilter3D.cu"
+# 49 "./code/cubicPrefilter2D.cu"
+height)
+# 50 "./code/cubicPrefilter2D.cu"
+{__wrapper__device_stub_SamplesToCoefficients2DX<floatN>(image,pitch,width,height);
+# 56 "./code/cubicPrefilter2D.cu"
 return;}
-# 61 "./code/cubicPrefilter3D.cu"
+# 58 "./code/cubicPrefilter2D.cu"
 template< class floatN> static void
-# 62 "./code/cubicPrefilter3D.cu"
-__wrapper__device_stub_SamplesToCoefficients3DY(floatN *&
-# 63 "./code/cubicPrefilter3D.cu"
-volume, uint &
-# 64 "./code/cubicPrefilter3D.cu"
+# 59 "./code/cubicPrefilter2D.cu"
+__wrapper__device_stub_SamplesToCoefficients2DY(floatN *&
+# 60 "./code/cubicPrefilter2D.cu"
+image, uint &
+# 61 "./code/cubicPrefilter2D.cu"
 pitch, uint &
-# 65 "./code/cubicPrefilter3D.cu"
+# 62 "./code/cubicPrefilter2D.cu"
 width, uint &
-# 66 "./code/cubicPrefilter3D.cu"
-height, uint &
-# 67 "./code/cubicPrefilter3D.cu"
-depth) {exit(1);}
-# 61 "./code/cubicPrefilter3D.cu"
+# 63 "./code/cubicPrefilter2D.cu"
+height) {exit(1);}
+# 58 "./code/cubicPrefilter2D.cu"
 template< class floatN> void
-# 62 "./code/cubicPrefilter3D.cu"
-SamplesToCoefficients3DY(floatN *
-# 63 "./code/cubicPrefilter3D.cu"
-volume, uint
-# 64 "./code/cubicPrefilter3D.cu"
+# 59 "./code/cubicPrefilter2D.cu"
+SamplesToCoefficients2DY(floatN *
+# 60 "./code/cubicPrefilter2D.cu"
+image, uint
+# 61 "./code/cubicPrefilter2D.cu"
 pitch, uint
-# 65 "./code/cubicPrefilter3D.cu"
+# 62 "./code/cubicPrefilter2D.cu"
 width, uint
-# 66 "./code/cubicPrefilter3D.cu"
-height, uint
-# 67 "./code/cubicPrefilter3D.cu"
-depth)
-# 68 "./code/cubicPrefilter3D.cu"
-{__wrapper__device_stub_SamplesToCoefficients3DY<floatN>(volume,pitch,width,height,depth);
-# 76 "./code/cubicPrefilter3D.cu"
+# 63 "./code/cubicPrefilter2D.cu"
+height)
+# 64 "./code/cubicPrefilter2D.cu"
+{__wrapper__device_stub_SamplesToCoefficients2DY<floatN>(image,pitch,width,height);
+# 70 "./code/cubicPrefilter2D.cu"
 return;}
-# 78 "./code/cubicPrefilter3D.cu"
-template< class floatN> static void
-# 79 "./code/cubicPrefilter3D.cu"
-__wrapper__device_stub_SamplesToCoefficients3DZ(floatN *&
-# 80 "./code/cubicPrefilter3D.cu"
-volume, uint &
-# 81 "./code/cubicPrefilter3D.cu"
-pitch, uint &
-# 82 "./code/cubicPrefilter3D.cu"
-width, uint &
-# 83 "./code/cubicPrefilter3D.cu"
-height, uint &
-# 84 "./code/cubicPrefilter3D.cu"
-depth) {exit(1);}
-# 78 "./code/cubicPrefilter3D.cu"
+# 81 "./code/cubicPrefilter2D.cu"
 template< class floatN> void
-# 79 "./code/cubicPrefilter3D.cu"
-SamplesToCoefficients3DZ(floatN *
-# 80 "./code/cubicPrefilter3D.cu"
-volume, uint
-# 81 "./code/cubicPrefilter3D.cu"
-pitch, uint
-# 82 "./code/cubicPrefilter3D.cu"
-width, uint
-# 83 "./code/cubicPrefilter3D.cu"
-height, uint
-# 84 "./code/cubicPrefilter3D.cu"
-depth)
-# 85 "./code/cubicPrefilter3D.cu"
-{__wrapper__device_stub_SamplesToCoefficients3DZ<floatN>(volume,pitch,width,height,depth);
-# 94 "./code/cubicPrefilter3D.cu"
-return;}
-# 106 "./code/cubicPrefilter3D.cu"
-template< class floatN> void
-# 107 "./code/cubicPrefilter3D.cu"
-CubicBSplinePrefilter3D(floatN *volume, uint pitch, uint width, uint height, uint depth)
-# 108 "./code/cubicPrefilter3D.cu"
+# 82 "./code/cubicPrefilter2D.cu"
+CubicBSplinePrefilter2D(floatN *image, uint pitch, uint width, uint height)
+# 83 "./code/cubicPrefilter2D.cu"
 {
-# 110 "./code/cubicPrefilter3D.cu"
-uint dimX = min(min(PowTwoDivider(width), PowTwoDivider(height)), 64);
-# 111 "./code/cubicPrefilter3D.cu"
-uint dimY = min(min(PowTwoDivider(depth), PowTwoDivider(height)), (512) / dimX);
-# 112 "./code/cubicPrefilter3D.cu"
-dim3 dimBlock(dimX, dimY);
-# 115 "./code/cubicPrefilter3D.cu"
-dim3 dimGridX(height / (dimBlock.x), depth / (dimBlock.y));
-# 116 "./code/cubicPrefilter3D.cu"
-cudaConfigureCall(dimGridX, dimBlock) ? ((void)0) : (SamplesToCoefficients3DX< floatN> )(volume, pitch, width, height, depth);
-# 117 "./code/cubicPrefilter3D.cu"
-{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients3DX kernel failed", "./code/cubicPrefilter3D.cu", 117, cudaGetErrorString(err)); exit(1); } } ;
-# 119 "./code/cubicPrefilter3D.cu"
-dim3 dimGridY(width / (dimBlock.x), depth / (dimBlock.y));
-# 120 "./code/cubicPrefilter3D.cu"
-cudaConfigureCall(dimGridY, dimBlock) ? ((void)0) : (SamplesToCoefficients3DY< floatN> )(volume, pitch, width, height, depth);
-# 121 "./code/cubicPrefilter3D.cu"
-{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients3DY kernel failed", "./code/cubicPrefilter3D.cu", 121, cudaGetErrorString(err)); exit(1); } } ;
-# 123 "./code/cubicPrefilter3D.cu"
-dim3 dimGridZ(width / (dimBlock.x), height / (dimBlock.y));
-# 124 "./code/cubicPrefilter3D.cu"
-cudaConfigureCall(dimGridZ, dimBlock) ? ((void)0) : (SamplesToCoefficients3DZ< floatN> )(volume, pitch, width, height, depth);
-# 125 "./code/cubicPrefilter3D.cu"
-{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients3DZ kernel failed", "./code/cubicPrefilter3D.cu", 125, cudaGetErrorString(err)); exit(1); } } ;
-# 126 "./code/cubicPrefilter3D.cu"
+# 84 "./code/cubicPrefilter2D.cu"
+dim3 dimBlockX(min(PowTwoDivider(height), 64));
+# 85 "./code/cubicPrefilter2D.cu"
+dim3 dimGridX(height / (dimBlockX.x));
+# 86 "./code/cubicPrefilter2D.cu"
+cudaConfigureCall(dimGridX, dimBlockX) ? ((void)0) : (SamplesToCoefficients2DX< floatN> )(image, pitch, width, height);
+# 87 "./code/cubicPrefilter2D.cu"
+{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients2DX kernel failed", "./code/cubicPrefilter2D.cu", 87, cudaGetErrorString(err)); exit(1); } } ;
+# 89 "./code/cubicPrefilter2D.cu"
+dim3 dimBlockY(min(PowTwoDivider(width), 64));
+# 90 "./code/cubicPrefilter2D.cu"
+dim3 dimGridY(width / (dimBlockY.x));
+# 91 "./code/cubicPrefilter2D.cu"
+cudaConfigureCall(dimGridY, dimBlockY) ? ((void)0) : (SamplesToCoefficients2DY< floatN> )(image, pitch, width, height);
+# 92 "./code/cubicPrefilter2D.cu"
+{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients2DY kernel failed", "./code/cubicPrefilter2D.cu", 92, cudaGetErrorString(err)); exit(1); } } ;
+# 93 "./code/cubicPrefilter2D.cu"
 }
-# 135 "./code/cubicPrefilter3D.cu"
+# 101 "./code/cubicPrefilter2D.cu"
 template< class floatN> void
-# 136 "./code/cubicPrefilter3D.cu"
-CubicBSplinePrefilter3DTimer(floatN *volume, uint pitch, uint width, uint height, uint depth)
-# 137 "./code/cubicPrefilter3D.cu"
+# 102 "./code/cubicPrefilter2D.cu"
+CubicBSplinePrefilter2DTimer(floatN *image, uint pitch, uint width, uint height)
+# 103 "./code/cubicPrefilter2D.cu"
 {
-# 138 "./code/cubicPrefilter3D.cu"
+# 104 "./code/cubicPrefilter2D.cu"
 mexPrintf("\nCubic B-Spline Prefilter timer:\n");
-# 139 "./code/cubicPrefilter3D.cu"
-uint hTimer;
-# 140 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutCreateTimer(&hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 140); exit(1); } ;
-# 141 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutResetTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 141); exit(1); } ;
-# 142 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutStartTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 142); exit(1); } ;
-# 145 "./code/cubicPrefilter3D.cu"
-uint dimX = min(min(PowTwoDivider(width), PowTwoDivider(height)), 64);
-# 146 "./code/cubicPrefilter3D.cu"
-uint dimY = min(min(PowTwoDivider(depth), PowTwoDivider(height)), (512) / dimX);
-# 147 "./code/cubicPrefilter3D.cu"
-dim3 dimBlock(dimX, dimY);
-# 150 "./code/cubicPrefilter3D.cu"
-dim3 dimGridX(height / (dimBlock.x), depth / (dimBlock.y));
-# 151 "./code/cubicPrefilter3D.cu"
-cudaConfigureCall(dimGridX, dimBlock) ? ((void)0) : (SamplesToCoefficients3DX< floatN> )(volume, pitch, width, height, depth);
-# 152 "./code/cubicPrefilter3D.cu"
-{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients3DX kernel failed", "./code/cubicPrefilter3D.cu", 152, cudaGetErrorString(err)); exit(1); } } ;
-# 154 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutStopTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 154); exit(1); } ;
-# 155 "./code/cubicPrefilter3D.cu"
+# 105 "./code/cubicPrefilter2D.cu"
+unsigned hTimer;
+# 106 "./code/cubicPrefilter2D.cu"
+if ((CUTTrue) != (cutCreateTimer(&hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter2D.cu", 106); exit(1); } ;
+# 107 "./code/cubicPrefilter2D.cu"
+if ((CUTTrue) != (cutResetTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter2D.cu", 107); exit(1); } ;
+# 108 "./code/cubicPrefilter2D.cu"
+if ((CUTTrue) != (cutStartTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter2D.cu", 108); exit(1); } ;
+# 110 "./code/cubicPrefilter2D.cu"
+dim3 dimBlockX(min(PowTwoDivider(height), 64));
+# 111 "./code/cubicPrefilter2D.cu"
+dim3 dimGridX(height / (dimBlockX.x));
+# 112 "./code/cubicPrefilter2D.cu"
+cudaConfigureCall(dimGridX, dimBlockX) ? ((void)0) : (SamplesToCoefficients2DX< floatN> )(image, pitch, width, height);
+# 113 "./code/cubicPrefilter2D.cu"
+{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients2DX kernel failed", "./code/cubicPrefilter2D.cu", 113, cudaGetErrorString(err)); exit(1); } } ;
+# 115 "./code/cubicPrefilter2D.cu"
+if ((CUTTrue) != (cutStopTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter2D.cu", 115); exit(1); } ;
+# 116 "./code/cubicPrefilter2D.cu"
 double timerValueX = (cutGetTimerValue(hTimer));
-# 156 "./code/cubicPrefilter3D.cu"
+# 117 "./code/cubicPrefilter2D.cu"
 mexPrintf("x-direction : %f msec\n", timerValueX);
-# 157 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutResetTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 157); exit(1); } ;
-# 158 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutStartTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 158); exit(1); } ;
-# 160 "./code/cubicPrefilter3D.cu"
-dim3 dimGridY(width / (dimBlock.x), depth / (dimBlock.y));
-# 161 "./code/cubicPrefilter3D.cu"
-cudaConfigureCall(dimGridY, dimBlock) ? ((void)0) : (SamplesToCoefficients3DY< floatN> )(volume, pitch, width, height, depth);
-# 162 "./code/cubicPrefilter3D.cu"
-{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients3DY kernel failed", "./code/cubicPrefilter3D.cu", 162, cudaGetErrorString(err)); exit(1); } } ;
-# 164 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutStopTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 164); exit(1); } ;
-# 165 "./code/cubicPrefilter3D.cu"
+# 118 "./code/cubicPrefilter2D.cu"
+if ((CUTTrue) != (cutResetTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter2D.cu", 118); exit(1); } ;
+# 119 "./code/cubicPrefilter2D.cu"
+if ((CUTTrue) != (cutStartTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter2D.cu", 119); exit(1); } ;
+# 121 "./code/cubicPrefilter2D.cu"
+dim3 dimBlockY(min(PowTwoDivider(width), 64));
+# 122 "./code/cubicPrefilter2D.cu"
+dim3 dimGridY(width / (dimBlockY.x));
+# 123 "./code/cubicPrefilter2D.cu"
+cudaConfigureCall(dimGridY, dimBlockY) ? ((void)0) : (SamplesToCoefficients2DY< floatN> )(image, pitch, width, height);
+# 124 "./code/cubicPrefilter2D.cu"
+{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients2DY kernel failed", "./code/cubicPrefilter2D.cu", 124, cudaGetErrorString(err)); exit(1); } } ;
+# 126 "./code/cubicPrefilter2D.cu"
+if ((CUTTrue) != (cutStopTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter2D.cu", 126); exit(1); } ;
+# 127 "./code/cubicPrefilter2D.cu"
 double timerValueY = (cutGetTimerValue(hTimer));
-# 166 "./code/cubicPrefilter3D.cu"
+# 128 "./code/cubicPrefilter2D.cu"
 mexPrintf("y-direction : %f msec\n", timerValueY);
-# 167 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutResetTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 167); exit(1); } ;
-# 168 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutStartTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 168); exit(1); } ;
-# 170 "./code/cubicPrefilter3D.cu"
-dim3 dimGridZ(width / (dimBlock.x), height / (dimBlock.y));
-# 171 "./code/cubicPrefilter3D.cu"
-cudaConfigureCall(dimGridZ, dimBlock) ? ((void)0) : (SamplesToCoefficients3DZ< floatN> )(volume, pitch, width, height, depth);
-# 172 "./code/cubicPrefilter3D.cu"
-{ cudaError_t err = cudaGetLastError(); if ((cudaSuccess) != err) { fprintf(stderr, "Cuda error: %s in file \'%s\' in line %i : %s.\n", "SamplesToCoefficients3DZ kernel failed", "./code/cubicPrefilter3D.cu", 172, cudaGetErrorString(err)); exit(1); } } ;
-# 174 "./code/cubicPrefilter3D.cu"
-if ((CUTTrue) != (cutStopTimer(hTimer))) { fprintf(stderr, "Cut error in file \'%s\' in line %i.\n", "./code/cubicPrefilter3D.cu", 174); exit(1); } ;
-# 175 "./code/cubicPrefilter3D.cu"
-double timerValueZ = (cutGetTimerValue(hTimer));
-# 176 "./code/cubicPrefilter3D.cu"
-mexPrintf("z-direction : %f msec\n", timerValueZ);
-# 177 "./code/cubicPrefilter3D.cu"
-mexPrintf("total : %f msec\n\n", (timerValueX + timerValueY) + timerValueZ);
-# 178 "./code/cubicPrefilter3D.cu"
+# 129 "./code/cubicPrefilter2D.cu"
+mexPrintf("total : %f msec\n\n", timerValueX + timerValueY);
+# 130 "./code/cubicPrefilter2D.cu"
 }
 # 60 "./code/internal/cutil_math_bugfixes.h"
 extern "C" { typedef unsigned uint; }
@@ -15264,820 +14072,606 @@ template< class T> __attribute__((unused)) inline void bspline_weights_2nd_deriv
 {int volatile ___ = 1;(void)fraction;(void)w0;(void)w1;(void)w2;(void)w3;
 # 103 "./code/internal/bspline_kernel.cu"
 exit(___);}
-# 43 "./code/cubicTex3D.cu"
+# 44 "./code/cubicTex2D.cu"
 template< class T, cudaTextureReadMode mode> __attribute__((unused)) float
-# 44 "./code/cubicTex3D.cu"
-linearTex3D(texture< T, 3, mode> tex, float3 coord)
-# 45 "./code/cubicTex3D.cu"
-{int volatile ___ = 1;(void)tex;(void)coord;
-# 47 "./code/cubicTex3D.cu"
+# 45 "./code/cubicTex2D.cu"
+linearTex2D(texture< T, 2, mode> tex, float x, float y)
+# 46 "./code/cubicTex2D.cu"
+{int volatile ___ = 1;(void)tex;(void)x;(void)y;
+# 48 "./code/cubicTex2D.cu"
 exit(___);}
-# 53 "./code/cubicTex3D.cu"
+# 55 "./code/cubicTex2D.cu"
 template< class T, cudaTextureReadMode mode> __attribute__((unused)) float
-# 54 "./code/cubicTex3D.cu"
-cubicTex3DSimple(texture< T, 3, mode> tex, float3 coord)
-# 55 "./code/cubicTex3D.cu"
-{int volatile ___ = 1;(void)tex;(void)coord;
-# 80 "./code/cubicTex3D.cu"
+# 56 "./code/cubicTex2D.cu"
+cubicTex2DSimple(texture< T, 2, mode> tex, float x, float y)
+# 57 "./code/cubicTex2D.cu"
+{int volatile ___ = 1;(void)tex;(void)x;(void)y;
+# 78 "./code/cubicTex2D.cu"
 exit(___);}
-# 38 "./code/internal/cubicTex3D_kernel.cu"
+# 39 "./code/internal/cubicTex2D_kernel.cu"
 template< class floatN, class T, cudaTextureReadMode mode> __attribute__((unused)) floatN
-# 39 "./code/internal/cubicTex3D_kernel.cu"
-cubicTex3D(texture< T, 3, mode> tex, float3 coord)
-# 40 "./code/internal/cubicTex3D_kernel.cu"
-{int volatile ___ = 1;(void)tex;(void)coord;
-# 71 "./code/internal/cubicTex3D_kernel.cu"
+# 40 "./code/internal/cubicTex2D_kernel.cu"
+cubicTex2D(texture< T, 2, mode> tex, float x, float y)
+# 41 "./code/internal/cubicTex2D_kernel.cu"
+{int volatile ___ = 1;(void)tex;(void)x;(void)y;
+# 66 "./code/internal/cubicTex2D_kernel.cu"
 exit(___);}
-# 81 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< float, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 82 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< unsigned char, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 83 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< char, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 84 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< unsigned short, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 85 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< short, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 86 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< unsigned, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 87 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< int, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 89 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< float2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 90 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< uchar2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 91 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< char2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 92 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< ushort2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 93 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< short2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 94 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< uint2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 95 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< int2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 97 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< float3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 98 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< uchar3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 99 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< char3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 100 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< ushort3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 101 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< short3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 102 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< uint3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 103 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< int3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 105 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< float4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 106 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< uchar4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 107 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< char4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 108 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< ushort4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 109 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< short4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 110 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< uint4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 111 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< int4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 115 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< float, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 116 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< unsigned char, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 117 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< char, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 118 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< unsigned short, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 119 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< short, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 120 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< unsigned, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 121 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D(texture< int, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 123 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< float2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 124 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< uchar2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 125 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< char2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 126 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< ushort2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 127 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< short2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 128 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< uint2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 129 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D(texture< int2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 131 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< float3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 132 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< uchar3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 133 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< char3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 134 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< ushort3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 135 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< short3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 136 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< uint3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 137 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D(texture< int3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 139 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< float4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 140 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< uchar4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 141 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< char4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 142 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< ushort4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 143 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< short4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 144 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< uint4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 145 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D(texture< int4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 94 "./code/cubicTex3D.cu"
-__attribute__((unused)) void bspline_weights_1st_derivative_x(float3 fraction, float3 &w0, float3 &w1, float3 &w2, float3 &w3)
-# 95 "./code/cubicTex3D.cu"
+# 76 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< float, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 77 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< unsigned char, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 78 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< char, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 79 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< unsigned short, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 80 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< short, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 81 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< unsigned, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 82 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< int, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 84 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< float2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 85 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< uchar2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 86 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< char2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 87 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< ushort2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 88 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< short2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 89 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< uint2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 90 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< int2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 92 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< float3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 93 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< uchar3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 94 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< char3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 95 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< ushort3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 96 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< short3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 97 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< uint3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 98 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< int3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 100 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< float4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 101 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< uchar4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 102 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< char4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 103 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< ushort4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 104 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< short4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 105 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< uint4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 106 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< int4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 110 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< float, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 111 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< unsigned char, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 112 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< char, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 113 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< unsigned short, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 114 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< short, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 115 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< unsigned, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 116 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D(texture< int, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 118 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< float2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 119 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< uchar2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 120 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< char2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 121 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< ushort2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 122 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< short2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 123 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< uint2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 124 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D(texture< int2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 126 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< float3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 127 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< uchar3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 128 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< char3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 129 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< ushort3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 130 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< short3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 131 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< uint3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 132 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D(texture< int3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 134 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< float4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 135 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< uchar4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 136 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< char4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 137 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< ushort4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 138 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< short4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 139 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< uint4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 140 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D(texture< int4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 93 "./code/cubicTex2D.cu"
+__attribute__((unused)) void bspline_weights_1st_derivative_x(float2 fraction, float2 &w0, float2 &w1, float2 &w2, float2 &w3)
+# 94 "./code/cubicTex2D.cu"
 {int volatile ___ = 1;(void)fraction;(void)w0;(void)w1;(void)w2;(void)w3;
-# 103 "./code/cubicTex3D.cu"
+# 100 "./code/cubicTex2D.cu"
 exit(___);}
-# 105 "./code/cubicTex3D.cu"
-__attribute__((unused)) void bspline_weights_1st_derivative_y(float3 fraction, float3 &w0, float3 &w1, float3 &w2, float3 &w3)
-# 106 "./code/cubicTex3D.cu"
+# 102 "./code/cubicTex2D.cu"
+__attribute__((unused)) void bspline_weights_1st_derivative_y(float2 fraction, float2 &w0, float2 &w1, float2 &w2, float2 &w3)
+# 103 "./code/cubicTex2D.cu"
 {int volatile ___ = 1;(void)fraction;(void)w0;(void)w1;(void)w2;(void)w3;
-# 114 "./code/cubicTex3D.cu"
+# 109 "./code/cubicTex2D.cu"
 exit(___);}
-# 116 "./code/cubicTex3D.cu"
-__attribute__((unused)) void bspline_weights_1st_derivative_z(float3 fraction, float3 &w0, float3 &w1, float3 &w2, float3 &w3)
-# 117 "./code/cubicTex3D.cu"
-{int volatile ___ = 1;(void)fraction;(void)w0;(void)w1;(void)w2;(void)w3;
-# 125 "./code/cubicTex3D.cu"
-exit(___);}
-# 38 "./code/internal/cubicTex3D_kernel.cu"
+# 39 "./code/internal/cubicTex2D_kernel.cu"
 template< class floatN, class T, cudaTextureReadMode mode> __attribute__((unused)) floatN
-# 39 "./code/internal/cubicTex3D_kernel.cu"
-cubicTex3D_1st_derivative_x(texture< T, 3, mode> tex, float3 coord)
-# 40 "./code/internal/cubicTex3D_kernel.cu"
-{int volatile ___ = 1;(void)tex;(void)coord;
-# 71 "./code/internal/cubicTex3D_kernel.cu"
+# 40 "./code/internal/cubicTex2D_kernel.cu"
+cubicTex2D_1st_derivative_x(texture< T, 2, mode> tex, float x, float y)
+# 41 "./code/internal/cubicTex2D_kernel.cu"
+{int volatile ___ = 1;(void)tex;(void)x;(void)y;
+# 66 "./code/internal/cubicTex2D_kernel.cu"
 exit(___);}
-# 81 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< float, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 82 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< unsigned char, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 83 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< char, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 84 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< unsigned short, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 85 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< short, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 86 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< unsigned, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 87 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< int, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 89 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< float2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 90 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< uchar2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 91 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< char2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 92 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< ushort2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 93 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< short2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 94 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< uint2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 95 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< int2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 97 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< float3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 98 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< uchar3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 99 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< char3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 100 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< ushort3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 101 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< short3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 102 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< uint3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 103 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< int3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 105 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< float4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 106 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< uchar4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 107 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< char4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 108 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< ushort4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 109 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< short4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 110 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< uint4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 111 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< int4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 115 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< float, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 116 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< unsigned char, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 117 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< char, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 118 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< unsigned short, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 119 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< short, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 120 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< unsigned, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 121 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_x(texture< int, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 123 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< float2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 124 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< uchar2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 125 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< char2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 126 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< ushort2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 127 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< short2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 128 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< uint2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 129 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_x(texture< int2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 131 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< float3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 132 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< uchar3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 133 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< char3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 134 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< ushort3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 135 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< short3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 136 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< uint3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 137 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_x(texture< int3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 139 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< float4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 140 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< uchar4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 141 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< char4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 142 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< ushort4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 143 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< short4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 144 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< uint4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 145 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_x(texture< int4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 38 "./code/internal/cubicTex3D_kernel.cu"
+# 76 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< float, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 77 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< unsigned char, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 78 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< char, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 79 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< unsigned short, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 80 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< short, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 81 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< unsigned, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 82 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< int, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 84 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< float2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 85 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< uchar2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 86 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< char2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 87 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< ushort2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 88 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< short2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 89 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< uint2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 90 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< int2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 92 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< float3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 93 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< uchar3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 94 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< char3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 95 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< ushort3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 96 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< short3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 97 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< uint3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 98 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< int3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 100 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< float4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 101 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< uchar4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 102 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< char4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 103 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< ushort4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 104 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< short4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 105 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< uint4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 106 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< int4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 110 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< float, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 111 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< unsigned char, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 112 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< char, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 113 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< unsigned short, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 114 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< short, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 115 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< unsigned, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 116 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_x(texture< int, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 118 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< float2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 119 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< uchar2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 120 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< char2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 121 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< ushort2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 122 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< short2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 123 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< uint2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 124 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_x(texture< int2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 126 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< float3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 127 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< uchar3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 128 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< char3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 129 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< ushort3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 130 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< short3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 131 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< uint3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 132 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_x(texture< int3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 134 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< float4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 135 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< uchar4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 136 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< char4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 137 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< ushort4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 138 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< short4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 139 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< uint4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 140 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_x(texture< int4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 39 "./code/internal/cubicTex2D_kernel.cu"
 template< class floatN, class T, cudaTextureReadMode mode> __attribute__((unused)) floatN
-# 39 "./code/internal/cubicTex3D_kernel.cu"
-cubicTex3D_1st_derivative_y(texture< T, 3, mode> tex, float3 coord)
-# 40 "./code/internal/cubicTex3D_kernel.cu"
-{int volatile ___ = 1;(void)tex;(void)coord;
-# 71 "./code/internal/cubicTex3D_kernel.cu"
+# 40 "./code/internal/cubicTex2D_kernel.cu"
+cubicTex2D_1st_derivative_y(texture< T, 2, mode> tex, float x, float y)
+# 41 "./code/internal/cubicTex2D_kernel.cu"
+{int volatile ___ = 1;(void)tex;(void)x;(void)y;
+# 66 "./code/internal/cubicTex2D_kernel.cu"
 exit(___);}
-# 81 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< float, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 82 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< unsigned char, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 83 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< char, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 84 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< unsigned short, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 85 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< short, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 86 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< unsigned, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 87 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< int, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 89 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< float2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 90 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< uchar2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 91 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< char2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 92 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< ushort2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 93 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< short2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 94 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< uint2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 95 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< int2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 97 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< float3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 98 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< uchar3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 99 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< char3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 100 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< ushort3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 101 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< short3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 102 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< uint3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 103 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< int3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 105 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< float4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 106 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< uchar4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 107 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< char4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 108 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< ushort4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 109 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< short4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 110 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< uint4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 111 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< int4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 115 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< float, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 116 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< unsigned char, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 117 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< char, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 118 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< unsigned short, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 119 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< short, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 120 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< unsigned, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 121 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_y(texture< int, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 123 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< float2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 124 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< uchar2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 125 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< char2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 126 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< ushort2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 127 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< short2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 128 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< uint2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 129 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_y(texture< int2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 131 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< float3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 132 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< uchar3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 133 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< char3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 134 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< ushort3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 135 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< short3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 136 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< uint3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 137 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_y(texture< int3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 139 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< float4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 140 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< uchar4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 141 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< char4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 142 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< ushort4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 143 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< short4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 144 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< uint4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 145 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_y(texture< int4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 38 "./code/internal/cubicTex3D_kernel.cu"
-template< class floatN, class T, cudaTextureReadMode mode> __attribute__((unused)) floatN
-# 39 "./code/internal/cubicTex3D_kernel.cu"
-cubicTex3D_1st_derivative_z(texture< T, 3, mode> tex, float3 coord)
-# 40 "./code/internal/cubicTex3D_kernel.cu"
-{int volatile ___ = 1;(void)tex;(void)coord;
-# 71 "./code/internal/cubicTex3D_kernel.cu"
-exit(___);}
-# 81 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< float, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 82 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< unsigned char, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 83 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< char, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 84 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< unsigned short, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 85 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< short, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 86 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< unsigned, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 87 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< int, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 89 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< float2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 90 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< uchar2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 91 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< char2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 92 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< ushort2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 93 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< short2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 94 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< uint2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 95 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< int2, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 97 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< float3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 98 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< uchar3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 99 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< char3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 100 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< ushort3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 101 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< short3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 102 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< uint3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 103 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< int3, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 105 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< float4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 106 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< uchar4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 107 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< char4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 108 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< ushort4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 109 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< short4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 110 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< uint4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 111 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< int4, 3, mode> tex, float3 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
-# 115 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< float, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 116 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< unsigned char, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 117 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< char, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 118 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< unsigned short, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 119 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< short, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 120 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< unsigned, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 121 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex3D_1st_derivative_z(texture< int, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 123 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< float2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 124 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< uchar2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 125 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< char2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 126 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< ushort2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 127 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< short2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 128 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< uint2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 129 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex3D_1st_derivative_z(texture< int2, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 131 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< float3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 132 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< uchar3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 133 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< char3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 134 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< ushort3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 135 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< short3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 136 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< uint3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 137 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex3D_1st_derivative_z(texture< int3, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 139 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< float4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 140 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< uchar4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 141 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< char4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 142 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< ushort4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 143 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< short4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 144 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< uint4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 145 "./code/internal/cubicTex3D_kernel.cu"
-template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex3D_1st_derivative_z(texture< int4, 3, mode> tex, float x, float y, float z) {int volatile ___ = 1;(void)tex;(void)x;(void)y;(void)z;exit(___);}
-# 22 "interp3cuda.cu"
-static texture< float, 3, cudaReadModeElementType> texInput;
-# 24 "interp3cuda.cu"
-void interpTex(float3 *points, float *output, int output_numel, int output_width, int _option) ;
-# 62 "interp3cuda.cu"
+# 76 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< float, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 77 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< unsigned char, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 78 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< char, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 79 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< unsigned short, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 80 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< short, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 81 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< unsigned, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 82 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< int, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 84 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< float2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 85 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< uchar2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 86 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< char2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 87 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< ushort2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 88 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< short2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 89 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< uint2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 90 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< int2, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 92 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< float3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 93 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< uchar3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 94 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< char3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 95 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< ushort3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 96 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< short3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 97 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< uint3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 98 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< int3, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 100 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< float4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 101 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< uchar4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 102 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< char4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 103 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< ushort4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 104 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< short4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 105 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< uint4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 106 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< int4, 2, mode> tex, float x, float y) {int volatile ___ = 1;(void)tex;(void)x;(void)y;exit(___);}
+# 110 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< float, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 111 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< unsigned char, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 112 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< char, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 113 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< unsigned short, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 114 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< short, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 115 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< unsigned, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 116 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float cubicTex2D_1st_derivative_y(texture< int, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 118 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< float2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 119 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< uchar2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 120 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< char2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 121 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< ushort2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 122 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< short2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 123 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< uint2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 124 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float2 cubicTex2D_1st_derivative_y(texture< int2, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 126 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< float3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 127 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< uchar3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 128 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< char3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 129 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< ushort3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 130 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< short3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 131 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< uint3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 132 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float3 cubicTex2D_1st_derivative_y(texture< int3, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 134 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< float4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 135 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< uchar4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 136 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< char4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 137 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< ushort4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 138 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< short4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 139 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< uint4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 140 "./code/internal/cubicTex2D_kernel.cu"
+template< cudaTextureReadMode mode> __attribute__((unused)) float4 cubicTex2D_1st_derivative_y(texture< int4, 2, mode> tex, float2 coord) {int volatile ___ = 1;(void)tex;(void)coord;exit(___);}
+# 21 "interp2cuda.cu"
+static texture< float, 2, cudaReadModeElementType> texInput;
+# 23 "interp2cuda.cu"
+void interpTex(float2 *points, float *output, int output_numel, int output_width, int _option) ;
+# 57 "interp2cuda.cu"
 int iDivUp(int a, int b) {
-# 63 "interp3cuda.cu"
+# 58 "interp2cuda.cu"
 return ((a % b) != 0) ? ((a / b) + 1) : (a / b);
-# 64 "interp3cuda.cu"
+# 59 "interp2cuda.cu"
 }
-# 67 "interp3cuda.cu"
-int option_method(int nrhs, const mxArray *prhs[]) {
-# 69 "interp3cuda.cu"
-int interpo_option;
-# 70 "interp3cuda.cu"
-if ((nrhs == 5) || (nrhs == 8)) {
-# 72 "interp3cuda.cu"
-mxChar *option = ((nrhs == 5) ? mxGetChars(prhs[4]) : mxGetChars(prhs[7]));
-# 74 "interp3cuda.cu"
-if (((((((((char)(option[0])) == ('n')) && (((char)(option[1])) == ('e'))) && (((char)(option[2])) == ('a'))) && (((char)(option[3])) == ('r'))) && (((char)(option[4])) == ('e'))) && (((char)(option[5])) == ('s'))) && (((char)(option[6])) == ('t')))
-# 75 "interp3cuda.cu"
-{
-# 76 "interp3cuda.cu"
-interpo_option = 0;
-# 78 "interp3cuda.cu"
-} else {
-# 79 "interp3cuda.cu"
-if ((((((((char)(option[0])) == ('l')) && (((char)(option[1])) == ('i'))) && (((char)(option[2])) == ('n'))) && (((char)(option[3])) == ('e'))) && (((char)(option[4])) == ('a'))) && (((char)(option[5])) == ('r')))
-# 80 "interp3cuda.cu"
-{
-# 81 "interp3cuda.cu"
-interpo_option = 1;
-# 83 "interp3cuda.cu"
-} else {
-# 84 "interp3cuda.cu"
-if ((((((((char)(option[0])) == ('s')) && (((char)(option[1])) == ('p'))) && (((char)(option[2])) == ('l'))) && (((char)(option[3])) == ('i'))) && (((char)(option[4])) == ('n'))) && (((char)(option[5])) == ('e')))
-# 85 "interp3cuda.cu"
-{
-# 86 "interp3cuda.cu"
-interpo_option = 2;
-# 88 "interp3cuda.cu"
-} else {
-# 89 "interp3cuda.cu"
-if (((((((char)(option[0])) == ('c')) && (((char)(option[1])) == ('u'))) && (((char)(option[2])) == ('b'))) && (((char)(option[3])) == ('i'))) && (((char)(option[4])) == ('c'))) {
-# 90 "interp3cuda.cu"
-interpo_option = 3;
-# 92 "interp3cuda.cu"
-mexErrMsgTxt("cubic method is not yet supported !!");
-# 93 "interp3cuda.cu"
-} else
-# 94 "interp3cuda.cu"
-{
-# 95 "interp3cuda.cu"
-mexErrMsgTxt("method is not recognized, you must use \'nearest\' \'linear\' \'spline\' or \'cubic\'");
-# 96 "interp3cuda.cu"
-} } } }
-# 98 "interp3cuda.cu"
-} else
-# 99 "interp3cuda.cu"
-{
-# 100 "interp3cuda.cu"
-interpo_option = 1;
-# 102 "interp3cuda.cu"
-}
-# 104 "interp3cuda.cu"
-return interpo_option;
-# 106 "interp3cuda.cu"
-}
-# 113 "interp3cuda.cu"
+# 65 "interp2cuda.cu"
 void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
-# 115 "interp3cuda.cu"
+# 67 "interp2cuda.cu"
 if (nrhs < 3) { mexErrMsgTxt("Must have three input arguments: data, rowpoints, colpoints"); }
-# 117 "interp3cuda.cu"
-if (nrhs > 5) { mexErrMsgTxt("This format is not supported, usage : interp3cuda(W,Xi,Yi,Zi,method),  method is optional "); }
-# 118 "interp3cuda.cu"
+# 68 "interp2cuda.cu"
 if (nlhs != 1) { mexErrMsgTxt("Must have one output argument"); }
-# 121 "interp3cuda.cu"
+# 70 "interp2cuda.cu"
+if (nrhs > 4) { mexErrMsgTxt("This format is not supported, usage : interp2cuda(W,Xi,Yi,method),  method is optional "); }
+# 73 "interp2cuda.cu"
 if (mxIsComplex(prhs[0]) || (!mxIsClass(prhs[0], "double"))) {
-# 123 "interp3cuda.cu"
+# 75 "interp2cuda.cu"
 mexErrMsgTxt("Input must be real, double !");
-# 124 "interp3cuda.cu"
+# 76 "interp2cuda.cu"
 }
-# 128 "interp3cuda.cu"
-int OUTPUT_W, OUTPUT_H, OUTPUT_D, OUTPUT_SIZE;
-# 129 "interp3cuda.cu"
-int INPUT_W, INPUT_H, INPUT_D, INPUT_SIZE, POINTS_SIZE;
-# 131 "interp3cuda.cu"
-int NB_ELEM_Xi, NB_ELEM_Yi, NB_ELEM_Zi;
-# 133 "interp3cuda.cu"
+# 79 "interp2cuda.cu"
+int OUTPUT_W, OUTPUT_H, OUTPUT_SIZE, INPUT_W, INPUT_H, INPUT_SIZE, POINTS_SIZE;
+# 81 "interp2cuda.cu"
 int interpo_option;
-# 135 "interp3cuda.cu"
+# 83 "interp2cuda.cu"
 double *input = mxGetPr(prhs[0]);
-# 137 "interp3cuda.cu"
-const mwSize *dim_input = mxGetDimensions(prhs[0]);
-# 139 "interp3cuda.cu"
-INPUT_W = (dim_input[0]);
-# 140 "interp3cuda.cu"
-INPUT_H = (dim_input[1]);
-# 141 "interp3cuda.cu"
-INPUT_D = (dim_input[2]);
-# 143 "interp3cuda.cu"
-INPUT_SIZE = (((INPUT_H * INPUT_W) * INPUT_D) * sizeof(float));
-# 146 "interp3cuda.cu"
+# 86 "interp2cuda.cu"
+INPUT_W = (mxGetN(prhs[0]));
+# 87 "interp2cuda.cu"
+INPUT_H = (mxGetM(prhs[0]));
+# 89 "interp2cuda.cu"
+INPUT_SIZE = ((INPUT_H * INPUT_W) * sizeof(float));
+# 91 "interp2cuda.cu"
 float *f_input;
-# 147 "interp3cuda.cu"
-float3 *f_points;
-# 150 "interp3cuda.cu"
+# 92 "interp2cuda.cu"
+float2 *f_points;
+# 95 "interp2cuda.cu"
 if ((mxGetNumberOfElements(prhs[1]) == (1)) && (mxGetNumberOfElements(prhs[2]) == (1))) {
-# 154 "interp3cuda.cu"
-double *row_points = mxGetPr(prhs[1]);
-# 155 "interp3cuda.cu"
-double *col_points = mxGetPr(prhs[2]);
-# 159 "interp3cuda.cu"
-OUTPUT_W = ((int)(col_points[0]));
-# 160 "interp3cuda.cu"
-OUTPUT_H = ((int)(row_points[0]));
-# 161 "interp3cuda.cu"
-OUTPUT_SIZE = ((OUTPUT_W * OUTPUT_H) * sizeof(float));
-# 162 "interp3cuda.cu"
-POINTS_SIZE = (2 * OUTPUT_SIZE);
-# 166 "interp3cuda.cu"
-f_points = ((float3 *)mxMalloc(POINTS_SIZE));
-# 168 "interp3cuda.cu"
-for (int r = 0; r < OUTPUT_H; r++) {
-# 169 "interp3cuda.cu"
-for (int c = 0; c < OUTPUT_W; c++) {
-# 170 "interp3cuda.cu"
-((f_points[c + (OUTPUT_W * r)]).x) = (((((float)c) * (INPUT_W - 1)) / (OUTPUT_W - 1)) + (0.5F));
-# 171 "interp3cuda.cu"
-((f_points[c + (OUTPUT_W * r)]).y) = (((((float)r) * (INPUT_H - 1)) / (OUTPUT_H - 1)) + (0.5F));
-# 172 "interp3cuda.cu"
-}
-# 173 "interp3cuda.cu"
-}
-# 175 "interp3cuda.cu"
+# 97 "interp2cuda.cu"
+mexErrMsgTxt("This mode is not yet implemented !! usage interp2(Z,Xi,Yi,method)");
+# 119 "interp2cuda.cu"
 } else
-# 176 "interp3cuda.cu"
+# 120 "interp2cuda.cu"
 {
-# 178 "interp3cuda.cu"
+# 121 "interp2cuda.cu"
 double *x_points = mxGetPr(prhs[1]);
-# 179 "interp3cuda.cu"
+# 122 "interp2cuda.cu"
 double *y_points = mxGetPr(prhs[2]);
-# 180 "interp3cuda.cu"
-double *z_points = mxGetPr(prhs[3]);
-# 183 "interp3cuda.cu"
-interpo_option = option_method(nrhs, prhs);
-# 186 "interp3cuda.cu"
-NB_ELEM_Xi = (mxGetNumberOfElements(prhs[1]));
-# 187 "interp3cuda.cu"
-NB_ELEM_Yi = (mxGetNumberOfElements(prhs[2]));
-# 188 "interp3cuda.cu"
-NB_ELEM_Zi = (mxGetNumberOfElements(prhs[3]));
-# 190 "interp3cuda.cu"
-if ((NB_ELEM_Xi != NB_ELEM_Yi) && (NB_ELEM_Yi != NB_ELEM_Zi)) {
-# 191 "interp3cuda.cu"
-mexErrMsgTxt("Xi, Yi and Zi must have the same number of element  !!");
-# 192 "interp3cuda.cu"
-}
-# 195 "interp3cuda.cu"
-const mwSize *dimX = mxGetDimensions(prhs[1]);
-# 196 "interp3cuda.cu"
-const mwSize *dimY = mxGetDimensions(prhs[2]);
-# 197 "interp3cuda.cu"
-const mwSize *dimZ = mxGetDimensions(prhs[3]);
-# 200 "interp3cuda.cu"
-if ((((((((((dimX[0]) != (dimY[0])) || ((dimY[0]) != (dimZ[0]))) || ((dimZ[0]) != (dimX[0]))) || ((dimX[1]) != (dimY[1]))) || ((dimY[1]) != (dimZ[1]))) || ((dimZ[1]) != (dimX[1]))) || ((dimX[2]) != (dimY[2]))) || ((dimY[2]) != (dimZ[2]))) || ((dimZ[2]) != (dimX[2])))
-# 201 "interp3cuda.cu"
+# 123 "interp2cuda.cu"
+int NB_ELEM_Xi, NB_ELEM_Yi;
+# 125 "interp2cuda.cu"
+if ((nrhs == 4) || (nrhs == 7)) {
+# 127 "interp2cuda.cu"
+mxChar *option = ((nrhs == 4) ? mxGetChars(prhs[3]) : mxGetChars(prhs[6]));
+# 129 "interp2cuda.cu"
+if (((((((((char)(option[0])) == ('n')) && (((char)(option[1])) == ('e'))) && (((char)(option[2])) == ('a'))) && (((char)(option[3])) == ('r'))) && (((char)(option[4])) == ('e'))) && (((char)(option[5])) == ('s'))) && (((char)(option[6])) == ('t')))
+# 130 "interp2cuda.cu"
 {
-# 202 "interp3cuda.cu"
-mexErrMsgTxt("Xi, Yi and Zi dimension must be the same !!");
-# 203 "interp3cuda.cu"
+# 131 "interp2cuda.cu"
+interpo_option = 0;
+# 133 "interp2cuda.cu"
+} else {
+# 134 "interp2cuda.cu"
+if ((((((((char)(option[0])) == ('l')) && (((char)(option[1])) == ('i'))) && (((char)(option[2])) == ('n'))) && (((char)(option[3])) == ('e'))) && (((char)(option[4])) == ('a'))) && (((char)(option[5])) == ('r')))
+# 135 "interp2cuda.cu"
+{
+# 136 "interp2cuda.cu"
+interpo_option = 1;
+# 138 "interp2cuda.cu"
+} else {
+# 139 "interp2cuda.cu"
+if ((((((((char)(option[0])) == ('s')) && (((char)(option[1])) == ('p'))) && (((char)(option[2])) == ('l'))) && (((char)(option[3])) == ('i'))) && (((char)(option[4])) == ('n'))) && (((char)(option[5])) == ('e')))
+# 140 "interp2cuda.cu"
+{
+# 141 "interp2cuda.cu"
+interpo_option = 2;
+# 143 "interp2cuda.cu"
+} else {
+# 144 "interp2cuda.cu"
+if (((((((char)(option[0])) == ('c')) && (((char)(option[1])) == ('u'))) && (((char)(option[2])) == ('b'))) && (((char)(option[3])) == ('i'))) && (((char)(option[4])) == ('c'))) {
+# 145 "interp2cuda.cu"
+interpo_option = 3;
+# 147 "interp2cuda.cu"
+mexErrMsgTxt("cubic method is not yet supported !!");
+# 148 "interp2cuda.cu"
+} else
+# 149 "interp2cuda.cu"
+{
+# 150 "interp2cuda.cu"
+mexErrMsgTxt("method is not recognized, you must use \'nearest\' \'linear\' \'spline\' or \'cubic\'");
+# 151 "interp2cuda.cu"
+} } } }
+# 153 "interp2cuda.cu"
+} else
+# 154 "interp2cuda.cu"
+{
+# 155 "interp2cuda.cu"
+interpo_option = 1;
+# 157 "interp2cuda.cu"
 }
-# 205 "interp3cuda.cu"
-(plhs[0]) = mxCreateNumericArray(3, dimX, mxDOUBLE_CLASS, mxREAL);
-# 207 "interp3cuda.cu"
-OUTPUT_W = (dimX[0]);
-# 208 "interp3cuda.cu"
-OUTPUT_H = (dimX[1]);
-# 209 "interp3cuda.cu"
-OUTPUT_D = (dimX[2]);
-# 210 "interp3cuda.cu"
-OUTPUT_SIZE = (((OUTPUT_W * OUTPUT_H) * OUTPUT_D) * sizeof(float));
-# 211 "interp3cuda.cu"
-POINTS_SIZE = (3 * OUTPUT_SIZE);
-# 213 "interp3cuda.cu"
-f_points = ((float3 *)mxMalloc(POINTS_SIZE));
-# 215 "interp3cuda.cu"
+# 161 "interp2cuda.cu"
+NB_ELEM_Xi = (mxGetNumberOfElements(prhs[1]));
+# 162 "interp2cuda.cu"
+NB_ELEM_Yi = (mxGetNumberOfElements(prhs[2]));
+# 164 "interp2cuda.cu"
+if (NB_ELEM_Xi != NB_ELEM_Yi) {
+# 165 "interp2cuda.cu"
+mexErrMsgTxt("Xi and Yi must have the same size !!");
+# 166 "interp2cuda.cu"
+}
+# 168 "interp2cuda.cu"
+OUTPUT_W = (mxGetN(prhs[1]));
+# 169 "interp2cuda.cu"
+OUTPUT_H = (mxGetM(prhs[1]));
+# 170 "interp2cuda.cu"
+OUTPUT_SIZE = ((OUTPUT_W * OUTPUT_H) * sizeof(float));
+# 171 "interp2cuda.cu"
+POINTS_SIZE = (2 * OUTPUT_SIZE);
+# 173 "interp2cuda.cu"
+f_points = ((float2 *)mxMalloc(POINTS_SIZE));
+# 175 "interp2cuda.cu"
 for (int r = 0; r < NB_ELEM_Xi; r++) {
-# 216 "interp3cuda.cu"
-((f_points[r]).x) = (((float)(x_points[r])) - (0.5F));
-# 217 "interp3cuda.cu"
-((f_points[r]).y) = (((float)(y_points[r])) - (0.5F));
-# 218 "interp3cuda.cu"
-((f_points[r]).z) = (((float)(z_points[r])) - (0.5F));
-# 219 "interp3cuda.cu"
+# 176 "interp2cuda.cu"
+((f_points[r]).x) = (((float)(x_points[r])) + (0.5F));
+# 177 "interp2cuda.cu"
+((f_points[r]).y) = (((float)(y_points[r])) + (0.5F));
+# 178 "interp2cuda.cu"
 }
-# 220 "interp3cuda.cu"
+# 181 "interp2cuda.cu"
 }
-# 222 "interp3cuda.cu"
+# 183 "interp2cuda.cu"
+(plhs[0]) = mxCreateDoubleMatrix(OUTPUT_H, OUTPUT_W, mxREAL);
+# 184 "interp2cuda.cu"
 double *output = mxGetPr(plhs[0]);
-# 223 "interp3cuda.cu"
+# 185 "interp2cuda.cu"
 float *f_output = ((float *)mxMalloc(OUTPUT_SIZE));
-# 227 "interp3cuda.cu"
+# 190 "interp2cuda.cu"
 f_input = ((float *)malloc(INPUT_SIZE));
-# 230 "interp3cuda.cu"
-for (int d = 0; d < INPUT_D; d++) {
-# 231 "interp3cuda.cu"
+# 192 "interp2cuda.cu"
 for (int r = 0; r < INPUT_H; r++) {
-# 232 "interp3cuda.cu"
+# 193 "interp2cuda.cu"
 for (int c = 0; c < INPUT_W; c++) {
-# 233 "interp3cuda.cu"
-(f_input[(c + (INPUT_W * r)) + ((d * INPUT_W) * INPUT_H)]) = ((float)(input[(c + (INPUT_W * r)) + ((d * INPUT_W) * INPUT_H)]));
-# 234 "interp3cuda.cu"
+# 194 "interp2cuda.cu"
+(f_input[c + (INPUT_W * r)]) = ((float)(input[r + (INPUT_H * c)]));
+# 195 "interp2cuda.cu"
 }
-# 235 "interp3cuda.cu"
+# 196 "interp2cuda.cu"
 }
-# 236 "interp3cuda.cu"
-}
-# 240 "interp3cuda.cu"
-cudaArray *d_input = (0);
-# 241 "interp3cuda.cu"
-const cudaExtent volumeExtent = (make_cudaExtent(INPUT_W, INPUT_H, INPUT_D));
-# 246 "interp3cuda.cu"
+# 201 "interp2cuda.cu"
+cudaArray *d_input;
+# 202 "interp2cuda.cu"
 cudaChannelFormatDesc input_tex = cudaCreateChannelDesc< float> ();
-# 247 "interp3cuda.cu"
-__cudaSafeCall(cudaMalloc3DArray(&d_input, &input_tex, volumeExtent), "interp3cuda.cu", 247);
-# 249 "interp3cuda.cu"
-cudaMemcpy3DParms copyParams = {(0)};
-# 250 "interp3cuda.cu"
-(copyParams.srcPtr) = make_cudaPitchedPtr((void *)f_input, (volumeExtent.width) * sizeof(float), volumeExtent.width, volumeExtent.height);
-# 251 "interp3cuda.cu"
-(copyParams.dstArray) = d_input;
-# 252 "interp3cuda.cu"
-(copyParams.extent) = volumeExtent;
-# 253 "interp3cuda.cu"
-(copyParams.kind) = cudaMemcpyHostToDevice;
-# 255 "interp3cuda.cu"
-__cudaSafeCall(cudaMemcpy3D(&copyParams), "interp3cuda.cu", 255);
-# 257 "interp3cuda.cu"
+# 205 "interp2cuda.cu"
+cudaMallocArray(&d_input, &input_tex, INPUT_W, INPUT_H);
+# 206 "interp2cuda.cu"
+cudaMemcpyToArray(d_input, 0, 0, f_input, INPUT_SIZE, cudaMemcpyHostToDevice);
+# 208 "interp2cuda.cu"
 (texInput.filterMode) = ((interpo_option == 0) ? cudaFilterModePoint : cudaFilterModeLinear);
-# 258 "interp3cuda.cu"
+# 209 "interp2cuda.cu"
 (texInput.normalized) = 0;
-# 259 "interp3cuda.cu"
-((texInput.addressMode)[0]) = cudaAddressModeClamp;
-# 260 "interp3cuda.cu"
-((texInput.addressMode)[1]) = cudaAddressModeClamp;
-# 261 "interp3cuda.cu"
-((texInput.addressMode)[2]) = cudaAddressModeClamp;
-# 264 "interp3cuda.cu"
-__cudaSafeCall(cudaBindTextureToArray(texInput, d_input, input_tex), "interp3cuda.cu", 264);
-# 268 "interp3cuda.cu"
-float3 *d_points;
-# 269 "interp3cuda.cu"
-__cudaSafeCall(cudaMalloc((void **)(&d_points), POINTS_SIZE), "interp3cuda.cu", 269);
-# 270 "interp3cuda.cu"
-__cudaSafeCall(cudaMemcpy(d_points, f_points, POINTS_SIZE, cudaMemcpyHostToDevice), "interp3cuda.cu", 270);
-# 274 "interp3cuda.cu"
+# 211 "interp2cuda.cu"
+cudaBindTextureToArray(texInput, d_input);
+# 214 "interp2cuda.cu"
+float2 *d_points;
+# 215 "interp2cuda.cu"
+cudaMalloc((void **)(&d_points), POINTS_SIZE);
+# 216 "interp2cuda.cu"
+cudaMemcpy(d_points, f_points, POINTS_SIZE, cudaMemcpyHostToDevice);
+# 219 "interp2cuda.cu"
 float *d_output;
-# 275 "interp3cuda.cu"
-__cudaSafeCall(cudaMalloc((void **)(&d_output), OUTPUT_SIZE), "interp3cuda.cu", 275);
-# 277 "interp3cuda.cu"
-const dim3 blockSize(min(PowTwoDivider(OUTPUT_W), 16), min(PowTwoDivider(OUTPUT_H * OUTPUT_D), 16));
-# 278 "interp3cuda.cu"
-const dim3 gridSize(OUTPUT_W / (blockSize.x), (OUTPUT_H * OUTPUT_D) / (blockSize.y));
-# 282 "interp3cuda.cu"
-cudaConfigureCall(gridSize, blockSize) ? ((void)0) : interpTex(d_points, d_output, (OUTPUT_W * OUTPUT_H) * OUTPUT_D, OUTPUT_W, interpo_option);
-# 286 "interp3cuda.cu"
-__cudaSafeCall(cudaMemcpy(f_output, d_output, OUTPUT_SIZE, cudaMemcpyDeviceToHost), "interp3cuda.cu", 286);
-# 290 "interp3cuda.cu"
+# 220 "interp2cuda.cu"
+cudaMalloc((void **)(&d_output), OUTPUT_SIZE);
+# 223 "interp2cuda.cu"
+dim3 dimBlock(16, 12);
+# 224 "interp2cuda.cu"
+dim3 dimGrid(iDivUp(OUTPUT_W, dimBlock.x), iDivUp(OUTPUT_H, dimBlock.y));
+# 227 "interp2cuda.cu"
+cudaConfigureCall(dimGrid, dimBlock) ? ((void)0) : interpTex(d_points, d_output, OUTPUT_W * OUTPUT_H, OUTPUT_W, interpo_option);
+# 230 "interp2cuda.cu"
+cudaMemcpy(f_output, d_output, OUTPUT_SIZE, cudaMemcpyDeviceToHost);
+# 233 "interp2cuda.cu"
 for (int r = 0; r < OUTPUT_H; r++) {
-# 291 "interp3cuda.cu"
+# 234 "interp2cuda.cu"
 for (int c = 0; c < OUTPUT_W; c++) {
-# 292 "interp3cuda.cu"
-for (int d = 0; d < OUTPUT_D; d++) {
-# 293 "interp3cuda.cu"
-(output[(r + (OUTPUT_H * c)) + ((d * OUTPUT_H) * OUTPUT_W)]) = ((double)(f_output[(r + (OUTPUT_H * c)) + ((d * OUTPUT_H) * OUTPUT_W)]));
-# 294 "interp3cuda.cu"
+# 235 "interp2cuda.cu"
+(output[r + (OUTPUT_H * c)]) = ((double)(f_output[r + (OUTPUT_H * c)]));
+# 236 "interp2cuda.cu"
 }
-# 295 "interp3cuda.cu"
+# 237 "interp2cuda.cu"
 }
-# 296 "interp3cuda.cu"
-}
-# 300 "interp3cuda.cu"
-__cudaSafeCall(cudaUnbindTexture(texInput), "interp3cuda.cu", 300);
-# 301 "interp3cuda.cu"
-__cudaSafeCall(cudaFreeArray(d_input), "interp3cuda.cu", 301);
-# 303 "interp3cuda.cu"
-__cudaSafeCall(cudaFree(d_points), "interp3cuda.cu", 303);
-# 304 "interp3cuda.cu"
-__cudaSafeCall(cudaFree(d_output), "interp3cuda.cu", 304);
-# 306 "interp3cuda.cu"
+# 240 "interp2cuda.cu"
+cudaUnbindTexture(texInput);
+# 241 "interp2cuda.cu"
+cudaFreeArray(d_input);
+# 243 "interp2cuda.cu"
+cudaFree(d_points);
+# 244 "interp2cuda.cu"
+cudaFree(d_output);
+# 246 "interp2cuda.cu"
 mxFree(f_input);
-# 307 "interp3cuda.cu"
+# 247 "interp2cuda.cu"
 mxFree(f_output);
-# 308 "interp3cuda.cu"
+# 248 "interp2cuda.cu"
 mxFree(f_points);
-# 309 "interp3cuda.cu"
+# 249 "interp2cuda.cu"
 }
-# 1 "/tmp/tmpxft_00005826_00000000-1_interp3cuda.cudafe1.stub.c"
-# 1 "/tmp/tmpxft_00005826_00000000-1_interp3cuda.cudafe1.stub.c" 1
+# 1 "/tmp/tmpxft_0000168c_00000000-1_interp2cuda.cudafe1.stub.c"
+# 1 "/tmp/tmpxft_0000168c_00000000-1_interp2cuda.cudafe1.stub.c" 1
 # 1 "/usr/local/cuda/include/crt/host_runtime.h" 1
 # 74 "/usr/local/cuda/include/crt/host_runtime.h"
 template <typename T>
@@ -16520,15 +15114,15 @@ inline unsigned long long int ullmax(unsigned long long int a, unsigned long lon
 
 
 #pragma pack()
-# 2 "/tmp/tmpxft_00005826_00000000-1_interp3cuda.cudafe1.stub.c" 2
-# 1 "/tmp/tmpxft_00005826_00000000-3_interp3cuda.fatbin.c" 1
+# 2 "/tmp/tmpxft_0000168c_00000000-1_interp2cuda.cudafe1.stub.c" 2
+# 1 "/tmp/tmpxft_0000168c_00000000-3_interp2cuda.fatbin.c" 1
 asm(
 ".section .rodata\n"
 ".align 32\n"
 "fatbinData:\n"
-".quad 0x00100001ba55ed50,0x00000000000056cb,0x0000005001000001,0x000000000000478b\n"
+".quad 0x00100001ba55ed50,0x000000000000409b,0x0000005001000001,0x000000000000347b\n"
 ".quad 0x0000003800000000,0x0000000a00010004,0x0000000e00000040,0x0000000000000015\n"
-".quad 0x0000000000000000,0x0000000000000000,0x6333707265746e69,0x000075632e616475\n"
+".quad 0x0000000000000000,0x0000000000000000,0x6332707265746e69,0x000075632e616475\n"
 ".quad 0x6f69737265762e09,0x2e090a342e31206e,0x7320746567726174,0x616d202c30315f6d\n"
 ".quad 0x6f745f3436665f70,0x2f2f090a3233665f,0x656c69706d6f6320,0x2f20687469772064\n"
 ".quad 0x61636f6c2f727375,0x6f2f616475632f6c,0x696c2f34366e6570,0x2f090a65622f2f62\n"
@@ -16536,8 +15130,8 @@ asm(
 ".quad 0x2d2f2f090a0a3231,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d\n"
 ".quad 0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d\n"
 ".quad 0x43202f2f090a2d2d,0x676e696c69706d6f,0x6d742f706d742f20,0x3030305f74667870\n"
-".quad 0x30305f3632383530,0x372d303030303030,0x33707265746e695f,0x7070632e61647563\n"
-".quad 0x6d742f2820692e33,0x2e23494263632f70,0x0a293167784e3445,0x2d2d2d2d2d2f2f09\n"
+".quad 0x30305f6338363130,0x372d303030303030,0x32707265746e695f,0x7070632e61647563\n"
+".quad 0x6d742f2820692e33,0x2e23494263632f70,0x0a29456c4675574e,0x2d2d2d2d2d2f2f09\n"
 ".quad 0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d\n"
 ".quad 0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x0a0a2d2d2d2d2d2d,0x2d2d2d2d2d2f2f09\n"
 ".quad 0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d\n"
@@ -16552,7 +15146,7 @@ asm(
 ".quad 0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d,0x2d2d2d2d2d2d2d2d\n"
 ".quad 0x2d2d2d2d2d2d2d2d,0x0a0a2d2d2d2d2d2d,0x3109656c69662e09,0x616d6d6f633c2209\n"
 ".quad 0x3e656e696c2d646e,0x656c69662e090a22,0x706d742f22093209,0x5f746678706d742f\n"
-".quad 0x3632383530303030,0x303030303030305f,0x65746e695f362d30,0x2e61647563337072\n"
+".quad 0x6338363130303030,0x303030303030305f,0x65746e695f362d30,0x2e61647563327072\n"
 ".quad 0x2e32656661647563,0x662e090a22757067,0x2f22093309656c69,0x2f62696c2f727375\n"
 ".quad 0x5f3638782f636367,0x78756e696c2d3436,0x342e342f756e672d,0x756c636e692f352e\n"
 ".quad 0x65646474732f6564,0x662e090a22682e66,0x2f22093409656c69,0x61636f6c2f727375\n"
@@ -16574,673 +15168,496 @@ asm(
 ".quad 0x64756c636e692f61,0x74732f7472632f65,0x6c635f656761726f,0x090a22682e737361\n"
 ".quad 0x343109656c69662e,0x692f7273752f2209,0x622f6564756c636e,0x657079742f737469\n"
 ".quad 0x662e090a22682e73,0x2209353109656c69,0x636e692f7273752f,0x6d69742f6564756c\n"
-".quad 0x662e090a22682e65,0x2209363109656c69,0x6e75665f6874616d,0x2e090a2275632e63\n"
-".quad 0x09373109656c6966,0x2e7970636d656d22,0x69662e090a227563,0x632209383109656c\n"
-".quad 0x3378655463696275,0x2e090a2275632e44,0x09393109656c6966,0x656e696c70736222\n"
-".quad 0x2e6c656e72656b5f,0x69662e090a227563,0x632209303209656c,0x3378655463696275\n"
-".quad 0x6c656e72656b5f44,0x662e090a2275632e,0x2209313209656c69,0x6333707265746e69\n"
-".quad 0x0a2275632e616475,0x3209656c69662e09,0x2f7273752f220932,0x75632f6c61636f6c\n"
-".quad 0x756c636e692f6164,0x6f6d6d6f632f6564,0x6974636e75665f6e,0x090a22682e736e6f\n"
-".quad 0x333209656c69662e,0x6c2f7273752f2209,0x6475632f6c61636f,0x64756c636e692f61\n"
-".quad 0x665f6874616d2f65,0x736e6f6974636e75,0x69662e090a22682e,0x2f2209343209656c\n"
-".quad 0x61636f6c2f727375,0x692f616475632f6c,0x6d2f6564756c636e,0x736e6f635f687461\n"
-".quad 0x22682e73746e6174,0x09656c69662e090a,0x7273752f22093532,0x632f6c61636f6c2f\n"
-".quad 0x6c636e692f616475,0x697665642f656475,0x74636e75665f6563,0x0a22682e736e6f69\n"
-".quad 0x3209656c69662e09,0x2f7273752f220936,0x75632f6c61636f6c,0x756c636e692f6164\n"
-".quad 0x31315f6d732f6564,0x5f63696d6f74615f,0x6e6f6974636e7566,0x662e090a22682e73\n"
-".quad 0x2209373209656c69,0x636f6c2f7273752f,0x2f616475632f6c61,0x2f6564756c636e69\n"
-".quad 0x74615f32315f6d73,0x6e75665f63696d6f,0x682e736e6f697463,0x656c69662e090a22\n"
-".quad 0x73752f2209383209,0x2f6c61636f6c2f72,0x636e692f61647563,0x5f6d732f6564756c\n"
-".quad 0x6c62756f645f3331,0x6974636e75665f65,0x090a22682e736e6f,0x393209656c69662e\n"
-".quad 0x6c2f7273752f2209,0x6475632f6c61636f,0x64756c636e692f61,0x5f30325f6d732f65\n"
-".quad 0x665f63696d6f7461,0x736e6f6974636e75,0x69662e090a22682e,0x2f2209303309656c\n"
-".quad 0x61636f6c2f727375,0x692f616475632f6c,0x732f6564756c636e,0x746e695f30325f6d\n"
-".quad 0x2e736369736e6972,0x6c69662e090a2268,0x752f220931330965,0x6c61636f6c2f7273\n"
-".quad 0x6e692f616475632f,0x75732f6564756c63,0x75665f6563616672,0x2e736e6f6974636e\n"
-".quad 0x6c69662e090a2268,0x752f220932330965,0x6c61636f6c2f7273,0x6e692f616475632f\n"
-".quad 0x65742f6564756c63,0x65665f6572757478,0x636e75665f686374,0x22682e736e6f6974\n"
-".quad 0x09656c69662e090a,0x7273752f22093333,0x632f6c61636f6c2f,0x6c636e692f616475\n"
-".quad 0x6874616d2f656475,0x6f6974636e75665f,0x705f6c62645f736e,0x0a0a22682e317874\n"
-".quad 0x752e207865742e09,0x6e49786574203436,0x2e090a0a3b747570,0x5a5f207972746e65\n"
-".quad 0x54707265746e6939,0x616f6c6636507865,0x2069696966503374,0x7261702e09090a28\n"
-".quad 0x203436752e206d61,0x6170616475635f5f,0x6e69395a5f5f6d72,0x5078655470726574\n"
-".quad 0x503374616f6c6636,0x696f705f69696966,0x2e09090a2c73746e,0x752e206d61726170\n"
-".quad 0x6475635f5f203436,0x5a5f5f6d72617061,0x54707265746e6939,0x616f6c6636507865\n"
-".quad 0x5f69696966503374,0x0a2c74757074756f,0x6d617261702e0909,0x5f5f203233732e20\n"
-".quad 0x6d72617061647563,0x65746e69395a5f5f,0x6636507865547072,0x6966503374616f6c\n"
-".quad 0x757074756f5f6969,0x2c6c656d756e5f74,0x617261702e09090a,0x5f203233732e206d\n"
-".quad 0x726170616475635f,0x746e69395a5f5f6d,0x3650786554707265,0x66503374616f6c66\n"
-".quad 0x7074756f5f696969,0x68746469775f7475,0x7261702e09090a2c,0x203233732e206d61\n"
-".quad 0x6170616475635f5f,0x6e69395a5f5f6d72,0x5078655470726574,0x503374616f6c6636\n"
-".quad 0x706f5f5f69696966,0x7b090a296e6f6974,0x2e206765722e090a,0x323c722520323375\n"
-".quad 0x65722e090a3b3e31,0x25203436752e2067,0x090a3b3e393c6472,0x33662e206765722e\n"
-".quad 0x3435343c66252032,0x6765722e090a3b3e,0x2520646572702e20,0x2e090a3b3e373c70\n"
-".quad 0x3209313209636f6c,0x57444c240a300934,0x5a5f5f6e69676562,0x54707265746e6939\n"
-".quad 0x616f6c6636507865,0x3a69696966503374,0x33752e747663090a,0x2509203631752e32\n"
-".quad 0x61746325202c3172,0x63090a3b782e6469,0x752e3233752e7476,0x2c32722509203631\n"
-".quad 0x782e6469746e2520,0x34326c756d090a3b,0x203233752e6f6c2e,0x7225202c33722509\n"
-".quad 0x0a3b327225202c31,0x3233752e74766309,0x722509203631752e,0x6961746325202c34\n"
-".quad 0x7663090a3b792e64,0x31752e3233752e74,0x202c357225092036,0x3b792e6469746e25\n"
-".quad 0x2e34326c756d090a,0x09203233752e6f6c,0x347225202c367225,0x090a3b357225202c\n"
-".quad 0x2e3233752e747663,0x3772250920363175,0x782e64697425202c,0x752e646461090a3b\n"
-".quad 0x2c38722509203233,0x7225202c37722520,0x2e747663090a3b33,0x203631752e323375\n"
-".quad 0x7425202c39722509,0x61090a3b792e6469,0x09203233752e6464,0x7225202c30317225\n"
-".quad 0x0a3b367225202c39,0x617261702e646c09,0x2509203233732e6d,0x5f5f5b202c313172\n"
-".quad 0x6d72617061647563,0x65746e69395a5f5f,0x6636507865547072,0x6966503374616f6c\n"
-".quad 0x757074756f5f6969,0x5d68746469775f74,0x34326c756d090a3b,0x203233752e6f6c2e\n"
-".quad 0x25202c3231722509,0x317225202c303172,0x2e646461090a3b31,0x3172250920323375\n"
-".quad 0x202c387225202c33,0x6c090a3b32317225,0x2e6d617261702e64,0x3172250920323373\n"
-".quad 0x75635f5f5b202c34,0x5f5f6d7261706164,0x707265746e69395a,0x6f6c663650786554\n"
-".quad 0x6969696650337461,0x5f74757074756f5f,0x0a3b5d6c656d756e,0x656c2e7074657309\n"
-".quad 0x702509203233752e,0x2c34317225202c31,0x090a3b3331722520,0x6172622031702540\n"
-".quad 0x5f305f744c240920,0x6c2e090a3b343135,0x313309313209636f,0x2e747663090a3009\n"
-".quad 0x203233752e343675,0x25202c3164722509,0x646c090a3b333172,0x752e6d617261702e\n"
-".quad 0x3264722509203436,0x6475635f5f5b202c,0x5a5f5f6d72617061,0x54707265746e6939\n"
-".quad 0x616f6c6636507865,0x5f69696966503374,0x3b5d73746e696f70,0x69772e6c756d090a\n"
-".quad 0x09203233752e6564,0x7225202c33647225,0x0a3b3231202c3331,0x3436752e64646109\n"
-".quad 0x202c346472250920,0x7225202c32647225,0x2e646c090a3b3364,0x36752e6d61726170\n"
-".quad 0x2c35647225092034,0x616475635f5f5b20,0x395a5f5f6d726170,0x6554707265746e69\n"
-".quad 0x74616f6c66365078,0x6f5f696969665033,0x0a3b5d7475707475,0x6469772e6c756d09\n"
-".quad 0x2509203233752e65,0x317225202c366472,0x61090a3b34202c33,0x09203436752e6464\n"
-".quad 0x7225202c37647225,0x36647225202c3564,0x6c672e646c090a3b,0x3233662e6c61626f\n"
-".quad 0x5b202c3166250920,0x3b5d302b34647225,0x33662e766f6d090a,0x202c326625092032\n"
-".quad 0x646c090a3b316625,0x2e6c61626f6c672e,0x3366250920323366,0x2b346472255b202c\n"
-".quad 0x766f6d090a3b5d34,0x662509203233662e,0x0a3b336625202c34,0x626f6c672e646c09\n"
-".quad 0x09203233662e6c61,0x72255b202c356625,0x090a3b5d382b3464,0x203233662e766f6d\n"
-".quad 0x6625202c36662509,0x702e646c090a3b35,0x3233732e6d617261,0x202c353172250920\n"
-".quad 0x70616475635f5f5b,0x69395a5f5f6d7261,0x786554707265746e,0x3374616f6c663650\n"
-".quad 0x6f5f5f6969696650,0x0a3b5d6e6f697470,0x3233752e766f6d09,0x202c363172250920\n"
-".quad 0x70746573090a3b30,0x203233732e71652e,0x7225202c32702509,0x36317225202c3531\n"
-".quad 0x2032702540090a3b,0x744c240920617262,0x0a3b3835325f305f,0x3233752e766f6d09\n"
-".quad 0x202c373172250920,0x702e646c090a3b31,0x3233732e6d617261,0x202c353172250920\n"
-".quad 0x70616475635f5f5b,0x69395a5f5f6d7261,0x786554707265746e,0x3374616f6c663650\n"
-".quad 0x6f5f5f6969696650,0x0a3b5d6e6f697470,0x71652e7074657309,0x702509203233732e\n"
-".quad 0x2c35317225202c33,0x090a3b3731722520,0x6172622033702540,0x5f305f744c240920\n"
-".quad 0x6f6d090a3b303737,0x2509203233752e76,0x0a3b32202c383172,0x617261702e646c09\n"
-".quad 0x2509203233732e6d,0x5f5f5b202c353172,0x6d72617061647563,0x65746e69395a5f5f\n"
-".quad 0x6636507865547072,0x6966503374616f6c,0x6974706f5f5f6969,0x6573090a3b5d6e6f\n"
-".quad 0x33732e71652e7074,0x202c347025092032,0x7225202c35317225,0x702540090a3b3831\n"
-".quad 0x2409206172622034,0x3230315f305f744c,0x2e766f6d090a3b36,0x3172250920323375\n"
-".quad 0x6c090a3b33202c39,0x2e6d617261702e64,0x3172250920323373,0x75635f5f5b202c35\n"
-".quad 0x5f5f6d7261706164,0x707265746e69395a,0x6f6c663650786554,0x6969696650337461\n"
-".quad 0x6e6f6974706f5f5f,0x70746573090a3b5d,0x203233732e71652e,0x7225202c35702509\n"
-".quad 0x39317225202c3531,0x2035702540090a3b,0x744c240920617262,0x3b323832315f305f\n"
-".quad 0x6e752e617262090a,0x305f744c24092069,0x240a3b383335315f,0x3835325f305f744c\n"
-".quad 0x09636f6c2e090a3a,0x0a30093433093132,0x3233662e766f6d09,0x25202c3766250920\n"
-".quad 0x766f6d090a3b3266,0x662509203233662e,0x0a3b346625202c38,0x3233662e766f6d09\n"
-".quad 0x25202c3966250920,0x766f6d090a3b3666,0x662509203233662e,0x30306630202c3031\n"
-".quad 0x203b303030303030,0x30202f2f09202020,0x33662e766f6d090a,0x2c31316625092032\n"
-".quad 0x090a3b3031662520,0x762e64332e786574,0x33662e3233662e34,0x2c323166257b2032\n"
-".quad 0x3166252c33316625,0x2c7d353166252c34,0x75706e497865745b,0x252c3766257b2c74\n"
-".quad 0x252c3966252c3866,0x090a3b5d7d313166,0x203233662e766f6d,0x25202c3631662509\n"
-".quad 0x7473090a3b323166,0x2e6c61626f6c672e,0x72255b0920323366,0x25202c5d302b3764\n"
-".quad 0x6c2e090a3b363166,0x353309313209636f,0x2e617262090a3009,0x744c240920696e75\n"
-".quad 0x0a3b3431355f305f,0x37375f305f744c24,0x636f6c2e090a3a30,0x3009383309313209\n"
-".quad 0x33662e766f6d090a,0x2c37316625092032,0x6d090a3b32662520,0x09203233662e766f\n"
-".quad 0x6625202c38316625,0x2e766f6d090a3b34,0x3166250920323366,0x0a3b366625202c39\n"
-".quad 0x3233662e766f6d09,0x202c303266250920,0x3030303030306630,0x09202020203b3030\n"
-".quad 0x6f6d090a30202f2f,0x2509203233662e76,0x326625202c313266,0x2e786574090a3b30\n"
-".quad 0x33662e34762e6433,0x257b203233662e32,0x333266252c323266,0x66252c343266252c\n"
-".quad 0x7865745b2c7d3532,0x257b2c7475706e49,0x383166252c373166,0x66252c393166252c\n"
-".quad 0x6d090a3b5d7d3132,0x09203233662e766f,0x6625202c36326625,0x2e7473090a3b3232\n"
-".quad 0x662e6c61626f6c67,0x6472255b09203233,0x6625202c5d302b37,0x6f6c2e090a3b3632\n"
-".quad 0x0939330931320963,0x752e617262090a30,0x5f744c240920696e,0x240a3b3431355f30\n"
-".quad 0x3230315f305f744c,0x636f6c2e090a3a36,0x3009313509303209,0x33662e766f6d090a\n"
-".quad 0x2c37326625092032,0x3030306662663020,0x202020203b303030,0x352e302d202f2f09\n"
-".quad 0x33662e646461090a,0x2c38326625092032,0x6625202c31662520,0x747663090a3b3732\n"
-".quad 0x3233662e696d722e,0x662509203233662e,0x38326625202c3932,0x662e627573090a3b\n"
-".quad 0x3033662509203233,0x202c38326625202c,0x6d090a3b39326625,0x09203233662e6c75\n"
-".quad 0x6625202c31336625,0x30336625202c3033,0x662e766f6d090a3b,0x3233662509203233\n"
-".quad 0x303866336630202c,0x2020203b30303030,0x090a31202f2f0920,0x203233662e627573\n"
-".quad 0x25202c3333662509,0x336625202c323366,0x2e766f6d090a3b30,0x3366250920323366\n"
-".quad 0x3265336630202c34,0x20203b6261616161,0x2e30202f2f092020,0x090a373636363631\n"
-".quad 0x203233662e6c756d,0x25202c3533662509,0x336625202c313366,0x2e6c756d090a3b34\n"
-".quad 0x3366250920323366,0x2c33336625202c36,0x090a3b3333662520,0x203233662e766f6d\n"
-".quad 0x30202c3733662509,0x3030303030303466,0x2f09202020203b30,0x627573090a32202f\n"
-".quad 0x662509203233662e,0x37336625202c3833,0x0a3b33336625202c,0x3233662e6c756d09\n"
-".quad 0x202c393366250920,0x6625202c35336625,0x766f6d090a3b3033,0x662509203233662e\n"
-".quad 0x66336630202c3034,0x203b303030303030,0x30202f2f09202020,0x2e6c756d090a352e\n"
-".quad 0x3466250920323366,0x2c36336625202c31,0x090a3b3034662520,0x203233662e6c756d\n"
-".quad 0x25202c3234662509,0x336625202c313466,0x2e766f6d090a3b38,0x3466250920323366\n"
-".quad 0x3266336630202c33,0x20203b6261616161,0x2e30202f2f092020,0x090a373636363636\n"
-".quad 0x203233662e627573,0x25202c3434662509,0x346625202c333466,0x2e646461090a3b32\n"
-".quad 0x3466250920323366,0x2c34346625202c35,0x090a3b3933662520,0x6c6c75662e766964\n"
-".quad 0x662509203233662e,0x39336625202c3634,0x0a3b35346625202c,0x3233662e766f6d09\n"
-".quad 0x202c373466250920,0x3030306366336630,0x09202020203b3030,0x090a352e31202f2f\n"
-".quad 0x203233662e646461,0x25202c3834662509,0x346625202c363466,0x2e646461090a3b37\n"
-".quad 0x3466250920323366,0x2c39326625202c39,0x090a3b3834662520,0x203233662e766f6d\n"
-".quad 0x30202c3035662509,0x3030303030666266,0x2f09202020203b30,0x090a352e302d202f\n"
-".quad 0x203233662e646461,0x25202c3135662509,0x30356625202c3366,0x722e747663090a3b\n"
-".quad 0x662e3233662e696d,0x3235662509203233,0x0a3b31356625202c,0x3233662e62757309\n"
-".quad 0x202c333566250920,0x6625202c31356625,0x6c756d090a3b3235,0x662509203233662e\n"
-".quad 0x33356625202c3435,0x0a3b33356625202c,0x3233662e766f6d09,0x202c353566250920\n"
-".quad 0x3030303866336630,0x09202020203b3030,0x7573090a31202f2f,0x2509203233662e62\n"
-".quad 0x356625202c363566,0x3b33356625202c35,0x33662e766f6d090a,0x2c37356625092032\n"
-".quad 0x6161326533663020,0x202020203b626161,0x36312e30202f2f09,0x756d090a37363636\n"
-".quad 0x2509203233662e6c,0x356625202c383566,0x3b37356625202c34,0x33662e6c756d090a\n"
-".quad 0x2c39356625092032,0x25202c3635662520,0x6f6d090a3b363566,0x2509203233662e76\n"
-".quad 0x346630202c303666,0x3b30303030303030,0x202f2f0920202020,0x662e627573090a32\n"
-".quad 0x3136662509203233,0x202c30366625202c,0x6d090a3b36356625,0x09203233662e6c75\n"
-".quad 0x6625202c32366625,0x33356625202c3835,0x662e766f6d090a3b,0x3336662509203233\n"
-".quad 0x303066336630202c,0x2020203b30303030,0x352e30202f2f0920,0x33662e6c756d090a\n"
-".quad 0x2c34366625092032,0x25202c3935662520,0x756d090a3b333666,0x2509203233662e6c\n"
-".quad 0x366625202c353666,0x3b31366625202c34,0x33662e766f6d090a,0x2c36366625092032\n"
-".quad 0x6161326633663020,0x202020203b626161,0x36362e30202f2f09,0x7573090a37363636\n"
-".quad 0x2509203233662e62,0x366625202c373666,0x3b35366625202c36,0x33662e646461090a\n"
-".quad 0x2c38366625092032,0x25202c3736662520,0x6964090a3b323666,0x662e6c6c75662e76\n"
-".quad 0x3936662509203233,0x202c32366625202c,0x6d090a3b38366625,0x09203233662e766f\n"
-".quad 0x6630202c30376625,0x3030303030636633,0x2f2f09202020203b,0x6461090a352e3120\n"
-".quad 0x2509203233662e64,0x366625202c313766,0x3b30376625202c39,0x33662e646461090a\n"
-".quad 0x2c32376625092032,0x25202c3235662520,0x6f6d090a3b313766,0x2509203233662e76\n"
-".quad 0x626630202c333766,0x3b30303030303066,0x202f2f0920202020,0x6461090a352e302d\n"
-".quad 0x2509203233662e64,0x356625202c343766,0x0a3b33376625202c,0x696d722e74766309\n"
-".quad 0x3233662e3233662e,0x202c353766250920,0x73090a3b34376625,0x09203233662e6275\n"
-".quad 0x6625202c36376625,0x35376625202c3437,0x662e6c756d090a3b,0x3737662509203233\n"
-".quad 0x202c36376625202c,0x6d090a3b36376625,0x09203233662e766f,0x6630202c38376625\n"
-".quad 0x3030303030386633,0x2f2f09202020203b,0x2e627573090a3120,0x3766250920323366\n"
-".quad 0x2c38376625202c39,0x090a3b3637662520,0x203233662e766f6d,0x30202c3038662509\n"
-".quad 0x6161616132653366,0x2f09202020203b62,0x363636312e30202f,0x2e6c756d090a3736\n"
-".quad 0x3866250920323366,0x2c37376625202c31,0x090a3b3038662520,0x203233662e6c756d\n"
-".quad 0x25202c3238662509,0x376625202c393766,0x2e766f6d090a3b39,0x3866250920323366\n"
-".quad 0x3030346630202c33,0x20203b3030303030,0x0a32202f2f092020,0x3233662e62757309\n"
-".quad 0x202c343866250920,0x6625202c33386625,0x6c756d090a3b3937,0x662509203233662e\n"
-".quad 0x31386625202c3538,0x0a3b36376625202c,0x3233662e766f6d09,0x202c363866250920\n"
-".quad 0x3030303066336630,0x09202020203b3030,0x090a352e30202f2f,0x203233662e6c756d\n"
-".quad 0x25202c3738662509,0x386625202c323866,0x2e6c756d090a3b36,0x3866250920323366\n"
-".quad 0x2c37386625202c38,0x090a3b3438662520,0x203233662e766f6d,0x30202c3938662509\n"
-".quad 0x6161616132663366,0x2f09202020203b62,0x363636362e30202f,0x2e627573090a3736\n"
-".quad 0x3966250920323366,0x2c39386625202c30,0x090a3b3838662520,0x203233662e646461\n"
-".quad 0x25202c3139662509,0x386625202c303966,0x2e766964090a3b35,0x3233662e6c6c7566\n"
-".quad 0x202c323966250920,0x6625202c35386625,0x766f6d090a3b3139,0x662509203233662e\n"
-".quad 0x66336630202c3339,0x203b303030303063,0x31202f2f09202020,0x2e646461090a352e\n"
-".quad 0x3966250920323366,0x2c32396625202c34,0x090a3b3339662520,0x203233662e646461\n"
-".quad 0x25202c3539662509,0x396625202c353766,0x636f6c2e090a3b34,0x3009353509303209\n"
-".quad 0x33662e766f6d090a,0x2c36396625092032,0x3030303034663020,0x202020203b303030\n"
-".quad 0x73090a32202f2f09,0x09203233662e6275,0x6625202c37396625,0x30336625202c3639\n"
-".quad 0x662e766f6d090a3b,0x3839662509203233,0x303030346630202c,0x2020203b30303030\n"
-".quad 0x090a32202f2f0920,0x203233662e627573,0x25202c3939662509,0x356625202c383966\n"
-".quad 0x2e766f6d090a3b33,0x3166250920323366,0x30346630202c3030,0x203b303030303030\n"
-".quad 0x0a32202f2f092020,0x3233662e62757309,0x2c31303166250920,0x202c303031662520\n"
-".quad 0x6d090a3b36376625,0x09203233662e766f,0x30202c3230316625,0x3030303030663366\n"
-".quad 0x2f2f092020203b30,0x756d090a352e3020,0x2509203233662e6c,0x6625202c33303166\n"
-".quad 0x30316625202c3133,0x2e766f6d090a3b32,0x3166250920323366,0x66336630202c3430\n"
-".quad 0x203b303030303030,0x2e30202f2f092020,0x662e6c756d090a35,0x3031662509203233\n"
-".quad 0x2c34356625202c35,0x0a3b343031662520,0x3233662e766f6d09,0x2c36303166250920\n"
-".quad 0x3030306633663020,0x092020203b303030,0x090a352e30202f2f,0x203233662e6c756d\n"
-".quad 0x202c373031662509,0x6625202c37376625,0x756d090a3b363031,0x2509203233662e6c\n"
-".quad 0x6625202c38303166,0x396625202c333031,0x2e766f6d090a3b37,0x3166250920323366\n"
-".quad 0x65336630202c3930,0x203b626161616132,0x2e30202f2f092020,0x090a373636363631\n"
-".quad 0x203233662e6c756d,0x202c303131662509,0x6625202c36336625,0x756d090a3b393031\n"
-".quad 0x2509203233662e6c,0x6625202c31313166,0x396625202c353031,0x2e766f6d090a3b39\n"
-".quad 0x3166250920323366,0x65336630202c3231,0x203b626161616132,0x2e30202f2f092020\n"
-".quad 0x090a373636363631,0x203233662e6c756d,0x202c333131662509,0x6625202c39356625\n"
-".quad 0x756d090a3b323131,0x2509203233662e6c,0x6625202c34313166,0x316625202c373031\n"
-".quad 0x766f6d090a3b3130,0x662509203233662e,0x336630202c353131,0x3b62616161613265\n"
-".quad 0x30202f2f09202020,0x0a3736363636312e,0x3233662e6c756d09,0x2c36313166250920\n"
-".quad 0x25202c3238662520,0x6d090a3b35313166,0x09203233662e766f,0x30202c3731316625\n"
-".quad 0x6161616132663366,0x2f2f092020203b62,0x36363636362e3020,0x662e627573090a37\n"
-".quad 0x3131662509203233,0x3731316625202c38,0x3b3830316625202c,0x33662e6c756d090a\n"
-".quad 0x3931316625092032,0x2c3031316625202c,0x090a3b3333662520,0x203233662e766f6d\n"
-".quad 0x202c303231662509,0x6161613266336630,0x2f092020203b6261,0x363636362e30202f\n"
-".quad 0x2e627573090a3736,0x3166250920323366,0x32316625202c3132,0x3131316625202c30\n"
-".quad 0x662e6c756d090a3b,0x3231662509203233,0x3331316625202c32,0x0a3b36356625202c\n"
-".quad 0x3233662e766f6d09,0x2c33323166250920,0x6161326633663020,0x092020203b626161\n"
-".quad 0x3636362e30202f2f,0x627573090a373636,0x662509203233662e,0x316625202c343231\n"
-".quad 0x31316625202c3332,0x2e6c756d090a3b34,0x3166250920323366,0x31316625202c3532\n"
-".quad 0x3b39376625202c36,0x33662e646461090a,0x3632316625092032,0x2c3931316625202c\n"
-".quad 0x0a3b383131662520,0x3233662e64646109,0x2c37323166250920,0x202c323231662520\n"
-".quad 0x090a3b3132316625,0x203233662e646461,0x202c383231662509,0x25202c3532316625\n"
-".quad 0x64090a3b34323166,0x2e6c6c75662e7669,0x3166250920323366,0x31316625202c3932\n"
-".quad 0x3632316625202c38,0x662e766964090a3b,0x203233662e6c6c75,0x202c303331662509\n"
-".quad 0x25202c3132316625,0x64090a3b37323166,0x2e6c6c75662e7669,0x3166250920323366\n"
-".quad 0x32316625202c3133,0x3832316625202c34,0x662e766f6d090a3b,0x3331662509203233\n"
-".quad 0x3066626630202c32,0x20203b3030303030,0x2e302d202f2f0920,0x662e646461090a35\n"
-".quad 0x3331662509203233,0x3932316625202c33,0x3b3233316625202c,0x33662e766f6d090a\n"
-".quad 0x3433316625092032,0x303066626630202c,0x2020203b30303030,0x352e302d202f2f09\n"
-".quad 0x33662e646461090a,0x3533316625092032,0x2c3033316625202c,0x0a3b343331662520\n"
-".quad 0x3233662e766f6d09,0x2c36333166250920,0x3030306662663020,0x092020203b303030\n"
-".quad 0x0a352e302d202f2f,0x3233662e64646109,0x2c37333166250920,0x202c313331662520\n"
-".quad 0x090a3b3633316625,0x203233662e646461,0x202c383331662509,0x25202c3333316625\n"
-".quad 0x6461090a3b393266,0x2509203233662e64,0x6625202c39333166,0x356625202c353331\n"
-".quad 0x2e646461090a3b32,0x3166250920323366,0x33316625202c3034,0x3b35376625202c37\n"
-".quad 0x33662e766f6d090a,0x3134316625092032,0x3b3833316625202c,0x33662e766f6d090a\n"
-".quad 0x3234316625092032,0x3b3933316625202c,0x33662e766f6d090a,0x3334316625092032\n"
-".quad 0x3b3034316625202c,0x33662e766f6d090a,0x3434316625092032,0x303030306630202c\n"
-".quad 0x2020203b30303030,0x6d090a30202f2f09,0x09203233662e766f,0x25202c3534316625\n"
-".quad 0x74090a3b34343166,0x34762e64332e7865,0x3233662e3233662e,0x2c36343166257b20\n"
-".quad 0x66252c3734316625,0x343166252c383431,0x497865745b2c7d39,0x66257b2c7475706e\n"
-".quad 0x343166252c313431,0x2c33343166252c32,0x3b5d7d3534316625,0x33662e766f6d090a\n"
-".quad 0x3035316625092032,0x3b3634316625202c,0x3209636f6c2e090a,0x090a300936350930\n"
-".quad 0x203233662e766f6d,0x202c313531662509,0x6d090a3b39346625,0x09203233662e766f\n"
-".quad 0x25202c3235316625,0x6d090a3b39333166,0x09203233662e766f,0x25202c3335316625\n"
-".quad 0x6d090a3b30343166,0x09203233662e766f,0x30202c3435316625,0x3030303030303066\n"
-".quad 0x2f2f092020203b30,0x2e766f6d090a3020,0x3166250920323366,0x35316625202c3535\n"
-".quad 0x2e786574090a3b34,0x33662e34762e6433,0x257b203233662e32,0x3166252c36353166\n"
-".quad 0x38353166252c3735,0x2c7d39353166252c,0x75706e497865745b,0x31353166257b2c74\n"
-".quad 0x252c32353166252c,0x3166252c33353166,0x6d090a3b5d7d3535,0x09203233662e766f\n"
-".quad 0x25202c3036316625,0x2e090a3b36353166,0x3509303209636f6c,0x766f6d090a300938\n"
-".quad 0x662509203233662e,0x316625202c313631,0x766f6d090a3b3833,0x662509203233662e\n"
-".quad 0x376625202c323631,0x2e766f6d090a3b32,0x3166250920323366,0x34316625202c3336\n"
-".quad 0x2e766f6d090a3b30,0x3166250920323366,0x30306630202c3436,0x203b303030303030\n"
-".quad 0x0a30202f2f092020,0x3233662e766f6d09,0x2c35363166250920,0x0a3b343631662520\n"
-".quad 0x2e64332e78657409,0x662e3233662e3476,0x363166257b203233,0x2c37363166252c36\n"
-".quad 0x66252c3836316625,0x65745b2c7d393631,0x7b2c7475706e4978,0x66252c3136316625\n"
-".quad 0x363166252c323631,0x7d35363166252c33,0x2e766f6d090a3b5d,0x3166250920323366\n"
-".quad 0x36316625202c3037,0x636f6c2e090a3b36,0x3009393509303209,0x33662e766f6d090a\n"
-".quad 0x3137316625092032,0x0a3b39346625202c,0x3233662e766f6d09,0x2c32373166250920\n"
-".quad 0x090a3b3237662520,0x203233662e766f6d,0x202c333731662509,0x090a3b3034316625\n"
-".quad 0x203233662e766f6d,0x202c343731662509,0x3030303030306630,0x2f092020203b3030\n"
-".quad 0x766f6d090a30202f,0x662509203233662e,0x316625202c353731,0x786574090a3b3437\n"
-".quad 0x662e34762e64332e,0x7b203233662e3233,0x66252c3637316625,0x373166252c373731\n"
-".quad 0x7d39373166252c38,0x706e497865745b2c,0x373166257b2c7475,0x2c32373166252c31\n"
-".quad 0x66252c3337316625,0x090a3b5d7d353731,0x203233662e766f6d,0x202c303831662509\n"
-".quad 0x090a3b3637316625,0x09303209636f6c2e,0x756d090a30093136,0x2509203233662e6c\n"
-".quad 0x6625202c31383166,0x38316625202c3534,0x2e64616d090a3b30,0x3166250920323366\n"
-".quad 0x32316625202c3238,0x3037316625202c36,0x3b3138316625202c,0x33662e6c756d090a\n"
-".quad 0x3338316625092032,0x202c38366625202c,0x090a3b3238316625,0x203233662e6c756d\n"
-".quad 0x202c343831662509,0x6625202c35346625,0x616d090a3b303631,0x2509203233662e64\n"
-".quad 0x6625202c35383166,0x316625202c363231,0x38316625202c3035,0x2e64616d090a3b34\n"
-".quad 0x3166250920323366,0x32316625202c3638,0x3538316625202c37,0x3b3338316625202c\n"
-".quad 0x3209636f6c2e090a,0x090a300932360930,0x203233662e766f6d,0x202c373831662509\n"
-".quad 0x090a3b3833316625,0x203233662e766f6d,0x202c383831662509,0x090a3b3933316625\n"
-".quad 0x203233662e766f6d,0x202c393831662509,0x6d090a3b35396625,0x09203233662e766f\n"
-".quad 0x30202c3039316625,0x3030303030303066,0x2f2f092020203b30,0x2e766f6d090a3020\n"
-".quad 0x3166250920323366,0x39316625202c3139,0x2e786574090a3b30,0x33662e34762e6433\n"
-".quad 0x257b203233662e32,0x3166252c32393166,0x34393166252c3339,0x2c7d35393166252c\n"
-".quad 0x75706e497865745b,0x37383166257b2c74,0x252c38383166252c,0x3166252c39383166\n"
-".quad 0x6d090a3b5d7d3139,0x09203233662e766f,0x25202c3639316625,0x2e090a3b32393166\n"
-".quad 0x3609303209636f6c,0x766f6d090a300933,0x662509203233662e,0x346625202c373931\n"
-".quad 0x2e766f6d090a3b39,0x3166250920323366,0x33316625202c3839,0x2e766f6d090a3b39\n"
-".quad 0x3166250920323366,0x35396625202c3939,0x662e766f6d090a3b,0x3032662509203233\n"
-".quad 0x3030306630202c30,0x20203b3030303030,0x090a30202f2f0920,0x203233662e766f6d\n"
-".quad 0x202c313032662509,0x090a3b3030326625,0x762e64332e786574,0x33662e3233662e34\n"
-".quad 0x32303266257b2032,0x252c33303266252c,0x3266252c34303266,0x7865745b2c7d3530\n"
-".quad 0x257b2c7475706e49,0x3166252c37393166,0x39393166252c3839,0x5d7d31303266252c\n"
-".quad 0x662e766f6d090a3b,0x3032662509203233,0x3230326625202c36,0x09636f6c2e090a3b\n"
-".quad 0x0a30093536093032,0x3233662e766f6d09,0x2c37303266250920,0x0a3b383331662520\n"
-".quad 0x3233662e766f6d09,0x2c38303266250920,0x090a3b3237662520,0x203233662e766f6d\n"
-".quad 0x202c393032662509,0x6d090a3b35396625,0x09203233662e766f,0x30202c3031326625\n"
-".quad 0x3030303030303066,0x2f2f092020203b30,0x2e766f6d090a3020,0x3266250920323366\n"
-".quad 0x31326625202c3131,0x2e786574090a3b30,0x33662e34762e6433,0x257b203233662e32\n"
-".quad 0x3266252c32313266,0x34313266252c3331,0x2c7d35313266252c,0x75706e497865745b\n"
-".quad 0x37303266257b2c74,0x252c38303266252c,0x3266252c39303266,0x6d090a3b5d7d3131\n"
-".quad 0x09203233662e766f,0x25202c3631326625,0x2e090a3b32313266,0x3609303209636f6c\n"
-".quad 0x766f6d090a300936,0x662509203233662e,0x346625202c373132,0x2e766f6d090a3b39\n"
-".quad 0x3266250920323366,0x32376625202c3831,0x662e766f6d090a3b,0x3132662509203233\n"
-".quad 0x3b35396625202c39,0x33662e766f6d090a,0x3032326625092032,0x303030306630202c\n"
-".quad 0x2020203b30303030,0x6d090a30202f2f09,0x09203233662e766f,0x25202c3132326625\n"
-".quad 0x74090a3b30323266,0x34762e64332e7865,0x3233662e3233662e,0x2c32323266257b20\n"
-".quad 0x66252c3332326625,0x323266252c343232,0x497865745b2c7d35,0x66257b2c7475706e\n"
-".quad 0x313266252c373132,0x2c39313266252c38,0x3b5d7d3132326625,0x33662e766f6d090a\n"
-".quad 0x3632326625092032,0x3b3232326625202c,0x3209636f6c2e090a,0x090a300938360930\n"
-".quad 0x203233662e6c756d,0x202c373232662509,0x6625202c35346625,0x616d090a3b363232\n"
-".quad 0x2509203233662e64,0x6625202c38323266,0x326625202c363231,0x32326625202c3631\n"
-".quad 0x2e6c756d090a3b37,0x3266250920323366,0x38366625202c3932,0x3b3832326625202c\n"
-".quad 0x33662e6c756d090a,0x3033326625092032,0x202c35346625202c,0x090a3b3630326625\n"
-".quad 0x203233662e64616d,0x202c313332662509,0x25202c3632316625,0x6625202c36393166\n"
-".quad 0x616d090a3b303332,0x2509203233662e64,0x6625202c32333266,0x326625202c373231\n"
-".quad 0x32326625202c3133,0x636f6c2e090a3b39,0x3009323409313209,0x33662e6c756d090a\n"
-".quad 0x3333326625092032,0x202c31396625202c,0x090a3b3233326625,0x203233662e64616d\n"
-".quad 0x202c343332662509,0x25202c3832316625,0x6625202c36383166,0x7473090a3b333332\n"
-".quad 0x2e6c61626f6c672e,0x72255b0920323366,0x25202c5d302b3764,0x2e090a3b34333266\n"
-".quad 0x3409313209636f6c,0x617262090a300933,0x4c240920696e752e,0x3b3431355f305f74\n"
-".quad 0x315f305f744c240a,0x6c2e090a3a323832,0x313509303209636f,0x2e766f6d090a3009\n"
-".quad 0x3266250920323366,0x66626630202c3533,0x203b303030303030,0x302d202f2f092020\n"
-".quad 0x2e646461090a352e,0x3266250920323366,0x2c316625202c3633,0x0a3b353332662520\n"
-".quad 0x696d722e74766309,0x3233662e3233662e,0x2c37333266250920,0x0a3b363332662520\n"
-".quad 0x3233662e62757309,0x2c38333266250920,0x202c363332662520,0x090a3b3733326625\n"
-".quad 0x203233662e6c756d,0x202c393332662509,0x25202c3833326625,0x6d090a3b38333266\n"
-".quad 0x09203233662e766f,0x30202c3034326625,0x3030303038663366,0x2f2f092020203b30\n"
-".quad 0x2e627573090a3120,0x3266250920323366,0x34326625202c3134,0x3833326625202c30\n"
-".quad 0x662e766f6d090a3b,0x3432662509203233,0x3265336630202c32,0x20203b6261616161\n"
-".quad 0x312e30202f2f0920,0x6d090a3736363636,0x09203233662e6c75,0x25202c3334326625\n"
-".quad 0x6625202c39333266,0x756d090a3b323432,0x2509203233662e6c,0x6625202c34343266\n"
-".quad 0x326625202c313432,0x766f6d090a3b3134,0x662509203233662e,0x346630202c353432\n"
-".quad 0x3b30303030303030,0x32202f2f09202020,0x33662e627573090a,0x3634326625092032\n"
-".quad 0x2c3534326625202c,0x0a3b313432662520,0x3233662e6c756d09,0x2c37343266250920\n"
-".quad 0x202c333432662520,0x090a3b3833326625,0x203233662e766f6d,0x202c383432662509\n"
-".quad 0x3030303066336630,0x2f092020203b3030,0x6d090a352e30202f,0x09203233662e6c75\n"
-".quad 0x25202c3934326625,0x6625202c34343266,0x756d090a3b383432,0x2509203233662e6c\n"
-".quad 0x6625202c30353266,0x326625202c393432,0x766f6d090a3b3634,0x662509203233662e\n"
-".quad 0x336630202c313532,0x3b62616161613266,0x30202f2f09202020,0x0a3736363636362e\n"
-".quad 0x3233662e62757309,0x2c32353266250920,0x202c313532662520,0x090a3b3035326625\n"
-".quad 0x203233662e646461,0x202c333532662509,0x25202c3235326625,0x64090a3b37343266\n"
-".quad 0x2e6c6c75662e7669,0x3266250920323366,0x34326625202c3435,0x3335326625202c37\n"
-".quad 0x662e766f6d090a3b,0x3532662509203233,0x6366336630202c35,0x20203b3030303030\n"
-".quad 0x352e31202f2f0920,0x33662e646461090a,0x3635326625092032,0x2c3435326625202c\n"
-".quad 0x0a3b353532662520,0x3233662e64646109,0x2c37353266250920,0x202c373332662520\n"
-".quad 0x090a3b3635326625,0x203233662e766f6d,0x202c383532662509,0x3030303066626630\n"
-".quad 0x2f092020203b3030,0x090a352e302d202f,0x203233662e646461,0x202c393532662509\n"
-".quad 0x326625202c336625,0x747663090a3b3835,0x3233662e696d722e,0x662509203233662e\n"
-".quad 0x326625202c303632,0x627573090a3b3935,0x662509203233662e,0x326625202c313632\n"
-".quad 0x36326625202c3935,0x2e6c756d090a3b30,0x3266250920323366,0x36326625202c3236\n"
-".quad 0x3136326625202c31,0x662e766f6d090a3b,0x3632662509203233,0x3866336630202c33\n"
-".quad 0x20203b3030303030,0x090a31202f2f0920,0x203233662e627573,0x202c343632662509\n"
-".quad 0x25202c3336326625,0x6d090a3b31363266,0x09203233662e766f,0x30202c3536326625\n"
-".quad 0x6161616132653366,0x2f2f092020203b62,0x36363636312e3020,0x662e6c756d090a37\n"
-".quad 0x3632662509203233,0x3236326625202c36,0x3b3536326625202c,0x33662e6c756d090a\n"
-".quad 0x3736326625092032,0x2c3436326625202c,0x0a3b343632662520,0x3233662e766f6d09\n"
-".quad 0x2c38363266250920,0x3030303034663020,0x092020203b303030,0x7573090a32202f2f\n"
-".quad 0x2509203233662e62,0x6625202c39363266,0x326625202c383632,0x6c756d090a3b3436\n"
-".quad 0x662509203233662e,0x326625202c303732,0x36326625202c3636,0x2e766f6d090a3b31\n"
-".quad 0x3266250920323366,0x66336630202c3137,0x203b303030303030,0x2e30202f2f092020\n"
-".quad 0x662e6c756d090a35,0x3732662509203233,0x3736326625202c32,0x3b3137326625202c\n"
-".quad 0x33662e6c756d090a,0x3337326625092032,0x2c3237326625202c,0x0a3b393632662520\n"
-".quad 0x3233662e766f6d09,0x2c34373266250920,0x6161326633663020,0x092020203b626161\n"
-".quad 0x3636362e30202f2f,0x627573090a373636,0x662509203233662e,0x326625202c353732\n"
-".quad 0x37326625202c3437,0x2e646461090a3b33,0x3266250920323366,0x37326625202c3637\n"
-".quad 0x3037326625202c35,0x662e766964090a3b,0x203233662e6c6c75,0x202c373732662509\n"
-".quad 0x25202c3037326625,0x6d090a3b36373266,0x09203233662e766f,0x30202c3837326625\n"
-".quad 0x3030303063663366,0x2f2f092020203b30,0x6461090a352e3120,0x2509203233662e64\n"
-".quad 0x6625202c39373266,0x326625202c373732,0x646461090a3b3837,0x662509203233662e\n"
-".quad 0x326625202c303832,0x37326625202c3036,0x2e766f6d090a3b39,0x3266250920323366\n"
-".quad 0x66626630202c3138,0x203b303030303030,0x302d202f2f092020,0x2e646461090a352e\n"
-".quad 0x3266250920323366,0x2c356625202c3238,0x0a3b313832662520,0x696d722e74766309\n"
-".quad 0x3233662e3233662e,0x2c33383266250920,0x0a3b323832662520,0x3233662e62757309\n"
-".quad 0x2c34383266250920,0x202c323832662520,0x090a3b3338326625,0x203233662e6c756d\n"
-".quad 0x202c353832662509,0x25202c3438326625,0x6d090a3b34383266,0x09203233662e766f\n"
-".quad 0x30202c3638326625,0x3030303038663366,0x2f2f092020203b30,0x2e627573090a3120\n"
-".quad 0x3266250920323366,0x38326625202c3738,0x3438326625202c36,0x662e766f6d090a3b\n"
-".quad 0x3832662509203233,0x3265336630202c38,0x20203b6261616161,0x312e30202f2f0920\n"
-".quad 0x6d090a3736363636,0x09203233662e6c75,0x25202c3938326625,0x6625202c35383266\n"
-".quad 0x756d090a3b383832,0x2509203233662e6c,0x6625202c30393266,0x326625202c373832\n"
-".quad 0x766f6d090a3b3738,0x662509203233662e,0x346630202c313932,0x3b30303030303030\n"
-".quad 0x32202f2f09202020,0x33662e627573090a,0x3239326625092032,0x2c3139326625202c\n"
-".quad 0x0a3b373832662520,0x3233662e6c756d09,0x2c33393266250920,0x202c393832662520\n"
-".quad 0x090a3b3438326625,0x203233662e766f6d,0x202c343932662509,0x3030303066336630\n"
-".quad 0x2f092020203b3030,0x6d090a352e30202f,0x09203233662e6c75,0x25202c3539326625\n"
-".quad 0x6625202c30393266,0x756d090a3b343932,0x2509203233662e6c,0x6625202c36393266\n"
-".quad 0x326625202c353932,0x766f6d090a3b3239,0x662509203233662e,0x336630202c373932\n"
-".quad 0x3b62616161613266,0x30202f2f09202020,0x0a3736363636362e,0x3233662e62757309\n"
-".quad 0x2c38393266250920,0x202c373932662520,0x090a3b3639326625,0x203233662e646461\n"
-".quad 0x202c393932662509,0x25202c3839326625,0x64090a3b33393266,0x2e6c6c75662e7669\n"
-".quad 0x3366250920323366,0x39326625202c3030,0x3939326625202c33,0x662e766f6d090a3b\n"
-".quad 0x3033662509203233,0x6366336630202c31,0x20203b3030303030,0x352e31202f2f0920\n"
-".quad 0x33662e646461090a,0x3230336625092032,0x2c3030336625202c,0x0a3b313033662520\n"
-".quad 0x3233662e64646109,0x2c33303366250920,0x202c333832662520,0x090a3b3230336625\n"
-".quad 0x09303209636f6c2e,0x6f6d090a30093535,0x2509203233662e76,0x6630202c34303366\n"
-".quad 0x3030303030303034,0x202f2f092020203b,0x662e627573090a32,0x3033662509203233\n"
-".quad 0x3430336625202c35,0x3b3833326625202c,0x33662e766f6d090a,0x3630336625092032\n"
-".quad 0x303030346630202c,0x2020203b30303030,0x73090a32202f2f09,0x09203233662e6275\n"
-".quad 0x25202c3730336625,0x6625202c36303366,0x6f6d090a3b313632,0x2509203233662e76\n"
-".quad 0x6630202c38303366,0x3030303030303034,0x202f2f092020203b,0x662e627573090a32\n"
-".quad 0x3033662509203233,0x3830336625202c39,0x3b3438326625202c,0x33662e766f6d090a\n"
-".quad 0x3031336625092032,0x303066336630202c,0x2020203b30303030,0x0a352e30202f2f09\n"
-".quad 0x3233662e6c756d09,0x2c31313366250920,0x202c393332662520,0x090a3b3031336625\n"
-".quad 0x203233662e766f6d,0x202c323133662509,0x3030303066336630,0x2f092020203b3030\n"
-".quad 0x6d090a352e30202f,0x09203233662e6c75,0x25202c3331336625,0x6625202c32363266\n"
-".quad 0x6f6d090a3b323133,0x2509203233662e76,0x6630202c34313366,0x3030303030306633\n"
-".quad 0x202f2f092020203b,0x6c756d090a352e30,0x662509203233662e,0x326625202c353133\n"
-".quad 0x31336625202c3538,0x2e6c756d090a3b34,0x3366250920323366,0x31336625202c3631\n"
-".quad 0x3530336625202c31,0x662e766f6d090a3b,0x3133662509203233,0x3265336630202c37\n"
-".quad 0x20203b6261616161,0x312e30202f2f0920,0x6d090a3736363636,0x09203233662e6c75\n"
-".quad 0x25202c3831336625,0x6625202c34343266,0x756d090a3b373133,0x2509203233662e6c\n"
-".quad 0x6625202c39313366,0x336625202c333133,0x766f6d090a3b3730,0x662509203233662e\n"
-".quad 0x336630202c303233,0x3b62616161613265,0x30202f2f09202020,0x0a3736363636312e\n"
-".quad 0x3233662e6c756d09,0x2c31323366250920,0x202c373632662520,0x090a3b3032336625\n"
-".quad 0x203233662e6c756d,0x202c323233662509,0x25202c3531336625,0x6d090a3b39303366\n"
-".quad 0x09203233662e766f,0x30202c3332336625,0x6161616132653366,0x2f2f092020203b62\n"
-".quad 0x36363636312e3020,0x662e6c756d090a37,0x3233662509203233,0x3039326625202c34\n"
-".quad 0x3b3332336625202c,0x33662e766f6d090a,0x3532336625092032,0x613266336630202c\n"
-".quad 0x2020203b62616161,0x36362e30202f2f09,0x7573090a37363636,0x2509203233662e62\n"
-".quad 0x6625202c36323366,0x336625202c353233,0x6c756d090a3b3631,0x662509203233662e\n"
-".quad 0x336625202c373233,0x34326625202c3831,0x2e766f6d090a3b31,0x3366250920323366\n"
-".quad 0x66336630202c3832,0x203b626161616132,0x2e30202f2f092020,0x090a373636363636\n"
-".quad 0x203233662e627573,0x202c393233662509,0x25202c3832336625,0x6d090a3b39313366\n"
-".quad 0x09203233662e6c75,0x25202c3033336625,0x6625202c31323366,0x6f6d090a3b343632\n"
-".quad 0x2509203233662e76,0x6630202c31333366,0x6261616161326633,0x202f2f092020203b\n"
-".quad 0x3736363636362e30,0x33662e627573090a,0x3233336625092032,0x2c3133336625202c\n"
-".quad 0x0a3b323233662520,0x3233662e6c756d09,0x2c33333366250920,0x202c343233662520\n"
-".quad 0x090a3b3738326625,0x203233662e646461,0x202c343333662509,0x25202c3732336625\n"
-".quad 0x61090a3b36323366,0x09203233662e6464,0x25202c3533336625,0x6625202c30333366\n"
-".quad 0x6461090a3b393233,0x2509203233662e64,0x6625202c36333366,0x336625202c333333\n"
-".quad 0x766964090a3b3233,0x33662e6c6c75662e,0x3733336625092032,0x2c3632336625202c\n"
-".quad 0x0a3b343333662520,0x6c75662e76696409,0x2509203233662e6c,0x6625202c38333366\n"
-".quad 0x336625202c393233,0x766964090a3b3533,0x33662e6c6c75662e,0x3933336625092032\n"
-".quad 0x2c3233336625202c,0x0a3b363333662520,0x3233662e766f6d09,0x2c30343366250920\n"
-".quad 0x3030306662663020,0x092020203b303030,0x0a352e302d202f2f,0x3233662e64646109\n"
-".quad 0x2c31343366250920,0x202c373333662520,0x090a3b3034336625,0x203233662e766f6d\n"
-".quad 0x202c323433662509,0x3030303066626630,0x2f092020203b3030,0x090a352e302d202f\n"
-".quad 0x203233662e646461,0x202c333433662509,0x25202c3833336625,0x6d090a3b32343366\n"
-".quad 0x09203233662e766f,0x30202c3434336625,0x3030303030666266,0x2f2f092020203b30\n"
-".quad 0x61090a352e302d20,0x09203233662e6464,0x25202c3534336625,0x6625202c39333366\n"
-".quad 0x6461090a3b343433,0x2509203233662e64,0x6625202c36343366,0x326625202c313433\n"
-".quad 0x646461090a3b3733,0x662509203233662e,0x336625202c373433,0x36326625202c3334\n"
-".quad 0x2e646461090a3b30,0x3366250920323366,0x34336625202c3834,0x3338326625202c35\n"
-".quad 0x662e766f6d090a3b,0x3433662509203233,0x3634336625202c39,0x662e766f6d090a3b\n"
-".quad 0x3533662509203233,0x3734336625202c30,0x662e766f6d090a3b,0x3533662509203233\n"
-".quad 0x3834336625202c31,0x662e766f6d090a3b,0x3533662509203233,0x3030306630202c32\n"
-".quad 0x20203b3030303030,0x090a30202f2f0920,0x203233662e766f6d,0x202c333533662509\n"
-".quad 0x090a3b3235336625,0x762e64332e786574,0x33662e3233662e34,0x34353366257b2032\n"
-".quad 0x252c35353366252c,0x3366252c36353366,0x7865745b2c7d3735,0x257b2c7475706e49\n"
-".quad 0x3366252c39343366,0x31353366252c3035,0x5d7d33353366252c,0x662e766f6d090a3b\n"
-".quad 0x3533662509203233,0x3435336625202c38,0x09636f6c2e090a3b,0x0a30093635093032\n"
-".quad 0x3233662e766f6d09,0x2c39353366250920,0x0a3b373532662520,0x3233662e766f6d09\n"
-".quad 0x2c30363366250920,0x0a3b373433662520,0x3233662e766f6d09,0x2c31363366250920\n"
-".quad 0x0a3b383433662520,0x3233662e766f6d09,0x2c32363366250920,0x3030303030663020\n"
-".quad 0x092020203b303030,0x6f6d090a30202f2f,0x2509203233662e76,0x6625202c33363366\n"
-".quad 0x6574090a3b323633,0x2e34762e64332e78,0x203233662e323366,0x252c34363366257b\n"
-".quad 0x3366252c35363366,0x37363366252c3636,0x6e497865745b2c7d,0x3366257b2c747570\n"
-".quad 0x30363366252c3935,0x252c31363366252c,0x0a3b5d7d33363366,0x3233662e766f6d09\n"
-".quad 0x2c38363366250920,0x0a3b343633662520,0x303209636f6c2e09,0x6d090a3009383509\n"
-".quad 0x09203233662e766f,0x25202c3936336625,0x6d090a3b36343366,0x09203233662e766f\n"
-".quad 0x25202c3037336625,0x6d090a3b30383266,0x09203233662e766f,0x25202c3137336625\n"
-".quad 0x6d090a3b38343366,0x09203233662e766f,0x30202c3237336625,0x3030303030303066\n"
-".quad 0x2f2f092020203b30,0x2e766f6d090a3020,0x3366250920323366,0x37336625202c3337\n"
-".quad 0x2e786574090a3b32,0x33662e34762e6433,0x257b203233662e32,0x3366252c34373366\n"
-".quad 0x36373366252c3537,0x2c7d37373366252c,0x75706e497865745b,0x39363366257b2c74\n"
-".quad 0x252c30373366252c,0x3366252c31373366,0x6d090a3b5d7d3337,0x09203233662e766f\n"
-".quad 0x25202c3837336625,0x2e090a3b34373366,0x3509303209636f6c,0x766f6d090a300939\n"
-".quad 0x662509203233662e,0x326625202c393733,0x766f6d090a3b3735,0x662509203233662e\n"
-".quad 0x326625202c303833,0x766f6d090a3b3038,0x662509203233662e,0x336625202c313833\n"
-".quad 0x766f6d090a3b3834,0x662509203233662e,0x306630202c323833,0x3b30303030303030\n"
-".quad 0x30202f2f09202020,0x33662e766f6d090a,0x3338336625092032,0x3b3238336625202c\n"
-".quad 0x64332e786574090a,0x2e3233662e34762e,0x3366257b20323366,0x35383366252c3438\n"
-".quad 0x252c36383366252c,0x745b2c7d37383366,0x2c7475706e497865,0x252c39373366257b\n"
-".quad 0x3366252c30383366,0x33383366252c3138,0x766f6d090a3b5d7d,0x662509203233662e\n"
-".quad 0x336625202c383833,0x6f6c2e090a3b3438,0x0931360930320963,0x662e6c756d090a30\n"
-".quad 0x3833662509203233,0x3335326625202c39,0x3b3838336625202c,0x33662e64616d090a\n"
-".quad 0x3039336625092032,0x2c3433336625202c,0x202c383733662520,0x090a3b3938336625\n"
-".quad 0x203233662e6c756d,0x202c313933662509,0x25202c3637326625,0x6d090a3b30393366\n"
-".quad 0x09203233662e6c75,0x25202c3239336625,0x6625202c33353266,0x616d090a3b383633\n"
-".quad 0x2509203233662e64,0x6625202c33393366,0x336625202c343333,0x39336625202c3835\n"
-".quad 0x2e64616d090a3b32,0x3366250920323366,0x33336625202c3439,0x3339336625202c35\n"
-".quad 0x3b3139336625202c,0x3209636f6c2e090a,0x090a300932360930,0x203233662e766f6d\n"
-".quad 0x202c353933662509,0x090a3b3634336625,0x203233662e766f6d,0x202c363933662509\n"
-".quad 0x090a3b3734336625,0x203233662e766f6d,0x202c373933662509,0x090a3b3330336625\n"
-".quad 0x203233662e766f6d,0x202c383933662509,0x3030303030306630,0x2f092020203b3030\n"
-".quad 0x766f6d090a30202f,0x662509203233662e,0x336625202c393933,0x786574090a3b3839\n"
-".quad 0x662e34762e64332e,0x7b203233662e3233,0x66252c3030346625,0x303466252c313034\n"
-".quad 0x7d33303466252c32,0x706e497865745b2c,0x393366257b2c7475,0x2c36393366252c35\n"
-".quad 0x66252c3739336625,0x090a3b5d7d393933,0x203233662e766f6d,0x202c343034662509\n"
-".quad 0x090a3b3030346625,0x09303209636f6c2e,0x6f6d090a30093336,0x2509203233662e76\n"
-".quad 0x6625202c35303466,0x6f6d090a3b373532,0x2509203233662e76,0x6625202c36303466\n"
-".quad 0x6f6d090a3b373433,0x2509203233662e76,0x6625202c37303466,0x6f6d090a3b333033\n"
-".quad 0x2509203233662e76,0x6630202c38303466,0x3030303030303030,0x202f2f092020203b\n"
-".quad 0x662e766f6d090a30,0x3034662509203233,0x3830346625202c39,0x332e786574090a3b\n"
-".quad 0x3233662e34762e64,0x66257b203233662e,0x313466252c303134,0x2c32313466252c31\n"
-".quad 0x5b2c7d3331346625,0x7475706e49786574,0x2c35303466257b2c,0x66252c3630346625\n"
-".quad 0x303466252c373034,0x6f6d090a3b5d7d39,0x2509203233662e76,0x6625202c34313466\n"
-".quad 0x6c2e090a3b303134,0x353609303209636f,0x2e766f6d090a3009,0x3466250920323366\n"
-".quad 0x34336625202c3531,0x2e766f6d090a3b36,0x3466250920323366,0x38326625202c3631\n"
-".quad 0x2e766f6d090a3b30,0x3466250920323366,0x30336625202c3731,0x2e766f6d090a3b33\n"
-".quad 0x3466250920323366,0x30306630202c3831,0x203b303030303030,0x0a30202f2f092020\n"
-".quad 0x3233662e766f6d09,0x2c39313466250920,0x0a3b383134662520,0x2e64332e78657409\n"
-".quad 0x662e3233662e3476,0x323466257b203233,0x2c31323466252c30,0x66252c3232346625\n"
-".quad 0x65745b2c7d333234,0x7b2c7475706e4978,0x66252c3531346625,0x313466252c363134\n"
-".quad 0x7d39313466252c37,0x2e766f6d090a3b5d,0x3466250920323366,0x32346625202c3432\n"
-".quad 0x636f6c2e090a3b30,0x3009363609303209,0x33662e766f6d090a,0x3532346625092032\n"
-".quad 0x3b3735326625202c,0x33662e766f6d090a,0x3632346625092032,0x3b3038326625202c\n"
-".quad 0x33662e766f6d090a,0x3732346625092032,0x3b3330336625202c,0x33662e766f6d090a\n"
-".quad 0x3832346625092032,0x303030306630202c,0x2020203b30303030,0x6d090a30202f2f09\n"
-".quad 0x09203233662e766f,0x25202c3932346625,0x74090a3b38323466,0x34762e64332e7865\n"
-".quad 0x3233662e3233662e,0x2c30333466257b20,0x66252c3133346625,0x333466252c323334\n"
-".quad 0x497865745b2c7d33,0x66257b2c7475706e,0x323466252c353234,0x2c37323466252c36\n"
-".quad 0x3b5d7d3932346625,0x33662e766f6d090a,0x3433346625092032,0x3b3033346625202c\n"
-".quad 0x3209636f6c2e090a,0x090a300938360930,0x203233662e6c756d,0x202c353334662509\n"
-".quad 0x25202c3335326625,0x6d090a3b34333466,0x09203233662e6461,0x25202c3633346625\n"
-".quad 0x6625202c34333366,0x346625202c343234,0x6c756d090a3b3533,0x662509203233662e\n"
-".quad 0x326625202c373334,0x33346625202c3637,0x2e6c756d090a3b36,0x3466250920323366\n"
-".quad 0x35326625202c3833,0x3431346625202c33,0x662e64616d090a3b,0x3334662509203233\n"
-".quad 0x3433336625202c39,0x2c3430346625202c,0x0a3b383334662520,0x3233662e64616d09\n"
-".quad 0x2c30343466250920,0x202c353333662520,0x25202c3933346625,0x2e090a3b37333466\n"
-".quad 0x3409313209636f6c,0x6c756d090a300936,0x662509203233662e,0x326625202c313434\n"
-".quad 0x34346625202c3939,0x2e64616d090a3b30,0x3466250920323366,0x33336625202c3234\n"
-".quad 0x3439336625202c36,0x3b3134346625202c,0x6f6c672e7473090a,0x203233662e6c6162\n"
-".quad 0x302b376472255b09,0x3234346625202c5d,0x09636f6c2e090a3b,0x0a30093734093132\n"
-".quad 0x696e752e61726209,0x5f305f744c240920,0x744c240a3b343135,0x3a383335315f305f\n"
-".quad 0x3209636f6c2e090a,0x090a300930350931,0x203233662e766f6d,0x202c333434662509\n"
-".quad 0x6f6d090a3b326625,0x2509203233662e76,0x6625202c34343466,0x2e766f6d090a3b34\n"
-".quad 0x3466250920323366,0x3b366625202c3534,0x33662e766f6d090a,0x3634346625092032\n"
+".quad 0x662e090a22682e65,0x2209363109656c69,0x632e7970636d656d,0x6c69662e090a2275\n"
+".quad 0x7563220937310965,0x4432786554636962,0x662e090a2275632e,0x2209383109656c69\n"
+".quad 0x5f656e696c707362,0x632e6c656e72656b,0x6c69662e090a2275,0x7563220939310965\n"
+".quad 0x4432786554636962,0x2e6c656e72656b5f,0x69662e090a227563,0x692209303209656c\n"
+".quad 0x756332707265746e,0x090a2275632e6164,0x313209656c69662e,0x6c2f7273752f2209\n"
+".quad 0x6475632f6c61636f,0x64756c636e692f61,0x6e6f6d6d6f632f65,0x6f6974636e75665f\n"
+".quad 0x2e090a22682e736e,0x09323209656c6966,0x6f6c2f7273752f22,0x616475632f6c6163\n"
+".quad 0x6564756c636e692f,0x75665f6874616d2f,0x2e736e6f6974636e,0x6c69662e090a2268\n"
+".quad 0x752f220933320965,0x6c61636f6c2f7273,0x6e692f616475632f,0x616d2f6564756c63\n"
+".quad 0x74736e6f635f6874,0x0a22682e73746e61,0x3209656c69662e09,0x2f7273752f220934\n"
+".quad 0x75632f6c61636f6c,0x756c636e692f6164,0x63697665642f6564,0x6974636e75665f65\n"
+".quad 0x090a22682e736e6f,0x353209656c69662e,0x6c2f7273752f2209,0x6475632f6c61636f\n"
+".quad 0x64756c636e692f61,0x5f31315f6d732f65,0x665f63696d6f7461,0x736e6f6974636e75\n"
+".quad 0x69662e090a22682e,0x2f2209363209656c,0x61636f6c2f727375,0x692f616475632f6c\n"
+".quad 0x732f6564756c636e,0x6f74615f32315f6d,0x636e75665f63696d,0x22682e736e6f6974\n"
+".quad 0x09656c69662e090a,0x7273752f22093732,0x632f6c61636f6c2f,0x6c636e692f616475\n"
+".quad 0x315f6d732f656475,0x656c62756f645f33,0x6f6974636e75665f,0x2e090a22682e736e\n"
+".quad 0x09383209656c6966,0x6f6c2f7273752f22,0x616475632f6c6163,0x6564756c636e692f\n"
+".quad 0x615f30325f6d732f,0x75665f63696d6f74,0x2e736e6f6974636e,0x6c69662e090a2268\n"
+".quad 0x752f220939320965,0x6c61636f6c2f7273,0x6e692f616475632f,0x6d732f6564756c63\n"
+".quad 0x72746e695f30325f,0x682e736369736e69,0x656c69662e090a22,0x73752f2209303309\n"
+".quad 0x2f6c61636f6c2f72,0x636e692f61647563,0x7275732f6564756c,0x6e75665f65636166\n"
+".quad 0x682e736e6f697463,0x656c69662e090a22,0x73752f2209313309,0x2f6c61636f6c2f72\n"
+".quad 0x636e692f61647563,0x7865742f6564756c,0x7465665f65727574,0x74636e75665f6863\n"
+".quad 0x0a22682e736e6f69,0x3309656c69662e09,0x2f7273752f220932,0x75632f6c61636f6c\n"
+".quad 0x756c636e692f6164,0x5f6874616d2f6564,0x6e6f6974636e7566,0x74705f6c62645f73\n"
+".quad 0x090a0a22682e3178,0x36752e207865742e,0x706e497865742034,0x652e090a0a3b7475\n"
+".quad 0x395a5f207972746e,0x6554707265746e69,0x74616f6c66365078,0x2820696969665032\n"
+".quad 0x617261702e09090a,0x5f203436752e206d,0x726170616475635f,0x746e69395a5f5f6d\n"
+".quad 0x3650786554707265,0x66503274616f6c66,0x6e696f705f696969,0x702e09090a2c7374\n"
+".quad 0x36752e206d617261,0x616475635f5f2034,0x395a5f5f6d726170,0x6554707265746e69\n"
+".quad 0x74616f6c66365078,0x6f5f696969665032,0x090a2c7475707475,0x206d617261702e09\n"
+".quad 0x635f5f203233732e,0x5f6d726170616475,0x7265746e69395a5f,0x6c66365078655470\n"
+".quad 0x696966503274616f,0x74757074756f5f69,0x0a2c6c656d756e5f,0x6d617261702e0909\n"
+".quad 0x5f5f203233732e20,0x6d72617061647563,0x65746e69395a5f5f,0x6636507865547072\n"
+".quad 0x6966503274616f6c,0x757074756f5f6969,0x2c68746469775f74,0x617261702e09090a\n"
+".quad 0x5f203233732e206d,0x726170616475635f,0x746e69395a5f5f6d,0x3650786554707265\n"
+".quad 0x66503274616f6c66,0x74706f5f5f696969,0x0a7b090a296e6f69,0x752e206765722e09\n"
+".quad 0x31323c7225203233,0x6765722e090a3b3e,0x7225203436752e20,0x2e090a3b3e393c64\n"
+".quad 0x3233662e20676572,0x3e3139323c662520,0x206765722e090a3b,0x702520646572702e\n"
+".quad 0x6c2e090a3b3e373c,0x333209303209636f,0x6257444c240a3009,0x395a5f5f6e696765\n"
+".quad 0x6554707265746e69,0x74616f6c66365078,0x0a3a696969665032,0x3233752e74766309\n"
+".quad 0x722509203631752e,0x6469746e25202c31,0x747663090a3b782e,0x3631752e3233752e\n"
+".quad 0x25202c3272250920,0x3b782e6469617463,0x2e34326c756d090a,0x09203233752e6f6c\n"
+".quad 0x317225202c337225,0x090a3b327225202c,0x2e3233752e747663,0x3472250920363175\n"
+".quad 0x2e6469746e25202c,0x2e747663090a3b79,0x203631752e323375,0x6325202c35722509\n"
+".quad 0x0a3b792e64696174,0x6c2e34326c756d09,0x2509203233752e6f,0x2c347225202c3672\n"
+".quad 0x63090a3b35722520,0x752e3233752e7476,0x2c37722509203631,0x3b782e6469742520\n"
+".quad 0x33752e646461090a,0x202c387225092032,0x337225202c377225,0x752e747663090a3b\n"
+".quad 0x09203631752e3233,0x697425202c397225,0x6461090a3b792e64,0x2509203233752e64\n"
+".quad 0x397225202c303172,0x090a3b367225202c,0x6d617261702e646c,0x722509203233732e\n"
+".quad 0x635f5f5b202c3131,0x5f6d726170616475,0x7265746e69395a5f,0x6c66365078655470\n"
+".quad 0x696966503274616f,0x74757074756f5f69,0x3b5d68746469775f,0x2e34326c756d090a\n"
+".quad 0x09203233752e6f6c,0x7225202c32317225,0x31317225202c3031,0x752e646461090a3b\n"
+".quad 0x3331722509203233,0x25202c387225202c,0x646c090a3b323172,0x732e6d617261702e\n"
+".quad 0x3431722509203233,0x6475635f5f5b202c,0x5a5f5f6d72617061,0x54707265746e6939\n"
+".quad 0x616f6c6636507865,0x5f69696966503274,0x6e5f74757074756f,0x090a3b5d6c656d75\n"
+".quad 0x2e656c2e70746573,0x3170250920323373,0x202c34317225202c,0x40090a3b33317225\n"
+".quad 0x2061726220317025,0x355f305f744c2409,0x6f6c2e090a3b3431,0x0930330930320963\n"
+".quad 0x732e747663090a30,0x09203233732e3436,0x7225202c31647225,0x2e646c090a3b3331\n"
+".quad 0x36752e6d61726170,0x2c32647225092034,0x616475635f5f5b20,0x395a5f5f6d726170\n"
+".quad 0x6554707265746e69,0x74616f6c66365078,0x705f696969665032,0x0a3b5d73746e696f\n"
+".quad 0x6469772e6c756d09,0x2509203233732e65,0x317225202c336472,0x61090a3b38202c33\n"
+".quad 0x09203436752e6464,0x7225202c34647225,0x33647225202c3264,0x61702e646c090a3b\n"
+".quad 0x203436752e6d6172,0x5b202c3564722509,0x6170616475635f5f,0x6e69395a5f5f6d72\n"
+".quad 0x5078655470726574,0x503274616f6c6636,0x74756f5f69696966,0x6d090a3b5d747570\n"
+".quad 0x2e656469772e6c75,0x6472250920323373,0x2c33317225202c36,0x646461090a3b3420\n"
+".quad 0x722509203436752e,0x35647225202c3764,0x0a3b36647225202c,0x626f6c672e646c09\n"
+".quad 0x33662e32762e6c61,0x2c3166257b092032,0x255b202c7d326625,0x0a3b5d302b346472\n"
+".quad 0x3233662e766f6d09,0x25202c3366250920,0x766f6d090a3b3166,0x662509203233662e\n"
+".quad 0x0a3b326625202c34,0x617261702e646c09,0x2509203233732e6d,0x5f5f5b202c353172\n"
+".quad 0x6d72617061647563,0x65746e69395a5f5f,0x6636507865547072,0x6966503274616f6c\n"
+".quad 0x6974706f5f5f6969,0x6f6d090a3b5d6e6f,0x2509203233752e76,0x0a3b30202c363172\n"
+".quad 0x71652e7074657309,0x702509203233732e,0x2c35317225202c32,0x090a3b3631722520\n"
+".quad 0x6172622032702540,0x5f305f744c240920,0x6f6d090a3b383532,0x2509203233752e76\n"
+".quad 0x0a3b31202c373172,0x617261702e646c09,0x2509203233732e6d,0x5f5f5b202c353172\n"
+".quad 0x6d72617061647563,0x65746e69395a5f5f,0x6636507865547072,0x6966503274616f6c\n"
+".quad 0x6974706f5f5f6969,0x6573090a3b5d6e6f,0x33732e71652e7074,0x202c337025092032\n"
+".quad 0x7225202c35317225,0x702540090a3b3731,0x2409206172622033,0x3037375f305f744c\n"
+".quad 0x752e766f6d090a3b,0x3831722509203233,0x646c090a3b32202c,0x732e6d617261702e\n"
+".quad 0x3531722509203233,0x6475635f5f5b202c,0x5a5f5f6d72617061,0x54707265746e6939\n"
+".quad 0x616f6c6636507865,0x5f69696966503274,0x5d6e6f6974706f5f,0x2e70746573090a3b\n"
+".quad 0x09203233732e7165,0x317225202c347025,0x3b38317225202c35,0x622034702540090a\n"
+".quad 0x5f744c2409206172,0x0a3b363230315f30,0x3233752e766f6d09,0x202c393172250920\n"
+".quad 0x702e646c090a3b33,0x3233732e6d617261,0x202c353172250920,0x70616475635f5f5b\n"
+".quad 0x69395a5f5f6d7261,0x786554707265746e,0x3274616f6c663650,0x6f5f5f6969696650\n"
+".quad 0x0a3b5d6e6f697470,0x71652e7074657309,0x702509203233732e,0x2c35317225202c35\n"
+".quad 0x090a3b3931722520,0x6172622035702540,0x5f305f744c240920,0x62090a3b32383231\n"
+".quad 0x0920696e752e6172,0x35315f305f744c24,0x5f744c240a3b3833,0x090a3a3835325f30\n"
+".quad 0x09303209636f6c2e,0x6f6d090a30093233,0x2509203233662e76,0x3b336625202c3566\n"
+".quad 0x33662e766f6d090a,0x202c366625092032,0x6f6d090a3b346625,0x2509203233662e76\n"
+".quad 0x30306630202c3766,0x203b303030303030,0x202f2f0920202020,0x662e766f6d090a30\n"
+".quad 0x2c38662509203233,0x6d090a3b37662520,0x09203233662e766f,0x306630202c396625\n"
+".quad 0x3b30303030303030,0x2f2f092020202020,0x2e766f6d090a3020,0x3166250920323366\n"
+".quad 0x0a3b396625202c30,0x2e64322e78657409,0x662e3233662e3476,0x313166257b203233\n"
+".quad 0x66252c323166252c,0x7d343166252c3331,0x706e497865745b2c,0x2c3566257b2c7475\n"
+".quad 0x2c3866252c366625,0x0a3b5d7d30316625,0x3233662e766f6d09,0x202c353166250920\n"
+".quad 0x73090a3b31316625,0x6c61626f6c672e74,0x255b09203233662e,0x202c5d302b376472\n"
+".quad 0x2e090a3b35316625,0x3309303209636f6c,0x617262090a300933,0x4c240920696e752e\n"
+".quad 0x3b3431355f305f74,0x375f305f744c240a,0x6f6c2e090a3a3037,0x0935330930320963\n"
+".quad 0x662e766f6d090a30,0x3631662509203233,0x090a3b336625202c,0x203233662e766f6d\n"
+".quad 0x25202c3731662509,0x766f6d090a3b3466,0x662509203233662e,0x30306630202c3831\n"
+".quad 0x203b303030303030,0x30202f2f09202020,0x33662e766f6d090a,0x2c39316625092032\n"
+".quad 0x090a3b3831662520,0x203233662e766f6d,0x30202c3032662509,0x3030303030303066\n"
+".quad 0x2f09202020203b30,0x766f6d090a30202f,0x662509203233662e,0x30326625202c3132\n"
+".quad 0x322e786574090a3b,0x3233662e34762e64,0x66257b203233662e,0x2c333266252c3232\n"
+".quad 0x3266252c34326625,0x497865745b2c7d35,0x66257b2c7475706e,0x2c373166252c3631\n"
+".quad 0x3266252c39316625,0x6f6d090a3b5d7d31,0x2509203233662e76,0x326625202c363266\n"
+".quad 0x672e7473090a3b32,0x33662e6c61626f6c,0x376472255b092032,0x326625202c5d302b\n"
+".quad 0x636f6c2e090a3b36,0x3009363309303209,0x6e752e617262090a,0x305f744c24092069\n"
+".quad 0x4c240a3b3431355f,0x363230315f305f74,0x09636f6c2e090a3a,0x0a30093235093931\n"
+".quad 0x3233662e766f6d09,0x202c373266250920,0x3030303066626630,0x09202020203b3030\n"
+".quad 0x0a352e302d202f2f,0x3233662e64646109,0x202c383266250920,0x326625202c316625\n"
+".quad 0x2e747663090a3b37,0x2e3233662e696d72,0x3266250920323366,0x3b38326625202c39\n"
+".quad 0x33662e627573090a,0x2c30336625092032,0x25202c3832662520,0x756d090a3b393266\n"
+".quad 0x2509203233662e6c,0x336625202c313366,0x3b30336625202c30,0x33662e766f6d090a\n"
+".quad 0x2c32336625092032,0x3030386633663020,0x202020203b303030,0x73090a31202f2f09\n"
+".quad 0x09203233662e6275,0x6625202c33336625,0x30336625202c3233,0x662e766f6d090a3b\n"
+".quad 0x3433662509203233,0x613265336630202c,0x2020203b62616161,0x312e30202f2f0920\n"
+".quad 0x6d090a3736363636,0x09203233662e6c75,0x6625202c35336625,0x34336625202c3133\n"
+".quad 0x662e6c756d090a3b,0x3633662509203233,0x202c33336625202c,0x6d090a3b33336625\n"
+".quad 0x09203233662e766f,0x6630202c37336625,0x3030303030303034,0x2f2f09202020203b\n"
+".quad 0x2e627573090a3220,0x3366250920323366,0x2c37336625202c38,0x090a3b3333662520\n"
+".quad 0x203233662e6c756d,0x25202c3933662509,0x336625202c353366,0x2e766f6d090a3b30\n"
+".quad 0x3466250920323366,0x3066336630202c30,0x20203b3030303030,0x2e30202f2f092020\n"
+".quad 0x662e6c756d090a35,0x3134662509203233,0x202c36336625202c,0x6d090a3b30346625\n"
+".quad 0x09203233662e6c75,0x6625202c32346625,0x38336625202c3134,0x662e766f6d090a3b\n"
+".quad 0x3334662509203233,0x613266336630202c,0x2020203b62616161,0x362e30202f2f0920\n"
+".quad 0x73090a3736363636,0x09203233662e6275,0x6625202c34346625,0x32346625202c3334\n"
+".quad 0x662e646461090a3b,0x3534662509203233,0x202c34346625202c,0x64090a3b39336625\n"
+".quad 0x2e6c6c75662e7669,0x3466250920323366,0x2c39336625202c36,0x090a3b3534662520\n"
+".quad 0x203233662e766f6d,0x30202c3734662509,0x3030303063663366,0x2f09202020203b30\n"
+".quad 0x61090a352e31202f,0x09203233662e6464,0x6625202c38346625,0x37346625202c3634\n"
+".quad 0x662e646461090a3b,0x3934662509203233,0x202c39326625202c,0x6d090a3b38346625\n"
+".quad 0x09203233662e766f,0x6630202c30356625,0x3030303030306662,0x2f2f09202020203b\n"
+".quad 0x61090a352e302d20,0x09203233662e6464,0x6625202c31356625,0x3b30356625202c32\n"
+".quad 0x6d722e747663090a,0x33662e3233662e69,0x2c32356625092032,0x090a3b3135662520\n"
+".quad 0x203233662e627573,0x25202c3335662509,0x356625202c313566,0x2e6c756d090a3b32\n"
+".quad 0x3566250920323366,0x2c33356625202c34,0x090a3b3335662520,0x203233662e766f6d\n"
+".quad 0x30202c3535662509,0x3030303038663366,0x2f09202020203b30,0x627573090a31202f\n"
+".quad 0x662509203233662e,0x35356625202c3635,0x0a3b33356625202c,0x3233662e766f6d09\n"
+".quad 0x202c373566250920,0x6161613265336630,0x09202020203b6261,0x3636312e30202f2f\n"
+".quad 0x6c756d090a373636,0x662509203233662e,0x34356625202c3835,0x0a3b37356625202c\n"
+".quad 0x3233662e6c756d09,0x202c393566250920,0x6625202c36356625,0x766f6d090a3b3635\n"
+".quad 0x662509203233662e,0x30346630202c3036,0x203b303030303030,0x32202f2f09202020\n"
+".quad 0x33662e627573090a,0x2c31366625092032,0x25202c3036662520,0x756d090a3b363566\n"
+".quad 0x2509203233662e6c,0x356625202c323666,0x3b33356625202c38,0x33662e766f6d090a\n"
+".quad 0x2c33366625092032,0x3030306633663020,0x202020203b303030,0x0a352e30202f2f09\n"
+".quad 0x3233662e6c756d09,0x202c343666250920,0x6625202c39356625,0x6c756d090a3b3336\n"
+".quad 0x662509203233662e,0x34366625202c3536,0x0a3b31366625202c,0x3233662e766f6d09\n"
+".quad 0x202c363666250920,0x6161613266336630,0x09202020203b6261,0x3636362e30202f2f\n"
+".quad 0x627573090a373636,0x662509203233662e,0x36366625202c3736,0x0a3b35366625202c\n"
+".quad 0x3233662e64646109,0x202c383666250920,0x6625202c37366625,0x766964090a3b3236\n"
+".quad 0x33662e6c6c75662e,0x2c39366625092032,0x25202c3236662520,0x6f6d090a3b383666\n"
+".quad 0x2509203233662e76,0x336630202c303766,0x3b30303030306366,0x202f2f0920202020\n"
+".quad 0x646461090a352e31,0x662509203233662e,0x39366625202c3137,0x0a3b30376625202c\n"
+".quad 0x3233662e64646109,0x202c323766250920,0x6625202c32356625,0x6f6c2e090a3b3137\n"
+".quad 0x0935350939310963,0x662e766f6d090a30,0x3337662509203233,0x303030346630202c\n"
+".quad 0x2020203b30303030,0x090a32202f2f0920,0x203233662e627573,0x25202c3437662509\n"
+".quad 0x336625202c333766,0x2e766f6d090a3b30,0x3766250920323366,0x3030346630202c35\n"
+".quad 0x20203b3030303030,0x0a32202f2f092020,0x3233662e62757309,0x202c363766250920\n"
+".quad 0x6625202c35376625,0x766f6d090a3b3335,0x662509203233662e,0x66336630202c3737\n"
+".quad 0x203b303030303030,0x30202f2f09202020,0x2e6c756d090a352e,0x3766250920323366\n"
+".quad 0x2c31336625202c38,0x090a3b3737662520,0x203233662e766f6d,0x30202c3937662509\n"
+".quad 0x3030303030663366,0x2f09202020203b30,0x6d090a352e30202f,0x09203233662e6c75\n"
+".quad 0x6625202c30386625,0x39376625202c3435,0x662e6c756d090a3b,0x3138662509203233\n"
+".quad 0x202c38376625202c,0x6d090a3b34376625,0x09203233662e766f,0x6630202c32386625\n"
+".quad 0x6261616161326533,0x2f2f09202020203b,0x36363636312e3020,0x662e6c756d090a37\n"
+".quad 0x3338662509203233,0x202c36336625202c,0x6d090a3b32386625,0x09203233662e6c75\n"
+".quad 0x6625202c34386625,0x36376625202c3038,0x662e766f6d090a3b,0x3538662509203233\n"
+".quad 0x613265336630202c,0x2020203b62616161,0x312e30202f2f0920,0x6d090a3736363636\n"
+".quad 0x09203233662e6c75,0x6625202c36386625,0x35386625202c3935,0x662e766f6d090a3b\n"
+".quad 0x3738662509203233,0x613266336630202c,0x2020203b62616161,0x362e30202f2f0920\n"
+".quad 0x73090a3736363636,0x09203233662e6275,0x6625202c38386625,0x31386625202c3738\n"
+".quad 0x662e6c756d090a3b,0x3938662509203233,0x202c33386625202c,0x6d090a3b33336625\n"
+".quad 0x09203233662e766f,0x6630202c30396625,0x6261616161326633,0x2f2f09202020203b\n"
+".quad 0x36363636362e3020,0x662e627573090a37,0x3139662509203233,0x202c30396625202c\n"
+".quad 0x6d090a3b34386625,0x09203233662e6c75,0x6625202c32396625,0x36356625202c3638\n"
+".quad 0x662e646461090a3b,0x3339662509203233,0x202c39386625202c,0x61090a3b38386625\n"
+".quad 0x09203233662e6464,0x6625202c34396625,0x31396625202c3239,0x662e766964090a3b\n"
+".quad 0x203233662e6c6c75,0x25202c3539662509,0x396625202c383866,0x2e766964090a3b33\n"
+".quad 0x3233662e6c6c7566,0x202c363966250920,0x6625202c31396625,0x766f6d090a3b3439\n"
+".quad 0x662509203233662e,0x66626630202c3739,0x203b303030303030,0x2d202f2f09202020\n"
+".quad 0x646461090a352e30,0x662509203233662e,0x35396625202c3839,0x0a3b37396625202c\n"
+".quad 0x3233662e766f6d09,0x202c393966250920,0x3030303066626630,0x09202020203b3030\n"
+".quad 0x0a352e302d202f2f,0x3233662e64646109,0x2c30303166250920,0x25202c3639662520\n"
+".quad 0x6461090a3b393966,0x2509203233662e64,0x6625202c31303166,0x39326625202c3839\n"
+".quad 0x662e646461090a3b,0x3031662509203233,0x3030316625202c32,0x0a3b32356625202c\n"
+".quad 0x3233662e766f6d09,0x2c33303166250920,0x0a3b313031662520,0x3233662e766f6d09\n"
+".quad 0x2c34303166250920,0x0a3b323031662520,0x3233662e766f6d09,0x2c35303166250920\n"
+".quad 0x3030303030663020,0x092020203b303030,0x6f6d090a30202f2f,0x2509203233662e76\n"
+".quad 0x6625202c36303166,0x6f6d090a3b353031,0x2509203233662e76,0x6630202c37303166\n"
+".quad 0x3030303030303030,0x202f2f092020203b,0x662e766f6d090a30,0x3031662509203233\n"
+".quad 0x3730316625202c38,0x322e786574090a3b,0x3233662e34762e64,0x66257b203233662e\n"
+".quad 0x313166252c393031,0x2c31313166252c30,0x5b2c7d3231316625,0x7475706e49786574\n"
+".quad 0x2c33303166257b2c,0x66252c3430316625,0x303166252c363031,0x6f6d090a3b5d7d38\n"
+".quad 0x2509203233662e76,0x6625202c33313166,0x6c2e090a3b393031,0x363509393109636f\n"
+".quad 0x2e766f6d090a3009,0x3166250920323366,0x39346625202c3431,0x662e766f6d090a3b\n"
+".quad 0x3131662509203233,0x3230316625202c35,0x662e766f6d090a3b,0x3131662509203233\n"
+".quad 0x3030306630202c36,0x20203b3030303030,0x090a30202f2f0920,0x203233662e766f6d\n"
+".quad 0x202c373131662509,0x090a3b3631316625,0x203233662e766f6d,0x202c383131662509\n"
+".quad 0x3030303030306630,0x2f092020203b3030,0x766f6d090a30202f,0x662509203233662e\n"
+".quad 0x316625202c393131,0x786574090a3b3831,0x662e34762e64322e,0x7b203233662e3233\n"
+".quad 0x66252c3032316625,0x323166252c313231,0x7d33323166252c32,0x706e497865745b2c\n"
+".quad 0x313166257b2c7475,0x2c35313166252c34,0x66252c3731316625,0x090a3b5d7d393131\n"
+".quad 0x203233662e766f6d,0x202c343231662509,0x090a3b3032316625,0x09393109636f6c2e\n"
+".quad 0x6f6d090a30093735,0x2509203233662e76,0x6625202c35323166,0x6f6d090a3b313031\n"
+".quad 0x2509203233662e76,0x6625202c36323166,0x766f6d090a3b3237,0x662509203233662e\n"
+".quad 0x306630202c373231,0x3b30303030303030,0x30202f2f09202020,0x33662e766f6d090a\n"
+".quad 0x3832316625092032,0x3b3732316625202c,0x33662e766f6d090a,0x3932316625092032\n"
 ".quad 0x303030306630202c,0x2020203b30303030,0x6d090a30202f2f09,0x09203233662e766f\n"
-".quad 0x25202c3734346625,0x74090a3b36343466,0x34762e64332e7865,0x3233662e3233662e\n"
-".quad 0x2c38343466257b20,0x66252c3934346625,0x353466252c303534,0x497865745b2c7d31\n"
-".quad 0x66257b2c7475706e,0x343466252c333434,0x2c35343466252c34,0x3b5d7d3734346625\n"
-".quad 0x33662e766f6d090a,0x3235346625092032,0x3b3834346625202c,0x6f6c672e7473090a\n"
-".quad 0x203233662e6c6162,0x302b376472255b09,0x3235346625202c5d,0x5f305f744c240a3b\n"
-".quad 0x744c240a3a343135,0x3a343730335f305f,0x3209636f6c2e090a,0x090a300937350931\n"
-".quad 0x4c240a3b74697865,0x5a5f5f646e655744,0x54707265746e6939,0x616f6c6636507865\n"
-".quad 0x3a69696966503374,0x5f202f2f207d090a,0x707265746e69395a,0x6f6c663650786554\n"
-".quad 0x6969696650337461,0x4801000002000a0a,0x0000000ea8000000,0x0000000000000000\n"
-".quad 0x0a00010002000000,0x0e00000038000000,0x0000000015000000,0x0000000000000000\n"
-".quad 0x7265746e69000000,0x632e616475633370,0x02464c457f000075,0x0000000002330101\n"
-".quad 0x0100be0002000000,0x0000000000000000,0x0000000e00000000,0x0000000040000000\n"
-".quad 0x40000a010a000000,0x0900400003003800,0x0000000000000100,0x0000000000000000\n"
+".quad 0x25202c3033316625,0x74090a3b39323166,0x34762e64322e7865,0x3233662e3233662e\n"
+".quad 0x2c31333166257b20,0x66252c3233316625,0x333166252c333331,0x497865745b2c7d34\n"
+".quad 0x66257b2c7475706e,0x323166252c353231,0x2c38323166252c36,0x3b5d7d3033316625\n"
+".quad 0x33662e766f6d090a,0x3533316625092032,0x3b3133316625202c,0x3109636f6c2e090a\n"
+".quad 0x090a300938350939,0x203233662e766f6d,0x202c363331662509,0x6d090a3b39346625\n"
+".quad 0x09203233662e766f,0x25202c3733316625,0x6f6d090a3b323766,0x2509203233662e76\n"
+".quad 0x6630202c38333166,0x3030303030303030,0x202f2f092020203b,0x662e766f6d090a30\n"
+".quad 0x3331662509203233,0x3833316625202c39,0x662e766f6d090a3b,0x3431662509203233\n"
+".quad 0x3030306630202c30,0x20203b3030303030,0x090a30202f2f0920,0x203233662e766f6d\n"
+".quad 0x202c313431662509,0x090a3b3034316625,0x762e64322e786574,0x33662e3233662e34\n"
+".quad 0x32343166257b2032,0x252c33343166252c,0x3166252c34343166,0x7865745b2c7d3534\n"
+".quad 0x257b2c7475706e49,0x3166252c36333166,0x39333166252c3733,0x5d7d31343166252c\n"
+".quad 0x662e766f6d090a3b,0x3431662509203233,0x3234316625202c36,0x09636f6c2e090a3b\n"
+".quad 0x0a30093536093931,0x3233662e6c756d09,0x2c37343166250920,0x25202c3836662520\n"
+".quad 0x6d090a3b36343166,0x09203233662e6461,0x25202c3834316625,0x316625202c343966\n"
+".quad 0x34316625202c3432,0x2e6c756d090a3b37,0x3166250920323366,0x35346625202c3934\n"
+".quad 0x3b3834316625202c,0x33662e6c756d090a,0x3035316625092032,0x202c38366625202c\n"
+".quad 0x090a3b3533316625,0x203233662e64616d,0x202c313531662509,0x6625202c34396625\n"
+".quad 0x316625202c333131,0x64616d090a3b3035,0x662509203233662e,0x396625202c323531\n"
+".quad 0x3135316625202c33,0x3b3934316625202c,0x3209636f6c2e090a,0x090a300938330930\n"
+".quad 0x61626f6c672e7473,0x5b09203233662e6c,0x2c5d302b37647225,0x0a3b323531662520\n"
+".quad 0x303209636f6c2e09,0x62090a3009393309,0x0920696e752e6172,0x31355f305f744c24\n"
+".quad 0x305f744c240a3b34,0x090a3a323832315f,0x09393109636f6c2e,0x6f6d090a30093235\n"
+".quad 0x2509203233662e76,0x6630202c33353166,0x3030303030306662,0x202f2f092020203b\n"
+".quad 0x6461090a352e302d,0x2509203233662e64,0x6625202c34353166,0x3335316625202c31\n"
+".quad 0x722e747663090a3b,0x662e3233662e696d,0x3531662509203233,0x3435316625202c35\n"
+".quad 0x662e627573090a3b,0x3531662509203233,0x3435316625202c36,0x3b3535316625202c\n"
+".quad 0x33662e6c756d090a,0x3735316625092032,0x2c3635316625202c,0x0a3b363531662520\n"
+".quad 0x3233662e766f6d09,0x2c38353166250920,0x3030386633663020,0x092020203b303030\n"
+".quad 0x7573090a31202f2f,0x2509203233662e62,0x6625202c39353166,0x316625202c383531\n"
+".quad 0x766f6d090a3b3635,0x662509203233662e,0x336630202c303631,0x3b62616161613265\n"
+".quad 0x30202f2f09202020,0x0a3736363636312e,0x3233662e6c756d09,0x2c31363166250920\n"
+".quad 0x202c373531662520,0x090a3b3036316625,0x203233662e6c756d,0x202c323631662509\n"
+".quad 0x25202c3935316625,0x6d090a3b39353166,0x09203233662e766f,0x30202c3336316625\n"
+".quad 0x3030303030303466,0x2f2f092020203b30,0x2e627573090a3220,0x3166250920323366\n"
+".quad 0x36316625202c3436,0x3935316625202c33,0x662e6c756d090a3b,0x3631662509203233\n"
+".quad 0x3136316625202c35,0x3b3635316625202c,0x33662e766f6d090a,0x3636316625092032\n"
+".quad 0x303066336630202c,0x2020203b30303030,0x0a352e30202f2f09,0x3233662e6c756d09\n"
+".quad 0x2c37363166250920,0x202c323631662520,0x090a3b3636316625,0x203233662e6c756d\n"
+".quad 0x202c383631662509,0x25202c3736316625,0x6d090a3b34363166,0x09203233662e766f\n"
+".quad 0x30202c3936316625,0x6161616132663366,0x2f2f092020203b62,0x36363636362e3020\n"
+".quad 0x662e627573090a37,0x3731662509203233,0x3936316625202c30,0x3b3836316625202c\n"
+".quad 0x33662e646461090a,0x3137316625092032,0x2c3037316625202c,0x0a3b353631662520\n"
+".quad 0x6c75662e76696409,0x2509203233662e6c,0x6625202c32373166,0x316625202c353631\n"
+".quad 0x766f6d090a3b3137,0x662509203233662e,0x336630202c333731,0x3b30303030306366\n"
+".quad 0x31202f2f09202020,0x2e646461090a352e,0x3166250920323366,0x37316625202c3437\n"
+".quad 0x3337316625202c32,0x662e646461090a3b,0x3731662509203233,0x3535316625202c35\n"
+".quad 0x3b3437316625202c,0x33662e766f6d090a,0x3637316625092032,0x303066626630202c\n"
+".quad 0x2020203b30303030,0x352e302d202f2f09,0x33662e646461090a,0x3737316625092032\n"
+".quad 0x25202c326625202c,0x63090a3b36373166,0x662e696d722e7476,0x09203233662e3233\n"
+".quad 0x25202c3837316625,0x73090a3b37373166,0x09203233662e6275,0x25202c3937316625\n"
+".quad 0x6625202c37373166,0x756d090a3b383731,0x2509203233662e6c,0x6625202c30383166\n"
+".quad 0x316625202c393731,0x766f6d090a3b3937,0x662509203233662e,0x336630202c313831\n"
+".quad 0x3b30303030303866,0x31202f2f09202020,0x33662e627573090a,0x3238316625092032\n"
+".quad 0x2c3138316625202c,0x0a3b393731662520,0x3233662e766f6d09,0x2c33383166250920\n"
+".quad 0x6161326533663020,0x092020203b626161,0x3636312e30202f2f,0x6c756d090a373636\n"
+".quad 0x662509203233662e,0x316625202c343831,0x38316625202c3038,0x2e6c756d090a3b33\n"
+".quad 0x3166250920323366,0x38316625202c3538,0x3238316625202c32,0x662e766f6d090a3b\n"
+".quad 0x3831662509203233,0x3030346630202c36,0x20203b3030303030,0x090a32202f2f0920\n"
+".quad 0x203233662e627573,0x202c373831662509,0x25202c3638316625,0x6d090a3b32383166\n"
+".quad 0x09203233662e6c75,0x25202c3838316625,0x6625202c34383166,0x6f6d090a3b393731\n"
+".quad 0x2509203233662e76,0x6630202c39383166,0x3030303030306633,0x202f2f092020203b\n"
+".quad 0x6c756d090a352e30,0x662509203233662e,0x316625202c303931,0x38316625202c3538\n"
+".quad 0x2e6c756d090a3b39,0x3166250920323366,0x39316625202c3139,0x3738316625202c30\n"
+".quad 0x662e766f6d090a3b,0x3931662509203233,0x3266336630202c32,0x20203b6261616161\n"
+".quad 0x362e30202f2f0920,0x73090a3736363636,0x09203233662e6275,0x25202c3339316625\n"
+".quad 0x6625202c32393166,0x6461090a3b313931,0x2509203233662e64,0x6625202c34393166\n"
+".quad 0x316625202c333931,0x766964090a3b3838,0x33662e6c6c75662e,0x3539316625092032\n"
+".quad 0x2c3838316625202c,0x0a3b343931662520,0x3233662e766f6d09,0x2c36393166250920\n"
+".quad 0x3030636633663020,0x092020203b303030,0x090a352e31202f2f,0x203233662e646461\n"
+".quad 0x202c373931662509,0x25202c3539316625,0x61090a3b36393166,0x09203233662e6464\n"
+".quad 0x25202c3839316625,0x6625202c38373166,0x6c2e090a3b373931,0x353509393109636f\n"
+".quad 0x2e766f6d090a3009,0x3166250920323366,0x30346630202c3939,0x203b303030303030\n"
+".quad 0x0a32202f2f092020,0x3233662e62757309,0x2c30303266250920,0x202c393931662520\n"
+".quad 0x090a3b3635316625,0x203233662e766f6d,0x202c313032662509,0x3030303030346630\n"
+".quad 0x2f092020203b3030,0x627573090a32202f,0x662509203233662e,0x326625202c323032\n"
+".quad 0x37316625202c3130,0x2e766f6d090a3b39,0x3266250920323366,0x66336630202c3330\n"
+".quad 0x203b303030303030,0x2e30202f2f092020,0x662e6c756d090a35,0x3032662509203233\n"
+".quad 0x3735316625202c34,0x3b3330326625202c,0x33662e766f6d090a,0x3530326625092032\n"
+".quad 0x303066336630202c,0x2020203b30303030,0x0a352e30202f2f09,0x3233662e6c756d09\n"
+".quad 0x2c36303266250920,0x202c303831662520,0x090a3b3530326625,0x203233662e6c756d\n"
+".quad 0x202c373032662509,0x25202c3430326625,0x6d090a3b30303266,0x09203233662e766f\n"
+".quad 0x30202c3830326625,0x6161616132653366,0x2f2f092020203b62,0x36363636312e3020\n"
+".quad 0x662e6c756d090a37,0x3032662509203233,0x3236316625202c39,0x3b3830326625202c\n"
+".quad 0x33662e6c756d090a,0x3031326625092032,0x2c3630326625202c,0x0a3b323032662520\n"
+".quad 0x3233662e766f6d09,0x2c31313266250920,0x6161326533663020,0x092020203b626161\n"
+".quad 0x3636312e30202f2f,0x6c756d090a373636,0x662509203233662e,0x316625202c323132\n"
+".quad 0x31326625202c3538,0x2e766f6d090a3b31,0x3266250920323366,0x66336630202c3331\n"
+".quad 0x203b626161616132,0x2e30202f2f092020,0x090a373636363636,0x203233662e627573\n"
+".quad 0x202c343132662509,0x25202c3331326625,0x6d090a3b37303266,0x09203233662e6c75\n"
+".quad 0x25202c3531326625,0x6625202c39303266,0x6f6d090a3b393531,0x2509203233662e76\n"
+".quad 0x6630202c36313266,0x6261616161326633,0x202f2f092020203b,0x3736363636362e30\n"
+".quad 0x33662e627573090a,0x3731326625092032,0x2c3631326625202c,0x0a3b303132662520\n"
+".quad 0x3233662e6c756d09,0x2c38313266250920,0x202c323132662520,0x090a3b3238316625\n"
+".quad 0x203233662e646461,0x202c393132662509,0x25202c3531326625,0x61090a3b34313266\n"
+".quad 0x09203233662e6464,0x25202c3032326625,0x6625202c38313266,0x6964090a3b373132\n"
+".quad 0x662e6c6c75662e76,0x3232662509203233,0x3431326625202c31,0x3b3931326625202c\n"
+".quad 0x75662e766964090a,0x09203233662e6c6c,0x25202c3232326625,0x6625202c37313266\n"
+".quad 0x6f6d090a3b303232,0x2509203233662e76,0x6630202c33323266,0x3030303030306662\n"
+".quad 0x202f2f092020203b,0x6461090a352e302d,0x2509203233662e64,0x6625202c34323266\n"
+".quad 0x326625202c313232,0x766f6d090a3b3332,0x662509203233662e,0x626630202c353232\n"
+".quad 0x3b30303030303066,0x2d202f2f09202020,0x646461090a352e30,0x662509203233662e\n"
+".quad 0x326625202c363232,0x32326625202c3232,0x2e646461090a3b35,0x3266250920323366\n"
+".quad 0x32326625202c3732,0x3535316625202c34,0x662e646461090a3b,0x3232662509203233\n"
+".quad 0x3632326625202c38,0x3b3837316625202c,0x33662e766f6d090a,0x3932326625092032\n"
+".quad 0x3b3732326625202c,0x33662e766f6d090a,0x3033326625092032,0x3b3832326625202c\n"
+".quad 0x33662e766f6d090a,0x3133326625092032,0x303030306630202c,0x2020203b30303030\n"
+".quad 0x6d090a30202f2f09,0x09203233662e766f,0x25202c3233326625,0x6d090a3b31333266\n"
+".quad 0x09203233662e766f,0x30202c3333326625,0x3030303030303066,0x2f2f092020203b30\n"
+".quad 0x2e766f6d090a3020,0x3266250920323366,0x33326625202c3433,0x2e786574090a3b33\n"
+".quad 0x33662e34762e6432,0x257b203233662e32,0x3266252c35333266,0x37333266252c3633\n"
+".quad 0x2c7d38333266252c,0x75706e497865745b,0x39323266257b2c74,0x252c30333266252c\n"
+".quad 0x3266252c32333266,0x6d090a3b5d7d3433,0x09203233662e766f,0x25202c3933326625\n"
+".quad 0x2e090a3b35333266,0x3509393109636f6c,0x766f6d090a300936,0x662509203233662e\n"
+".quad 0x316625202c303432,0x766f6d090a3b3537,0x662509203233662e,0x326625202c313432\n"
+".quad 0x766f6d090a3b3832,0x662509203233662e,0x306630202c323432,0x3b30303030303030\n"
+".quad 0x30202f2f09202020,0x33662e766f6d090a,0x3334326625092032,0x3b3234326625202c\n"
+".quad 0x33662e766f6d090a,0x3434326625092032,0x303030306630202c,0x2020203b30303030\n"
+".quad 0x6d090a30202f2f09,0x09203233662e766f,0x25202c3534326625,0x74090a3b34343266\n"
+".quad 0x34762e64322e7865,0x3233662e3233662e,0x2c36343266257b20,0x66252c3734326625\n"
+".quad 0x343266252c383432,0x497865745b2c7d39,0x66257b2c7475706e,0x343266252c303432\n"
+".quad 0x2c33343266252c31,0x3b5d7d3534326625,0x33662e766f6d090a,0x3035326625092032\n"
+".quad 0x3b3634326625202c,0x3109636f6c2e090a,0x090a300937350939,0x203233662e766f6d\n"
+".quad 0x202c313532662509,0x090a3b3732326625,0x203233662e766f6d,0x202c323532662509\n"
+".quad 0x090a3b3839316625,0x203233662e766f6d,0x202c333532662509,0x3030303030306630\n"
+".quad 0x2f092020203b3030,0x766f6d090a30202f,0x662509203233662e,0x326625202c343532\n"
+".quad 0x766f6d090a3b3335,0x662509203233662e,0x306630202c353532,0x3b30303030303030\n"
+".quad 0x30202f2f09202020,0x33662e766f6d090a,0x3635326625092032,0x3b3535326625202c\n"
+".quad 0x64322e786574090a,0x2e3233662e34762e,0x3266257b20323366,0x38353266252c3735\n"
+".quad 0x252c39353266252c,0x745b2c7d30363266,0x2c7475706e497865,0x252c31353266257b\n"
+".quad 0x3266252c32353266,0x36353266252c3435,0x766f6d090a3b5d7d,0x662509203233662e\n"
+".quad 0x326625202c313632,0x6f6c2e090a3b3735,0x0938350939310963,0x662e766f6d090a30\n"
+".quad 0x3632662509203233,0x3537316625202c32,0x662e766f6d090a3b,0x3632662509203233\n"
+".quad 0x3839316625202c33,0x662e766f6d090a3b,0x3632662509203233,0x3030306630202c34\n"
+".quad 0x20203b3030303030,0x090a30202f2f0920,0x203233662e766f6d,0x202c353632662509\n"
+".quad 0x090a3b3436326625,0x203233662e766f6d,0x202c363632662509,0x3030303030306630\n"
+".quad 0x2f092020203b3030,0x766f6d090a30202f,0x662509203233662e,0x326625202c373632\n"
+".quad 0x786574090a3b3636,0x662e34762e64322e,0x7b203233662e3233,0x66252c3836326625\n"
+".quad 0x373266252c393632,0x7d31373266252c30,0x706e497865745b2c,0x363266257b2c7475\n"
+".quad 0x2c33363266252c32,0x66252c3536326625,0x090a3b5d7d373632,0x203233662e766f6d\n"
+".quad 0x202c323732662509,0x090a3b3836326625,0x09393109636f6c2e,0x756d090a30093536\n"
+".quad 0x2509203233662e6c,0x6625202c33373266,0x326625202c343931,0x64616d090a3b3237\n"
+".quad 0x662509203233662e,0x326625202c343732,0x35326625202c3032,0x3337326625202c30\n"
+".quad 0x662e6c756d090a3b,0x3732662509203233,0x3137316625202c35,0x3b3437326625202c\n"
+".quad 0x33662e6c756d090a,0x3637326625092032,0x2c3439316625202c,0x0a3b313632662520\n"
+".quad 0x3233662e64616d09,0x2c37373266250920,0x202c303232662520,0x25202c3933326625\n"
+".quad 0x6d090a3b36373266,0x09203233662e6461,0x25202c3837326625,0x6625202c39313266\n"
+".quad 0x326625202c373732,0x6f6c2e090a3b3537,0x0931340930320963,0x6c672e7473090a30\n"
+".quad 0x3233662e6c61626f,0x2b376472255b0920,0x37326625202c5d30,0x636f6c2e090a3b38\n"
+".quad 0x3009323409303209,0x6e752e617262090a,0x305f744c24092069,0x4c240a3b3431355f\n"
+".quad 0x383335315f305f74,0x09636f6c2e090a3a,0x0a30093434093032,0x3233662e766f6d09\n"
+".quad 0x2c39373266250920,0x6d090a3b33662520,0x09203233662e766f,0x25202c3038326625\n"
+".quad 0x766f6d090a3b3466,0x662509203233662e,0x306630202c313832,0x3b30303030303030\n"
+".quad 0x30202f2f09202020,0x33662e766f6d090a,0x3238326625092032,0x3b3138326625202c\n"
+".quad 0x33662e766f6d090a,0x3338326625092032,0x303030306630202c,0x2020203b30303030\n"
+".quad 0x6d090a30202f2f09,0x09203233662e766f,0x25202c3438326625,0x74090a3b33383266\n"
+".quad 0x34762e64322e7865,0x3233662e3233662e,0x2c35383266257b20,0x66252c3638326625\n"
+".quad 0x383266252c373832,0x497865745b2c7d38,0x66257b2c7475706e,0x383266252c393732\n"
+".quad 0x2c32383266252c30,0x3b5d7d3438326625,0x33662e766f6d090a,0x3938326625092032\n"
+".quad 0x3b3538326625202c,0x6f6c672e7473090a,0x203233662e6c6162,0x302b376472255b09\n"
+".quad 0x3938326625202c5d,0x5f305f744c240a3b,0x744c240a3a343135,0x3a343730335f305f\n"
+".quad 0x3209636f6c2e090a,0x090a300932350930,0x4c240a3b74697865,0x5a5f5f646e655744\n"
+".quad 0x54707265746e6939,0x616f6c6636507865,0x3a69696966503274,0x5f202f2f207d090a\n"
+".quad 0x707265746e69395a,0x6f6c663650786554,0x6969696650327461,0x4801000002000a0a\n"
+".quad 0x0000000b88000000,0x0000000000000000,0x0a00010002000000,0x0e00000038000000\n"
+".quad 0x0000000015000000,0x0000000000000000,0x7265746e69000000,0x632e616475633270\n"
+".quad 0x02464c457f000075,0x0000000002330101,0x0100be0002000000,0x0000000000000000\n"
+".quad 0x0000000ae0000000,0x0000000040000000,0x40000a010a000000,0x0900400003003800\n"
+".quad 0x0000000000000100,0x0000000000000000,0x0000000000000000,0x0000000000000000\n"
 ".quad 0x0000000000000000,0x0000000000000000,0x0000000000000000,0x0000000000000000\n"
-".quad 0x0000000000000000,0x0000000000000000,0x0300000001000000,0x0000000000000000\n"
-".quad 0x0000000000000000,0x0000000280000000,0x00000000cf000000,0x0000000000000000\n"
-".quad 0x0000000004000000,0x0000000000000000,0x030000000b000000,0x0000000000000000\n"
-".quad 0x0000000000000000,0x000000034f000000,0x0000000024000000,0x0000000000000000\n"
-".quad 0x0000000001000000,0x0000000000000000,0x0200000013000000,0x0000000000000000\n"
-".quad 0x0000000000000000,0x0000000373000000,0x0000000138000000,0x0b00000002000000\n"
-".quad 0x0000000001000000,0x0000000018000000,0x0100000036000000,0x0000000006000000\n"
-".quad 0x0000000000000000,0x00000004ab000000,0x0000000898000000,0x0600000003000000\n"
-".quad 0x0000000004190000,0x0000000000000000,0x01000000a7000000,0x0000000002000000\n"
-".quad 0x0000000000000000,0x0000000d43000000,0x0000000024000000,0x0400000000000000\n"
-".quad 0x0000000004000000,0x0000000000000000,0x0100000056000000,0x0000000002000000\n"
-".quad 0x0000000000000000,0x0000000d67000000,0x0000000084000000,0x0400000000000000\n"
-".quad 0x0000000001000000,0x0000000000000000,0x0800000082000000,0x0000000003000000\n"
-".quad 0x0000000000000000,0x0000000deb000000,0x000000002c000000,0x0400000000000000\n"
-".quad 0x0000000004000000,0x0000000000000000,0x0100000079000000,0x0000000002000000\n"
-".quad 0x0000000000000000,0x0000000deb000000,0x0000000014000000,0x0000000000000000\n"
-".quad 0x0000000001000000,0x0000000000000000,0x7368732e00000000,0x732e006261747274\n"
-".quad 0x732e006261747274,0x6e2e006261746d79,0x6c61626f6c672e76,0x6e2e0074696e692e\n"
-".quad 0x6c61626f6c672e76,0x5f2e747865742e00,0x707265746e69395a,0x6f6c663650786554\n"
-".quad 0x6969696650337461,0x666e692e766e2e00,0x746e69395a5f2e6f,0x3650786554707265\n"
-".quad 0x66503374616f6c66,0x2e766e2e00696969,0x766e2e006f666e69,0x2e6465726168732e\n"
-".quad 0x7265746e69395a5f,0x6c66365078655470,0x696966503374616f,0x6f632e766e2e0069\n"
-".quad 0x2e31746e6174736e,0x7265746e69395a5f,0x6c66365078655470,0x696966503374616f\n"
-".quad 0x6e69395a5f000069,0x5078655470726574,0x503374616f6c6636,0x7865740069696966\n"
-".quad 0x0000007475706e49,0x0000000000000000,0x0000000000000000,0x0000000000000000\n"
-".quad 0x0000000100030000,0x0000000000000000,0x0000000000000000,0x0000000200030000\n"
-".quad 0x0000000000000000,0x0000000000000000,0x0000000300030000,0x0000000000000000\n"
-".quad 0x0000000000000000,0x0000000000030000,0x0000000000000000,0x0000000000000000\n"
-".quad 0x0000000000030000,0x0000000000000000,0x0000000000000000,0x0000000400030000\n"
-".quad 0x0898000000000000,0x0000000000000000,0x0000000600030000,0x0000000000000000\n"
-".quad 0x0000000000000000,0x0000000800030000,0x0000000000000000,0x0000000000000000\n"
-".quad 0x0000000700030000,0x0000000000000000,0x0000000000000000,0x0000000500030000\n"
-".quad 0x0000000000000000,0x0001000000000000,0x0000000410120000,0x0000000000000000\n"
-".quad 0x001b000000000000,0x00000000001a0000,0x0000000000000000,0x4c0d000000000000\n"
-".quad 0x421104200780a000,0x020504200780a000,0x4e0500400780d080,0x440904200780a000\n"
-".quad 0x001504200780a000,0x020104000780a000,0x060d04000780a000,0x0201600147806004\n"
-".quad 0xd201600007806002,0xd1fd6020c7806000,0x00036420c7c83000,0x0005000002803000\n"
-".quad 0x0001c41007803002,0x8200c41007803003,0x00112100e8002000,0xd5fd80c00780d00e\n"
-".quad 0xcc0d6c2087c8307c,0x8005042047802000,0x0205000000032004,0x800180c00780d00e\n"
-".quad 0x0001000000032008,0xe00380c00780d00e,0xd5fd000002801001,0x20036c6087c83081\n"
-".quad 0xd5fd000002801002,0x60036c6087c83082,0xd5fd000002801002,0x00036c6087c83083\n"
-".quad 0xb003000005001011,0x8008000007801009,0x0001100088001000,0x060100000784f280\n"
-".quad 0x0003a0c00780d00e,0x8008000007803000,0x0001100088001000,0x060100000784f280\n"
-".quad 0x0003a0c00780d00e,0x0809000007803000,0x04110bf00003b000,0x0835cc024780a000\n"
-".quad 0x9a2104008780b000,0x102403f80003b000,0x9015c00d1a3cc008,0x121904000003b000\n"
-".quad 0x1e0903f00003c000,0x0c1503e2aaabc02b,0x1a1804410780e105,0x05fdb0060a08c002\n"
-".quad 0x0441605107c8b085,0x0c190403c7801000,0x040900400680c088,0x041d00400680c088\n"
-".quad 0x0205000007809000,0x02150bf00003b000,0x0a45cc024780a000,0xa22904004780b000\n"
-".quad 0x140803f80003b000,0x942dc0112248c00a,0x043104000003b000,0x240503f00003c000\n"
-".quad 0x183103e2aaabc02b,0x222c04410780e10b,0x0c19b00b1804c001,0x03fd00418780e107\n"
-".quad 0x0850605107c8b085,0x162d1000821cb006,0x020500400680c088,0x023900400680c088\n"
-".quad 0x0001000007809000,0x00190bf00003b000,0x0c05cc024780a000,0x823104000780b000\n"
-".quad 0x184d03f80003b000,0x162d00000780c00c,0x980100418780e10e,0x263904000003b000\n"
-".quad 0x1c5903f00003c000,0x025504410780e100,0x2a0100000780c001,0x023803e2aaabc02b\n"
-".quad 0x01fdb00e2c00c000,0x0a5c605107c8b085,0x1c391000802cb00b,0x000100400680c088\n"
-".quad 0x000100400680c088,0x1c39000007809000,0x9a3500418780e100,0x1e0104000003b000\n"
-".quad 0x003503f00003c000,0xa23d04410780e10d,0x240104000003b000,0x824903f00003c000\n"
-".quad 0x2a4504000003b000,0x000503f00003c000,0x122504410780e10f,0x220103e2aaabc02b\n"
-".quad 0x043d04410780e112,0x264903e2aaabc02b,0x120903e2aaabc02b,0x1e4500034780e008\n"
-".quad 0x244900004780e00a,0x05fd00000780e00c,0x0c58605107c8b085,0x1a351000843cb00e\n"
-".quad 0x040900400680c088,0x040800400680c088,0x23fdc0021a209000,0x2209605107c8b085\n"
-".quad 0x02050403c7801000,0x040900400680c088,0x040800400680c088,0x25fdc00202089000\n"
-".quad 0x2405605107c8b085,0x00010403c7801000,0x020500400680c088,0x020500400680c088\n"
-".quad 0x0409000007809000,0x00050bf00003b000,0x10010041c780e101,0x04540bf00003b000\n"
-".quad 0x004cb0060218b005,0xae141000a820b004,0xae041000a8001000,0xaa341000a6301000\n"
-".quad 0xa6101000aa241000,0x8c3810008c081000,0x000110008c281000,0x002100000784f280\n"
-".quad 0x003100000784f280,0x001100000784f280,0x200000000784f280,0x1e01c0082004c000\n"
-".quad 0x1e0500000780e004,0x0e0100004780e00c,0x226100000780c000,0xac3800000780e001\n"
-".quad 0xac281000a8001000,0xae141000ae041000,0xac181000ac081000,0xaa341000a6301000\n"
-".quad 0xa8201000aa241000,0x00011000a6101000,0x002100000784f280,0x003100000784f280\n"
-".quad 0x001100000784f280,0x200000000784f280,0x1e01c0082004c000,0x1e0500000780e004\n"
-".quad 0x0e0100004780e00c,0x220100000780c000,0x160100000780e001,0x240100000780c000\n"
-".quad 0x060100000780e018,0x0003a0c00780d00e,0x0809000007803000,0x04110bf00003b000\n"
-".quad 0x0835cc024780a000,0x9a2104008780b000,0x102403f80003b000,0x9015c00d1a3cc008\n"
-".quad 0x121904000003b000,0x1e0903f00003c000,0x0c1503e2aaabc02b,0x1a1804410780e105\n"
-".quad 0x05fdb0060a08c002,0x0441605107c8b085,0x0c190403c7801000,0x040900400680c088\n"
-".quad 0x041d00400680c088,0x0205000007809000,0x02150bf00003b000,0x0a45cc024780a000\n"
-".quad 0xa22904004780b000,0x140803f80003b000,0x942dc0112248c00a,0x043104000003b000\n"
-".quad 0x240503f00003c000,0x183103e2aaabc02b,0x222c04410780e10b,0x0c19b00b1804c001\n"
-".quad 0x03fd00418780e107,0x0850605107c8b085,0x162d1000821cb006,0x020500400680c088\n"
-".quad 0x023900400680c088,0x0001000007809000,0x00190bf00003b000,0x0c05cc024780a000\n"
-".quad 0x823104000780b000,0x184d03f80003b000,0x162d00000780c00c,0x980100418780e10e\n"
-".quad 0x263904000003b000,0x1c5903f00003c000,0x025504410780e100,0x2a0100000780c001\n"
-".quad 0x023803e2aaabc02b,0x01fdb00e2c00c000,0x0a5c605107c8b085,0x1c391000802cb00b\n"
-".quad 0x000100400680c088,0x000100400680c088,0x1c39000007809000,0x9a3500418780e100\n"
-".quad 0x1e0104000003b000,0x003503f00003c000,0xa23d04410780e10d,0x240104000003b000\n"
-".quad 0x824903f00003c000,0x2a4504000003b000,0x000503f00003c000,0x122504410780e10f\n"
-".quad 0x220103e2aaabc02b,0x043d04410780e112,0x264903e2aaabc02b,0x120903e2aaabc02b\n"
-".quad 0x1e4500034780e008,0x244900004780e00a,0x05fd00000780e00c,0x0c58605107c8b085\n"
-".quad 0x1a351000843cb00e,0x040900400680c088,0x040800400680c088,0x23fdc0021a209000\n"
-".quad 0x2209605107c8b085,0x02050403c7801000,0x040900400680c088,0x040800400680c088\n"
-".quad 0x25fdc00202089000,0x2405605107c8b085,0x00010403c7801000,0x020500400680c088\n"
-".quad 0x020500400680c088,0x0409000007809000,0x00050bf00003b000,0x10010041c780e101\n"
-".quad 0x04540bf00003b000,0x004cb0060218b005,0xae141000a820b004,0xae041000a8001000\n"
-".quad 0xaa341000a6301000,0xa6101000aa241000,0x8c3810008c081000,0x000110008c281000\n"
-".quad 0x002100000784f280,0x003100000784f280,0x001100000784f280,0x200000000784f280\n"
-".quad 0x1e01c0082004c000,0x1e0500000780e004,0x0e0100004780e00c,0x226100000780c000\n"
-".quad 0xac3800000780e001,0xac281000a8001000,0xae141000ae041000,0xac181000ac081000\n"
-".quad 0xaa341000a6301000,0xa8201000aa241000,0x00011000a6101000,0x002100000784f280\n"
-".quad 0x003100000784f280,0x001100000784f280,0x200000000784f280,0x1e01c0082004c000\n"
-".quad 0x1e0500000780e004,0x0e0100004780e00c,0x220100000780c000,0x160100000780e001\n"
-".quad 0x240100000780c000,0x060100000780e018,0x0003a0c00780d00e,0x8008000007803000\n"
-".quad 0x0001100088001000,0x060100000784f280,0x03ffa0c00781d00e,0x0002000000010000\n"
-".quad 0xaaab000000030000,0x00007e8000003f2a,0x0000bf0000003fc0,0x000000140b043e80\n"
-".quad 0x0010000000080000,0x0018000000140000,0x000c000802040000,0x1803000000000000\n"
-".quad 0xffff000c1704001c,0xf00000180004ffff,0xffff000c17040013,0xf00000140003ffff\n"
-".quad 0xffff000c17040013,0xf00000100002ffff,0xffff000c17040013,0xf00000080001ffff\n"
-".quad 0xffff000c17040023,0xf00000000000ffff,0x003800080d040023,0x0704000000070007\n"
-".quad 0xffff0000000c0010,0xffffffffffffffff,0x050000000600ffff,0x0000000e00000000\n"
-".quad 0x0000000000000000,0x0000000000000000,0x00000000a8000000,0x00000000a8000000\n"
-".quad 0x0000000004000000,0x0560000000000000,0x00000004ab00000b,0x0000000000000000\n"
-".quad 0x0000000000000000,0x0000000940000000,0x0000000940000000,0x0000000004000000\n"
-".quad 0x0660000000000000,0x0000000deb00000b,0x0000000000000000,0x0000000000000000\n"
-".quad 0x0000000000000000,0x000000002c000000,0x0000000004000000,0x0000000000000000\n"
+".quad 0x0300000001000000,0x0000000000000000,0x0000000000000000,0x0000000280000000\n"
+".quad 0x00000000cf000000,0x0000000000000000,0x0000000004000000,0x0000000000000000\n"
+".quad 0x030000000b000000,0x0000000000000000,0x0000000000000000,0x000000034f000000\n"
+".quad 0x0000000024000000,0x0000000000000000,0x0000000001000000,0x0000000000000000\n"
+".quad 0x0200000013000000,0x0000000000000000,0x0000000000000000,0x0000000373000000\n"
+".quad 0x0000000138000000,0x0b00000002000000,0x0000000001000000,0x0000000018000000\n"
+".quad 0x0100000036000000,0x0000000006000000,0x0000000000000000,0x00000004ab000000\n"
+".quad 0x0000000578000000,0x0600000003000000,0x0000000004100000,0x0000000000000000\n"
+".quad 0x01000000a7000000,0x0000000002000000,0x0000000000000000,0x0000000a23000000\n"
+".quad 0x0000000024000000,0x0400000000000000,0x0000000004000000,0x0000000000000000\n"
+".quad 0x0100000056000000,0x0000000002000000,0x0000000000000000,0x0000000a47000000\n"
+".quad 0x0000000084000000,0x0400000000000000,0x0000000001000000,0x0000000000000000\n"
+".quad 0x0800000082000000,0x0000000003000000,0x0000000000000000,0x0000000acb000000\n"
+".quad 0x000000002c000000,0x0400000000000000,0x0000000004000000,0x0000000000000000\n"
+".quad 0x0100000079000000,0x0000000002000000,0x0000000000000000,0x0000000acb000000\n"
+".quad 0x0000000014000000,0x0000000000000000,0x0000000001000000,0x0000000000000000\n"
+".quad 0x7368732e00000000,0x732e006261747274,0x732e006261747274,0x6e2e006261746d79\n"
+".quad 0x6c61626f6c672e76,0x6e2e0074696e692e,0x6c61626f6c672e76,0x5f2e747865742e00\n"
+".quad 0x707265746e69395a,0x6f6c663650786554,0x6969696650327461,0x666e692e766e2e00\n"
+".quad 0x746e69395a5f2e6f,0x3650786554707265,0x66503274616f6c66,0x2e766e2e00696969\n"
+".quad 0x766e2e006f666e69,0x2e6465726168732e,0x7265746e69395a5f,0x6c66365078655470\n"
+".quad 0x696966503274616f,0x6f632e766e2e0069,0x2e31746e6174736e,0x7265746e69395a5f\n"
+".quad 0x6c66365078655470,0x696966503274616f,0x6e69395a5f000069,0x5078655470726574\n"
+".quad 0x503274616f6c6636,0x7865740069696966,0x0000007475706e49,0x0000000000000000\n"
+".quad 0x0000000000000000,0x0000000000000000,0x0000000100030000,0x0000000000000000\n"
+".quad 0x0000000000000000,0x0000000200030000,0x0000000000000000,0x0000000000000000\n"
+".quad 0x0000000300030000,0x0000000000000000,0x0000000000000000,0x0000000000030000\n"
+".quad 0x0000000000000000,0x0000000000000000,0x0000000000030000,0x0000000000000000\n"
+".quad 0x0000000000000000,0x0000000400030000,0x0578000000000000,0x0000000000000000\n"
+".quad 0x0000000600030000,0x0000000000000000,0x0000000000000000,0x0000000800030000\n"
+".quad 0x0000000000000000,0x0000000000000000,0x0000000700030000,0x0000000000000000\n"
+".quad 0x0000000000000000,0x0000000500030000,0x0000000000000000,0x0001000000000000\n"
+".quad 0x0000000410120000,0x0000000000000000,0x001b000000000000,0x00000000001a0000\n"
+".quad 0x0000000000000000,0x420d000000000000,0x4c1104200780a000,0x020504200780a000\n"
+".quad 0x440500400780d080,0x4e0904200780a000,0x001504200780a000,0x020104000780a000\n"
+".quad 0x060d04000780a000,0x0201600147806004,0xd201600007806002,0xd1fd6020c7806000\n"
+".quad 0x00036c20c7c83000,0x0005000002803000,0x0009c41007803003,0xc801c41007803002\n"
+".quad 0x0001042047802000,0xd5fd80800780d00e,0xec206c2087c8307c,0x02091000800c2102\n"
+".quad 0xb0030403c7801000,0xd5fd000002801001,0xe0036c6087c83081,0xd5fd000002801001\n"
+".quad 0x10036c6087c83082,0xd5fd000002801002,0xd0036c6087c83083,0x700300000500100a\n"
+".quad 0x0001000007801006,0x100100000784f240,0x0003a0c00780d00e,0x0001000007803000\n"
+".quad 0x100100000784f240,0x0003a0c00780d00e,0x0601000007803000,0x00050bf00003b000\n"
+".quad 0x020dcc024780a000,0x861504000780b000,0x0a1803f80003b000,0x8a11c003063cc005\n"
+".quad 0x0c1d04000003b000,0x1e0103f00003c000,0x0e1d03e2aaabc02b,0x061004410780e104\n"
+".quad 0x01fdb0040e00c000,0x0025605107c8b085,0x08110403c7801000,0x000100400680c088\n"
+".quad 0x000100400680c088,0x041d000007809000,0x0e090bf00003b000,0x0431cc024780a000\n"
+".quad 0x981d0401c780b000,0x0e2d03f80003b000,0x081100000780c007,0x8e0100418780e100\n"
+".quad 0x162904000003b000,0x142903f00003c000,0x183904410780e100,0x1c0100000780c00c\n"
+".quad 0x183403e2aaabc02b,0x01fdb00d1400c000,0x0210605107c8b085,0x1a3510008028b004\n"
+".quad 0x000100400680c088,0x000100400680c088,0x1a35000007809000,0x860d00418780e100\n"
+".quad 0x1e0104000003b000,0x000d03f00003c000,0x983104410780e103,0x1c0104000003b000\n"
+".quad 0x000103f00003c000,0x0c1904410780e10c,0x162d03e2aaabc02b,0x0c1503e2aaabc02b\n"
+".quad 0x16310000c780e005,0x0bfd00000780e007,0x0418605107c8b085,0x060d10008a2cb00d\n"
+".quad 0x0a1500400680c088,0x0a1400400680c088,0x19fdc00506149000,0x180d605107c8b085\n"
+".quad 0x00010403c7801000,0x060d00400680c088,0x060d00400680c088,0x000d000007809000\n"
+".quad 0x0a010041c780e103,0x061c0bf00003b000,0x8808b0010034b002,0x8c0410008c0c1000\n"
+".quad 0x8e1410009a001000,0x000910009a181000,0x000100000784f240,0x001100000784f240\n"
+".quad 0x001900000784f240,0x140900000784f240,0x180500000780c002,0x140800008780e004\n"
+".quad 0x1805c0011200c000,0x160100008780e006,0x100100000780e001,0x0003a0c00780d00e\n"
+".quad 0x0601000007803000,0x00050bf00003b000,0x020dcc024780a000,0x861504000780b000\n"
+".quad 0x0a1803f80003b000,0x8a11c003063cc005,0x0c1d04000003b000,0x1e0103f00003c000\n"
+".quad 0x0e1d03e2aaabc02b,0x061004410780e104,0x01fdb0040e00c000,0x0025605107c8b085\n"
+".quad 0x08110403c7801000,0x000100400680c088,0x000100400680c088,0x041d000007809000\n"
+".quad 0x0e090bf00003b000,0x0431cc024780a000,0x981d0401c780b000,0x0e2d03f80003b000\n"
+".quad 0x081100000780c007,0x8e0100418780e100,0x162904000003b000,0x142903f00003c000\n"
+".quad 0x183904410780e100,0x1c0100000780c00c,0x183403e2aaabc02b,0x01fdb00d1400c000\n"
+".quad 0x0210605107c8b085,0x1a3510008028b004,0x000100400680c088,0x000100400680c088\n"
+".quad 0x1a35000007809000,0x860d00418780e100,0x1e0104000003b000,0x000d03f00003c000\n"
+".quad 0x983104410780e103,0x1c0104000003b000,0x000103f00003c000,0x0c1904410780e10c\n"
+".quad 0x162d03e2aaabc02b,0x0c1503e2aaabc02b,0x16310000c780e005,0x0bfd00000780e007\n"
+".quad 0x0418605107c8b085,0x060d10008a2cb00d,0x0a1500400680c088,0x0a1400400680c088\n"
+".quad 0x19fdc00506149000,0x180d605107c8b085,0x00010403c7801000,0x060d00400680c088\n"
+".quad 0x060d00400680c088,0x000d000007809000,0x0a010041c780e103,0x061c0bf00003b000\n"
+".quad 0x8808b0010034b002,0x8c0410008c0c1000,0x8e1410009a001000,0x000910009a181000\n"
+".quad 0x000100000784f240,0x001100000784f240,0x001900000784f240,0x140900000784f240\n"
+".quad 0x180500000780c002,0x140800008780e004,0x1805c0011200c000,0x160100008780e006\n"
+".quad 0x100100000780e001,0x0003a0c00780d00e,0x0001000007803000,0x100100000784f240\n"
+".quad 0x03ffa0c00781d00e,0x0002000000010000,0xaaab000000030000,0x00007e8000003f2a\n"
+".quad 0x0000bf0000003fc0,0x000000140b043e80,0x0010000000080000,0x0018000000140000\n"
+".quad 0x000c000802040000,0x1803000000000000,0xffff000c1704001c,0xf00000180004ffff\n"
+".quad 0xffff000c17040013,0xf00000140003ffff,0xffff000c17040013,0xf00000100002ffff\n"
+".quad 0xffff000c17040013,0xf00000080001ffff,0xffff000c17040023,0xf00000000000ffff\n"
+".quad 0x002800080d040023,0x0704000000050005,0xffff0000000c0010,0xffffffffffffffff\n"
+".quad 0x050000000600ffff,0x0000000ae0000000,0x0000000000000000,0x0000000000000000\n"
+".quad 0x00000000a8000000,0x00000000a8000000,0x0000000004000000,0x0560000000000000\n"
+".quad 0x00000004ab00000b,0x0000000000000000,0x0000000000000000,0x0000000620000000\n"
+".quad 0x0000000620000000,0x0000000004000000,0x0660000000000000,0x0000000acb00000b\n"
+".quad 0x0000000000000000,0x0000000000000000,0x0000000000000000,0x000000002c000000\n"
+".quad 0x0000000004000000,0x0000000000000000\n"
 ".text");
 
 extern "C" {
 
-extern const unsigned long long fatbinData[2780];
+extern const unsigned long long fatbinData[2070];
 
 }
 
 
 static struct {int m; int v; const unsigned long long* d; char* f;} __fatDeviceText __attribute__ ((aligned (8))) __attribute__ ((section (".nvFatBinSegment")))=
  { 0x466243b1, 1, fatbinData, 0 };
-# 3 "/tmp/tmpxft_00005826_00000000-1_interp3cuda.cudafe1.stub.c" 2
-extern void __device_stub__Z9interpTexP6float3Pfiii(float3 *, float *, int, int, int);
-static void __sti____cudaRegisterAll_46_tmpxft_00005826_00000000_4_interp3cuda_cpp1_ii_a18e277e(void) __attribute__((__constructor__));
-void __device_stub__Z9interpTexP6float3Pfiii(float3 *__par0, float *__par1, int __par2, int __par3, int __par4){if (cudaSetupArgument((void *)(char *)&__par0, sizeof(__par0), (size_t)0UL) != cudaSuccess) return;if (cudaSetupArgument((void *)(char *)&__par1, sizeof(__par1), (size_t)8UL) != cudaSuccess) return;if (cudaSetupArgument((void *)(char *)&__par2, sizeof(__par2), (size_t)16UL) != cudaSuccess) return;if (cudaSetupArgument((void *)(char *)&__par3, sizeof(__par3), (size_t)20UL) != cudaSuccess) return;if (cudaSetupArgument((void *)(char *)&__par4, sizeof(__par4), (size_t)24UL) != cudaSuccess) return;{ volatile static char *__f; __f = ((char *)((void ( *)(float3 *, float *, int, int, int))interpTex)); (void)cudaLaunch(((char *)((void ( *)(float3 *, float *, int, int, int))interpTex))); };}
-void interpTex( float3 *__cuda_0,float *__cuda_1,int __cuda_2,int __cuda_3,int __cuda_4)
-# 24 "interp3cuda.cu"
-{__device_stub__Z9interpTexP6float3Pfiii( __cuda_0,__cuda_1,__cuda_2,__cuda_3,__cuda_4);
-# 57 "interp3cuda.cu"
+# 3 "/tmp/tmpxft_0000168c_00000000-1_interp2cuda.cudafe1.stub.c" 2
+extern void __device_stub__Z9interpTexP6float2Pfiii(float2 *, float *, int, int, int);
+static void __sti____cudaRegisterAll_46_tmpxft_0000168c_00000000_4_interp2cuda_cpp1_ii_a18e277e(void) __attribute__((__constructor__));
+void __device_stub__Z9interpTexP6float2Pfiii(float2 *__par0, float *__par1, int __par2, int __par3, int __par4){if (cudaSetupArgument((void *)(char *)&__par0, sizeof(__par0), (size_t)0UL) != cudaSuccess) return;if (cudaSetupArgument((void *)(char *)&__par1, sizeof(__par1), (size_t)8UL) != cudaSuccess) return;if (cudaSetupArgument((void *)(char *)&__par2, sizeof(__par2), (size_t)16UL) != cudaSuccess) return;if (cudaSetupArgument((void *)(char *)&__par3, sizeof(__par3), (size_t)20UL) != cudaSuccess) return;if (cudaSetupArgument((void *)(char *)&__par4, sizeof(__par4), (size_t)24UL) != cudaSuccess) return;{ volatile static char *__f; __f = ((char *)((void ( *)(float2 *, float *, int, int, int))interpTex)); (void)cudaLaunch(((char *)((void ( *)(float2 *, float *, int, int, int))interpTex))); };}
+void interpTex( float2 *__cuda_0,float *__cuda_1,int __cuda_2,int __cuda_3,int __cuda_4)
+# 23 "interp2cuda.cu"
+{__device_stub__Z9interpTexP6float2Pfiii( __cuda_0,__cuda_1,__cuda_2,__cuda_3,__cuda_4);
+# 52 "interp2cuda.cu"
 }
-# 1 "/tmp/tmpxft_00005826_00000000-1_interp3cuda.cudafe1.stub.c"
-static void __sti____cudaRegisterAll_46_tmpxft_00005826_00000000_4_interp3cuda_cpp1_ii_a18e277e(void) { __cudaFatCubinHandle = __cudaRegisterFatBinary((void*)&__fatDeviceText); atexit(__cudaUnregisterBinaryUtil); __cudaRegisterFunction(__cudaFatCubinHandle, (const char*)((void ( *)(float3 *, float *, int, int, int))interpTex), (char*)"_Z9interpTexP6float3Pfiii", "_Z9interpTexP6float3Pfiii", -1, (uint3*)0, (uint3*)0, (dim3*)0, (dim3*)0, (int*)0); __cudaRegisterTexture(__cudaFatCubinHandle, (const struct textureReference*)&texInput, (const void**)"texInput", "texInput", 3, 0, 0); }
-# 1 "/tmp/tmpxft_00005826_00000000-1_interp3cuda.cudafe1.stub.c" 2
+# 1 "/tmp/tmpxft_0000168c_00000000-1_interp2cuda.cudafe1.stub.c"
+static void __sti____cudaRegisterAll_46_tmpxft_0000168c_00000000_4_interp2cuda_cpp1_ii_a18e277e(void) { __cudaFatCubinHandle = __cudaRegisterFatBinary((void*)&__fatDeviceText); atexit(__cudaUnregisterBinaryUtil); __cudaRegisterFunction(__cudaFatCubinHandle, (const char*)((void ( *)(float2 *, float *, int, int, int))interpTex), (char*)"_Z9interpTexP6float2Pfiii", "_Z9interpTexP6float2Pfiii", -1, (uint3*)0, (uint3*)0, (dim3*)0, (dim3*)0, (int*)0); __cudaRegisterTexture(__cudaFatCubinHandle, (const struct textureReference*)&texInput, (const void**)"texInput", "texInput", 2, 0, 0); }
+# 1 "/tmp/tmpxft_0000168c_00000000-1_interp2cuda.cudafe1.stub.c" 2
