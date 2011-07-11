@@ -5,13 +5,19 @@ NAME = interp2cuda
 CUDA_SRC = $(NAME).cu
 CPP_SRC = $(NAME).cpp
 
-NVCC = nvcc
-NVCC_INCS = -I/usr/local/cuda/include -I/usr/local/MATLAB/R2011a/extern/include -I./code -I$(HOME)/NVIDIA_GPU_Computing_SDK/C/common/inc
+NVCC = $(shell which nvcc)
+INCS_GPU_COMPUT = $(shell locate cutil.h | head -n 1 | sed 's/\/\//\//g' | sed 's/cutil.h//g')
+INCS_CUDA = $(shell which nvcc | sed 's/\/\//\//g' | sed 's/bin\/nvcc//g' )
+INCS_MATLAB = $(shell which matlab | sed 's/\/\//\//g' | sed 's/bin\/matlab//g')
 
-MEX = mex
-MEX_FLAGS = CC='/usr/bin/g++-4.3'
-MEX_INCS = -I/usr/local/cuda/include
-MEX_LIBS = -L/usr/local/cuda/lib64 -lcudart
+NVCC_INCS = -I$(INCS_CUDA)/include -I$(INCS_MATLAB)/extern/include -I./code -I$(INCS_GPU_COMPUT)
+
+#MEX = mex
+MEX = $(shell which mex)
+GXX_PATH = $(shell which g++-4.3)
+MEX_FLAGS = CC='$(GXX_PATH)'
+MEX_INCS = -I$(INCS_CUDA)/include
+MEX_LIBS = -L$(INCS_CUDA)/lib64 -lcudart
 
 
 all: clean build_cuda build_mex
@@ -27,7 +33,3 @@ clean :
 	rm -f $(NAME).cpp
 	rm -f $(NAME).mexa64
 
-# rm interp2cuda.cpp
-# !nvcc -I/usr/local/cuda/include -I/usr/local/MATLAB/R2011a/extern/include -I./code -I$HOME/NVIDIA_GPU_Computing_SDK/C/common/inc --cuda interp2cuda.cu --output-file interp2cuda.cpp
-# mex CC='/usr/bin/g++-4.3' -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcudart interp2cuda.cpp
-# %mex -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcudart interp2cuda.cpp
