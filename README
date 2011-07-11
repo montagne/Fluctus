@@ -1,1 +1,10 @@
 ### FLUCTUS Project ###
+
+To use this project :
+   - a version of Matlab must be available on your machine,
+   - cuda must be installed,
+   - GPU_Computing SDK from NVIDIA must be installed
+
+
+
+For more information or help, contact me : montagne@lri.fr
