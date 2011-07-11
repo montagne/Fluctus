@@ -20,16 +20,18 @@ MEX_INCS = -I$(INCS_CUDA)/include
 MEX_LIBS = -L$(INCS_CUDA)/lib64 -lcudart
 
 
-all: clean build_cuda build_mex
+all: build_cuda build_mex
 
 build_cuda:
-	$(NVCC) $(NVCC_INCS) --cuda $(CUDA_SRC) --output-file $(CPP_SRC)
+	@echo "Building interp3cuda ..."
+	@$(NVCC) $(NVCC_INCS) --cuda $(CUDA_SRC) --output-file $(CPP_SRC)
 
 build_mex:
-	$(MEX) $(MEX_FLAGS) $(MEX_INCS) $(CPP_SRC) $(MEX_LIBS)
+	@$(MEX) $(MEX_FLAGS) $(MEX_INCS) $(CPP_SRC) $(MEX_LIBS)
 
 
 clean :
-	rm -f $(NAME).cpp
-	rm -f $(NAME).mexa64
+	@echo "Cleaning interp3cuda ..."
+	@rm -f $(NAME).cpp
+	@rm -f $(NAME).mexa64
 
