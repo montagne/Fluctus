@@ -168,8 +168,8 @@ void mexFunction( int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[] ) {
     f_points = (float2 *)mxMalloc(POINTS_SIZE);
 		
     for ( int r=0; r<NB_ELEM_Xi; r++ ) {
-      f_points[r].x = (float) x_points[r] + 0.5f;
-      f_points[r].y = (float) y_points[r] + 0.5f;
+      f_points[r].x = (float) x_points[r] - 0.5f;
+      f_points[r].y = (float) y_points[r] - 0.5f;
     }
 
 
