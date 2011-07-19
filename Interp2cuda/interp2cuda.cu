@@ -191,6 +191,26 @@ void mexFunction( int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[] ) {
   }
 
   // --- CUDA Part ---
+
+
+  int deviceCount = 0;
+  cudaError_t error_id = cudaGetDeviceCount(&deviceCount);
+  if (error_id != cudaSuccess) {
+    mexPrintf( "cudaGetDeviceCount returned %d\n-> %s\n", (int)error_id, cudaGetErrorString(error_id) );
+    mexErrMsgTxt("CUDA device not found");
+  }
+
+  cudaDeviceProp deviceProp;
+  cudaGetDeviceProperties(&deviceProp, 0); //only on device #0
+
+  if (INPUT_W > deviceProp.maxTexture2D[0] || INPUT_H > deviceProp.maxTexture2D[1]  ){
+    mexPrintf("One of input dimension is greater than CUDA capabilites\n");
+    mexPrintf("Max dimension are : (%d,%d)\n",deviceProp.maxTexture2D[0],deviceProp.maxTexture2D[1]);
+    mexErrMsgTxt("ERROR !!");
+  }
+
+
+
 	
   // Allocate, copy input data into a 2D texture
   cudaArray *d_input;

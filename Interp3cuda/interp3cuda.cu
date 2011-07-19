@@ -223,7 +223,7 @@ void mexFunction( int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[] ) {
    float *f_output = (float *)mxMalloc(OUTPUT_SIZE);
 	
 
-  ///// We need to convert the input array from double to float
+  // We need to convert the input array from double to float
   f_input = (float *)malloc(INPUT_SIZE);
 
    
@@ -235,8 +235,31 @@ void mexFunction( int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[] ) {
     }
   }
 
-  ///// Load all this stuff into graphics memory
 	
+  //---------------------------
+  // ------ CUDA Part ---------
+  //---------------------------
+
+  int deviceCount = 0;
+  cudaError_t error_id = cudaGetDeviceCount(&deviceCount);
+  if (error_id != cudaSuccess) {
+    mexPrintf( "cudaGetDeviceCount returned %d\n-> %s\n", (int)error_id, cudaGetErrorString(error_id) );
+    mexErrMsgTxt("CUDA device not found");
+  }
+
+  cudaDeviceProp deviceProp;
+  cudaGetDeviceProperties(&deviceProp, 0); //only on device #0
+
+  if (INPUT_W > deviceProp.maxTexture3D[0] || INPUT_H > deviceProp.maxTexture3D[1] || INPUT_D > deviceProp.maxTexture3D[2]){
+    mexPrintf("One of input dimension is greater than CUDA capabilites\n");
+    mexPrintf("Max dimension are : (%d,%d,%d)\n",deviceProp.maxTexture3D[0],deviceProp.maxTexture3D[1],deviceProp.maxTexture3D[2]);
+    mexErrMsgTxt("ERROR !!");
+  }
+
+
+
+
+
   cudaArray *d_input = 0;
   const cudaExtent volumeExtent = make_cudaExtent(INPUT_W, INPUT_H, INPUT_D);
 
